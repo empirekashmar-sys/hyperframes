@@ -2,7 +2,7 @@
 <html lang="ru"><head><meta charset="utf-8"/><title>Gleb sheet</title>
 <style>
 *{box-sizing:border-box;margin:0}
-body{width:2400px;height:880px;background:#0b0e16;color:#e8e4d8;font-family:Inter,sans-serif;padding:36px}
+body{width:2600px;height:960px;background:#0b0e16;color:#e8e4d8;font-family:Inter,sans-serif;padding:36px}
 h1{font-size:42px;font-weight:900;margin-bottom:8px}
 h2{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#ffb02e;margin:18px 0 10px}
 .row{display:flex;gap:16px;align-items:flex-end}
@@ -16,24 +16,26 @@ h2{font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
 <script type="module">
 import * as A from "./art.js";
 const add=(id,svg,w,label)=>{const d=document.createElement("div");d.className="card";d.innerHTML=svg.replace("<svg ",`<svg width="${w}" `)+`<span>${label}</span>`;document.getElementById(id).appendChild(d);};
-add("ppl",A.hero("stand"),150,"Глеб");
-add("ppl",A.hero("walk"),150,"Глеб — идёт");
-add("ppl",A.glebPhone(),150,"Глеб — телефон");
-add("ppl",A.hero("alert"),150,"Глеб — тревога");
-add("ppl",A.masha("stand"),150,"Маша");
-add("ppl",A.masha("cook"),165,"Маша — готовит");
-add("ppl",A.masha("scared"),150,"Маша — испуг");
-add("ppl",A.son("old","stand"),125,"Старший");
-add("ppl",A.son("old","wave"),125,"Старший — машет");
-add("ppl",A.son("young","stand"),105,"Младший");
-add("ppl",A.son("young","run"),105,"Младший — бежит");
-add("ppl",A.son("young","sleepy"),105,"Младший — сонный");
-add("pl",A.panelBlock({floor5:true}),250,"Многоэтажка — вечер");
-add("pl",A.panelBlock({lit:.12,night:true}),250,"Многоэтажка — ночь");
-add("pl",A.hallway(),330,"Прихожая");
-add("pl",A.kitchen(),330,"Кухня");
-add("pl",A.bedroom(),330,"Спальня, 2:30");
-add("pl",A.stairwell(),330,"Подъезд");
-add("pl",A.phoneScreen(),150,"Телефон");
+add("ppl",A.hero("walk"),140,"Глеб — с работы");
+add("ppl",A.glebHome("stand"),140,"Глеб — дома");
+add("ppl",A.glebPhone(true),140,"Глеб — 2:30, телефон");
+add("ppl",A.hero("alert"),140,"Глеб — собрался");
+add("ppl",A.masha("cook"),155,"Маша — готовит");
+add("ppl",A.masha("stand"),140,"Маша");
+add("ppl",A.masha("scared","night"),140,"Маша — ночью");
+add("ppl",A.masha("pack","night"),155,"Маша — собирает");
+add("ppl",A.son("old","wave"),120,"Старший");
+add("ppl",A.son("old","stand","pajama"),120,"Старший — пижама");
+add("ppl",A.son("young","run"),100,"Младший");
+add("ppl",A.son("young","stand"),100,"Младший — с зайкой");
+add("ppl",A.son("young","sleepy","pajama"),100,"Младший — пижама");
+add("pl",A.panelBlock({floor5:true}),200,"Дом — вечер");
+add("pl",A.panelBlock({lit:.12,night:true}),200,"Дом — ночь");
+add("pl",A.hallway(),300,"Прихожая");
+add("pl",A.kitchen(),300,"Кухня");
+add("pl",A.bedroom(),300,"Спальня, 2:30");
+add("pl",A.kidsRoom(),300,"Детская");
+add("pl",A.stairwell(),300,"Подъезд");
+add("pl",A.phoneScreen(),130,"Телефон");
 document.body.dataset.ready="1";
 </script></body></html>
