@@ -1,0 +1,149 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 0.3,
+      "end": 3.149
+    },
+    {
+      "id": "l02",
+      "role": "narrator",
+      "start": 3.749,
+      "end": 7.639
+    },
+    {
+      "id": "l03",
+      "role": "son_young",
+      "start": 8.039,
+      "end": 8.843
+    },
+    {
+      "id": "l04",
+      "role": "son_old",
+      "start": 8.993,
+      "end": 11.308
+    },
+    {
+      "id": "l05",
+      "role": "gleb",
+      "start": 11.558,
+      "end": 16.125
+    },
+    {
+      "id": "l06",
+      "role": "son_young",
+      "start": 16.425,
+      "end": 18.826
+    },
+    {
+      "id": "l07",
+      "role": "gleb",
+      "start": 19.026,
+      "end": 21.638
+    },
+    {
+      "id": "l08",
+      "role": "masha",
+      "start": 22.138,
+      "end": 24.94
+    },
+    {
+      "id": "l09",
+      "role": "masha",
+      "start": 25.54,
+      "end": 26.275
+    },
+    {
+      "id": "l10",
+      "role": "gleb",
+      "start": 26.525,
+      "end": 27.265
+    },
+    {
+      "id": "l11",
+      "role": "masha",
+      "start": 27.565,
+      "end": 28.681
+    },
+    {
+      "id": "l12",
+      "role": "narrator",
+      "start": 29.381,
+      "end": 33.458
+    },
+    {
+      "id": "l13",
+      "role": "narrator",
+      "start": 34.758,
+      "end": 35.884
+    },
+    {
+      "id": "l14",
+      "role": "masha",
+      "start": 37.084,
+      "end": 40.13
+    },
+    {
+      "id": "l15",
+      "role": "gleb",
+      "start": 40.38,
+      "end": 42.102
+    },
+    {
+      "id": "l16",
+      "role": "masha",
+      "start": 42.402,
+      "end": 43.116
+    },
+    {
+      "id": "l17",
+      "role": "gleb",
+      "start": 43.716,
+      "end": 45.786
+    },
+    {
+      "id": "l18",
+      "role": "gleb",
+      "start": 47.186,
+      "end": 50.505
+    },
+    {
+      "id": "l19",
+      "role": "son_young",
+      "start": 51.005,
+      "end": 52.139
+    },
+    {
+      "id": "l20",
+      "role": "masha",
+      "start": 52.339,
+      "end": 54.251
+    },
+    {
+      "id": "l21",
+      "role": "son_old",
+      "start": 54.501,
+      "end": 55.846
+    },
+    {
+      "id": "l22",
+      "role": "masha",
+      "start": 56.046,
+      "end": 57.783
+    },
+    {
+      "id": "l23",
+      "role": "narrator",
+      "start": 58.283,
+      "end": 62.089
+    },
+    {
+      "id": "l24",
+      "role": "narrator",
+      "start": 62.489,
+      "end": 63.808
+    }
+  ],
+  "voice_end": 63.808
+}

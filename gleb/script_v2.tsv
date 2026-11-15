@@ -1,0 +1,25 @@
+id	role	text
+l01	narrator	[calm] Это был обычный вечер. [pause] Последний обычный вечер.
+l02	narrator	Глеб вернулся с работы в половине седьмого. Пятый этаж, всё как всегда.
+l03	son_young	[excited] Папа пришёл!
+l04	son_old	[casual] О, бать, привет. Как работа?
+l05	gleb	[tired, warm] Нормально. Устал как собака. А у вас что?
+l06	son_young	[excited] А я динозавра нарисовал! Вот такого!
+l07	gleb	[laughs, warm] Ого! Покажешь после ужина?
+l08	masha	[cheerful, calling from another room] Мальчики, мойте руки! Ужин стынет!
+l09	masha	[teasing] Хлеб купил?
+l10	gleb	[guilty] Ой…
+l11	masha	[laughs] Ну конечно.
+l12	narrator	[warm] Они смеялись допоздна. [pause] [sad] Никто не знал, что этот ужин — последний спокойный.
+l13	narrator	[tense] Два тридцать ночи.
+l14	masha	[whispers, scared] Глеб… Глеб, проснись. Что это?
+l15	gleb	[whispers, firm] Тихо. Не включай свет.
+l16	masha	[scared] Это гроза?
+l17	gleb	[quiet, shocked] Нет, Маш. Это не гроза.
+l18	gleb	[firm, urgent] Буди детей. Собирайте вещи. Быстро.
+l19	son_young	[sleepy] Мам, уже утро?
+l20	masha	[trying to stay calm] Нет, зайка. Одевайся.
+l21	son_old	[scared] Мам, что случилось?
+l22	masha	[firm] Потом. Всё потом.
+l23	narrator	[fast, tense] Глеб побежал в подвал за вещами. Пятый этаж. Четвёртый. Третий…
+l24	narrator	[whispers] И тут он услышал свист.

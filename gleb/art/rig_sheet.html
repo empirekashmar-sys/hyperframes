@@ -1,0 +1,29 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"/><title>Rig sheet</title>
+<style>*{box-sizing:border-box;margin:0}body{width:2400px;height:1000px;background:#0b0e16;color:#e8e4d8;font-family:Inter,sans-serif;padding:30px}
+h1{font-size:40px;font-weight:900;margin-bottom:16px}.row{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}
+.card{background:#131826;border:1px solid #222a3d;border-radius:14px;padding:10px;display:flex;flex-direction:column;align-items:center;gap:6px}.card span{font-size:15px;color:#9aa3b8;font-weight:600}</style></head>
+<body><h1>НОВЫЕ МОДЕЛИ: СУСТАВЫ, МИМИКА, ГУБЫ</h1><div class="row" id="r"></div>
+<script type="module">
+import * as R from "./rig.js";
+const add=(o,w,label,fn)=>{const d=document.createElement("div");d.className="card";d.innerHTML=o.svg.replace("<svg ",`<svg width="${w}" `)+`<span>${label}</span>`;document.getElementById("r").appendChild(d);if(fn)fn(d.querySelector("svg"));};
+const pose=(s,{la=0,ra=0,ll=0,lr=0,hd=0,m=0,eyes=1})=>{
+  const rot=(sel,a,ox,oy)=>{const g=s.querySelector(sel);const b=g.getBBox();g.setAttribute("transform",`rotate(${a} ${b.x+b.width*ox} ${b.y+b.height*oy})`)};
+  rot(".armL",la,.5,0);rot(".armR",ra,.5,0);rot(".legL",ll,.5,0);rot(".legR",lr,.5,0);rot(".head",hd,.5,1);
+  ["m0","m1","m2"].forEach((c,i)=>s.querySelector("."+c).setAttribute("opacity",i===m?1:0));
+  s.querySelector(".eyes-open").setAttribute("opacity",eyes);s.querySelector(".eyes-closed").setAttribute("opacity",1-eyes);};
+add(R.gleb(),190,"Глеб");
+add(R.gleb(),190,"Глеб — говорит, жест",s=>pose(s,{ra:-60,m:2}));
+add(R.gleb(),190,"Глеб — шаг",s=>pose(s,{la:20,ra:-20,ll:-18,lr:18}));
+add(R.gleb({outfit:"home",brow:"worried",prop:"phone"}),190,"Глеб — ночь, телефон",s=>pose(s,{ra:-150,hd:6}));
+add(R.masha({prop:"apron"}),190,"Маша — фартук",s=>pose(s,{m:1}));
+add(R.masha({prop:"spatula"}),190,"Маша — готовит",s=>pose(s,{ra:-70}));
+add(R.masha({outfit:"night",brow:"worried"}),190,"Маша — ночь",s=>pose(s,{m:2}));
+add(R.masha({outfit:"night",prop:"bag",brow:"worried"}),190,"Маша — сумка",s=>pose(s,{ra:-20}));
+add(R.sonOld(),180,"Старший");
+add(R.sonOld({brow:"happy"}),180,"Старший — машет",s=>pose(s,{ra:-160,m:2}));
+add(R.sonOld({outfit:"pajama",brow:"worried"}),180,"Старший — пижама",s=>pose(s,{m:1}));
+add(R.sonYoung({brow:"happy"}),170,"Младший — бежит",s=>pose(s,{la:40,ra:-40,ll:-28,lr:28,m:2}));
+add(R.sonYoung(),170,"Младший — моргает",s=>pose(s,{eyes:0}));
+add(R.sonYoung({outfit:"pajama"}),170,"Младший — пижама, сонный",s=>pose(s,{ra:-150,eyes:0,m:1}));
+document.body.dataset.ready="1";
+</script></body></html>

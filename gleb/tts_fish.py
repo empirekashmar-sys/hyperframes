@@ -12,7 +12,7 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).parent
-OUT = HERE / "assets" / "vo"
+OUT = HERE / "assets" / "vo2"
 OUT.mkdir(parents=True, exist_ok=True)
 
 # role -> Fish Audio voice model id (generic library voices, no celebrity clones)
@@ -20,7 +20,7 @@ CAST = {
     "narrator": "2270bb203a424d1881678ba5e4b82b54",  # deep authoritative Russian narrator
     "gleb": "7312c38557eb4fb384e3874e8e9cea67",  # young confident male
     "masha": "d567e990d9ad433892ed15ecfd70ce54",  # young female, clear
-    "son_old": "fe159e25498f4cde84164011d774808b",  # boy, 12 years old
+    "son_old": "757954ebf9cb4acab46aafefa74b9b3a",  # teen guy (~16)
     "son_young": "e503facf02cc49cda839f3c226503a70",  # little boy
 }
 # script tags -> Fish s1 emotion / tone markers
@@ -38,6 +38,14 @@ TAGS = {
     "firm": "[firm]",
     "urgent": "[urgent]",
     "fast": "[fast]",
+    "casual": "[casual]",
+    "laughs": "[laughing]",
+    "teasing": "[teasing]",
+    "guilty": "[guilty]",
+    "quiet": "[quiet]",
+    "shocked": "[shocked]",
+    "sleepy": "[sleepy, yawning]",
+    "trying to stay calm": "[trying to stay calm]",
 }
 
 
@@ -71,7 +79,7 @@ def speak(line_id, role, text):
 
 def main():
     only = set(sys.argv[1:])
-    with open(HERE / "script_roles.tsv", encoding="utf-8") as f:
+    with open(HERE / "script_v2.tsv", encoding="utf-8") as f:
         for row in csv.DictReader(f, delimiter="\t"):
             if only and row["id"] not in only:
                 continue
