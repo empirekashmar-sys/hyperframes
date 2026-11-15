@@ -412,3 +412,42 @@ export function stairwell({ floor = 5 } = {}) {
      <rect x="820" y="100" width="120" height="60" rx="10" fill="#e9e3c9" opacity=".8"/><circle cx="880" cy="130" r="220" fill="#e9e3c9" opacity=".07"/>`,
   );
 }
+
+// Basement: concrete, ceiling pipes, one bulb, wooden storage stalls, shelves with jars,
+// water canisters, bicycle, sled; stairs and door Gleb comes down through. lit: bulb on/off.
+export function basement({ lit = true } = {}) {
+  const stall = (x, n) =>
+    `<g transform="translate(${x} 470)"><rect width="230" height="390" fill="#3a2e24"/>
+     ${Array.from({ length: 9 }, (_, i) => `<rect x="${i * 26}" y="0" width="20" height="390" fill="#5a4632"/>`).join("")}
+     <rect x="0" y="120" width="230" height="14" fill="#4a3826"/><rect x="0" y="280" width="230" height="14" fill="#4a3826"/>
+     <rect x="180" y="190" width="28" height="22" rx="4" fill="#8b8f99"/>
+     <text x="40" y="70" font-family="Inter, sans-serif" font-weight="900" font-size="40" fill="#e9e3c9" opacity=".7">${n}</text></g>`;
+  const glow = lit
+    ? `<circle cx="560" cy="150" r="380" fill="#ffcf7a" opacity=".1"/><circle cx="560" cy="150" r="180" fill="#ffcf7a" opacity=".12"/>`
+    : "";
+  return svg(
+    "0 0 1080 1100",
+    `<rect width="1080" height="1100" fill="#24262b"/>
+     <rect y="0" width="1080" height="860" fill="#33363c"/>
+     ${Array.from({ length: 5 }, (_, i) => `<path d="M0 ${150 + i * 150} H1080" stroke="#2a2c31" stroke-width="4"/>`).join("")}
+     <path d="M120 300 q30 -20 60 6 q-20 30 -60 -6z M760 220 q40 -10 50 20 q-30 20 -50 -20z" fill="#3e4148"/>
+     <path d="M0 60 H1080" stroke="#5a5f66" stroke-width="26"/><path d="M0 104 H1080" stroke="#6a4a3a" stroke-width="16"/>
+     ${[200, 520, 860].map((x) => `<rect x="${x}" y="44" width="16" height="78" fill="#4a4f56"/>`).join("")}
+     <path d="M900 60 V420" stroke="#5a5f66" stroke-width="20"/><circle cx="900" cy="300" r="22" fill="#b23a2e"/><path d="M886 300 h28" stroke="#5a1a14" stroke-width="5"/>
+     <path d="M560 60 V130" stroke="#222" stroke-width="4"/>
+     <circle cx="560" cy="150" r="22" fill="${lit ? "#ffe9a8" : "#555"}"/>${glow}
+     <rect y="860" width="1080" height="240" fill="#2c2e33"/>
+     <path d="M200 900 q60 20 140 6 q40 -6 80 10 M640 960 q80 -10 160 8" stroke="#3a3d43" stroke-width="10" fill="none" stroke-linecap="round"/>
+     ${stall(40, "12")}${stall(300, "15")}
+     <rect x="560" y="540" width="280" height="16" fill="#5a4632"/><rect x="560" y="660" width="280" height="16" fill="#5a4632"/><rect x="560" y="780" width="280" height="16" fill="#5a4632"/>
+     <path d="M566 540 V860 M834 540 V860" stroke="#4a3826" stroke-width="10"/>
+     ${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="${580 + i * 42}" y="500" width="30" height="40" rx="5" fill="${i % 2 ? "#b8452e" : "#d9a23a"}" opacity=".9"/><rect x="${582 + i * 42}" y="492" width="26" height="10" rx="2" fill="#a8a29a"/>`).join("")}
+     ${[0, 1, 2].map((i) => `<rect x="${590 + i * 80}" y="600" width="60" height="60" rx="6" fill="#8a7050"/><path d="M${590 + i * 80} 622 h60" stroke="#6a5038" stroke-width="3"/>`).join("")}
+     ${[0, 1, 2, 3].map((i) => `<rect x="${580 + i * 62}" y="710" width="48" height="70" rx="8" fill="#5b8bd9" opacity=".75"/><rect x="${596 + i * 62}" y="700" width="16" height="12" fill="#2a4a8a"/>`).join("")}
+     <g transform="translate(300 880)"><circle cx="0" cy="60" r="56" fill="none" stroke="#1d1f26" stroke-width="10"/><circle cx="210" cy="60" r="56" fill="none" stroke="#1d1f26" stroke-width="10"/><path d="M0 60 L70 -10 H170 L210 60 M70 -10 L110 60 L170 -10 M110 60 L0 60" stroke="#3a6a8a" stroke-width="10" fill="none"/></g>
+     <g transform="translate(40 960)"><rect width="200" height="16" rx="8" fill="#b23a2e"/><path d="M10 16 v30 h180 v-30 M0 46 q-10 0 -10 -14" stroke="#555" stroke-width="6" fill="none"/></g>
+     <rect x="870" y="480" width="190" height="380" fill="#1a1c20"/>
+     ${Array.from({ length: 6 }, (_, i) => `<rect x="${870 + i * 32}" y="${480 + i * 64}" width="${190 - i * 32}" height="14" fill="#3a3d43"/>`).join("")}
+     <rect x="870" y="380" width="190" height="100" fill="#141518"/><rect x="884" y="392" width="162" height="88" fill="${lit ? "#4a4030" : "#202226"}" opacity=".7"/>`,
+  );
+}
