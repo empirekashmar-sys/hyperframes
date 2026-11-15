@@ -9,14 +9,24 @@ const ol = (w = 2.6) =>
   `stroke="${O}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"`;
 
 function limb(x, y, len, w, color, end, endColor, cls) {
-  // a rounded limb hanging down from (x, y); `end` draws a hand or shoe at the tip
-  return `<g class="${cls}">
-    <rect x="${x - w / 2}" y="${y - w * 0.3}" width="${w}" height="${len + w * 0.3}" rx="${w / 2}" fill="${color}" ${ol()}/>
-    <rect x="${x - w / 2 + w * 0.55}" y="${y}" width="${w * 0.3}" height="${len - 4}" rx="${w * 0.15}" fill="#000" opacity=".14"/>
-    ${end(x, y + len, endColor)}
-  </g>`;
+  // Two-segment limb hanging from the joint (x, y). The outer <g class=cls> pivots at the shoulder/hip,
+  // the inner <g class=cls-lo> at the elbow/knee. Each group's parent space has its joint at 0,0,
+  // so GSAP can rotate them with svgOrigin "0 0".
+  const l1 = len * 0.5;
+  const l2 = len - l1;
+  const w2 = w * 0.86;
+  return `<g transform="translate(${x} ${y})"><g class="${cls}">
+    <rect x="${-w / 2}" y="${-w / 2}" width="${w}" height="${l1 + w / 2 + w2 / 2}" rx="${w / 2}" fill="${color}" ${ol()}/>
+    <rect x="${w * 0.08}" y="0" width="${w * 0.28}" height="${l1}" rx="${w * 0.14}" fill="#000" opacity=".14"/>
+    <g transform="translate(0 ${l1})"><g class="${cls}-lo">
+      <rect x="${-w2 / 2}" y="${-w2 / 2}" width="${w2}" height="${l2 + w2 / 2}" rx="${w2 / 2}" fill="${color}" ${ol()}/>
+      <rect x="${w2 * 0.08}" y="0" width="${w2 * 0.28}" height="${l2 - 4}" rx="${w2 * 0.14}" fill="#000" opacity=".14"/>
+      ${end(0, l2, endColor)}
+    </g></g>
+  </g></g>`;
 }
-const hand = (x, y, c) => `<circle cx="${x}" cy="${y + 4}" r="9" fill="${c}" ${ol(2.2)}/>`;
+const hand = (x, y, c) =>
+  `<path d="M${x - 8} ${y - 2} q-2 14 8 15 q10 -1 9 -14 q0 -6 -9 -6 q-8 0 -8 5z" fill="${c}" ${ol(2.2)}/><path d="M${x - 8} ${y + 2} q-6 -2 -6 4 q2 4 6 3" fill="${c}" ${ol(1.8)}/>`;
 const shoe = (side) => (x, y, c) =>
   `<path d="M${x - 13} ${y - 6} h${side > 0 ? 30 : 24} q${side > 0 ? 8 : 4} 0 ${side > 0 ? 8 : 4} 8 v6 h-${side > 0 ? 42 : 32} q-3 0 -3 -6z" transform="translate(${side > 0 ? 0 : -6} 0)" fill="${c}" ${ol(2.2)}/>
    <path d="M${x - 15 + (side > 0 ? 0 : -6)} ${y + 6} h${side > 0 ? 42 : 34}" stroke="#8a8d96" stroke-width="3"/>`;
@@ -183,7 +193,7 @@ const HAIR = {
 };
 
 /* ───────────── cast ───────────── */
-export function gleb({ outfit = "jacket", brow = "neutral", prop = "" } = {}) {
+export function gleb({ outfit = "jacket", brow = "neutral", prop = "", injured = false } = {}) {
   const jacket = outfit === "jacket";
   return build({
     skin: "#e0ae88",
@@ -199,6 +209,9 @@ export function gleb({ outfit = "jacket", brow = "neutral", prop = "" } = {}) {
       ? `<path d="M88 130 L100 160 L112 130 L111 268 L89 268Z" fill="#5b6270" ${ol(2)}/><path d="M78 128 L92 132 L98 162 L84 150Z M122 128 L108 132 L102 162 L116 150Z" fill="#4a3c37" ${ol(2)}/><path d="M100 160 V266" stroke="#b9bcc4" stroke-width="2"/>`
       : `<path d="M88 130 Q100 142 112 130" fill="none" stroke="#344a66" stroke-width="4"/>`,
     hairFront: HAIR.glebFront("#17181d"),
+    accessory: injured
+      ? `<ellipse cx="__CX__" cy="__CY__" rx="9" ry="6" transform="translate(16 -18)" fill="#8a4a6a" opacity=".75"/><path d="M__CX__ __CY__ m18 -14 q2 10 -2 22" stroke="#b3241b" stroke-width="3" fill="none" stroke-linecap="round"/>`
+      : "",
     handProp:
       prop === "phone"
         ? `<rect x="__X__" y="__Y__" width="16" height="26" rx="3" transform="translate(-14 -22)" fill="#111" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="11" height="19" rx="2" transform="translate(-11.5 -19)" fill="#9fd2ff"/>`
@@ -282,5 +295,32 @@ export function sonYoung({ outfit = "day", brow = "neutral", bunny = true } = {}
     hairFront: HAIR.curls("#2a1d16"),
     faceOpts: { freckles: true },
     handProp: bunny ? "" : "",
+  });
+}
+
+// Ded Maxim: neighbour from the first floor. Striped vest, grey beard and moustache, bald top,
+// flat cap, slippers; holds a broken vodka bottle neck.
+export function maxim({ brow = "angry", prop = "bottle" } = {}) {
+  return build({
+    skin: "#d9a07c",
+    shade: "#b77f5c",
+    iris: "#4a5a6a",
+    brow,
+    top: "#e9ecf2",
+    topDark: "#b9c0cc",
+    sleeve: "#d9a07c",
+    bottom: "#3a3f4a",
+    shoes: "#5a4a3a",
+    torsoExtra: `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}<path d="M66 266 Q100 282 134 266" fill="#e9ecf2" opacity=".0"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <path d="M__CX__ __CY__ m-40 -14 q4 -30 40 -32 q36 2 40 32 q-6 -6 -40 -8 q-34 2 -40 8z" fill="#4a4f5a" ${ol(2)}/><path d="M__CX__ __CY__ m-44 -12 q44 -14 92 2 q-4 6 -10 6 q-36 -10 -76 0 q-6 -2 -6 -8z" fill="#3a3f4a" ${ol(2)}/>`,
+    accessory: `<path d="M__CX__ __CY__ m-30 16 q4 40 30 42 q26 -2 30 -42 q-8 18 -30 18 q-22 0 -30 -18z" fill="#d8dbe0" ${ol(2)}/>
+      <path d="M__CX__ __CY__ m-18 18 q18 -10 36 0 q-8 8 -18 6 q-10 2 -18 -6z" fill="#c9ccd2" ${ol(1.6)}/>
+      <path d="M__CX__ __CY__ m-22 -2 q4 -6 8 0 M__CX__ __CY__ m14 -2 q4 -6 8 0" stroke="#8a5a4a" stroke-width="1.6" fill="none" opacity=".6"/>`,
+    faceOpts: { blush: false },
+    handProp:
+      prop === "bottle"
+        ? `<path d="M__X__ __Y__ m-6 -4 v-26 l4 -10 h4 l4 10 v26 z" fill="#9fd1a8" opacity=".85" ${ol(1.6)}/><path d="M__X__ __Y__ m-6 -30 l3 -6 l3 4 l3 -6 l3 6" stroke="#cfe9d4" stroke-width="2" fill="none"/>`
+        : "",
   });
 }

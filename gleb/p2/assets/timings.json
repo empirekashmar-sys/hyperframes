@@ -1,0 +1,101 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 1.2,
+      "end": 2.885
+    },
+    {
+      "id": "l02",
+      "role": "gleb",
+      "start": 3.385,
+      "end": 5.097
+    },
+    {
+      "id": "l03",
+      "role": "narrator",
+      "start": 5.597,
+      "end": 10.545
+    },
+    {
+      "id": "l04",
+      "role": "maxim",
+      "start": 11.145,
+      "end": 16.163
+    },
+    {
+      "id": "l05",
+      "role": "gleb",
+      "start": 16.413,
+      "end": 19.375
+    },
+    {
+      "id": "l06",
+      "role": "maxim",
+      "start": 19.775,
+      "end": 26.436
+    },
+    {
+      "id": "l07",
+      "role": "narrator",
+      "start": 27.236,
+      "end": 30.372
+    },
+    {
+      "id": "l08",
+      "role": "masha",
+      "start": 31.172,
+      "end": 32.718
+    },
+    {
+      "id": "l09",
+      "role": "gleb",
+      "start": 33.018,
+      "end": 34.746
+    },
+    {
+      "id": "l10",
+      "role": "son_young",
+      "start": 35.246,
+      "end": 36.546
+    },
+    {
+      "id": "l11",
+      "role": "gleb",
+      "start": 36.746,
+      "end": 38.453
+    },
+    {
+      "id": "l12",
+      "role": "narrator",
+      "start": 39.453,
+      "end": 42.832
+    },
+    {
+      "id": "l13",
+      "role": "masha",
+      "start": 43.332,
+      "end": 44.17
+    },
+    {
+      "id": "l14",
+      "role": "son_old",
+      "start": 44.47,
+      "end": 45.807
+    },
+    {
+      "id": "l15",
+      "role": "gleb",
+      "start": 46.107,
+      "end": 48.319
+    },
+    {
+      "id": "l16",
+      "role": "narrator",
+      "start": 49.119,
+      "end": 53.05
+    }
+  ],
+  "voice_end": 53.05
+}
