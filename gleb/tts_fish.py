@@ -1,4 +1,4 @@
-"""Generate the Gleb part-1 voiceover line by line with Fish Audio (model s1).
+"""Generate the Gleb part-1 voiceover line by line with Fish Audio (model s2.1-pro-free).
 
 Usage: python3 tts_fish.py [line_id ...]
 The API key is injected by the session's network proxy; nothing is read from env.
@@ -25,19 +25,19 @@ CAST = {
 }
 # script tags -> Fish s1 emotion / tone markers
 TAGS = {
-    "calm": "(calm)",
-    "excited": "(excited)",
-    "tired": "(sighing)",
-    "warm": "(gentle)",
-    "cheerful": "(joyful)",
-    "calling from another room": "(shouting)",
-    "sad": "(sad)",
-    "tense": "(nervous)",
-    "whispers": "(whispering)",
-    "scared": "(scared)",
-    "firm": "(serious)",
-    "urgent": "(hurried tone)",
-    "fast": "(hurried tone)",
+    "calm": "[calm]",
+    "excited": "[excited]",
+    "tired": "[tired sigh]",
+    "warm": "[warm]",
+    "cheerful": "[cheerful]",
+    "calling from another room": "[calling loudly from another room]",
+    "sad": "[sad]",
+    "tense": "[tense]",
+    "whispers": "[whispering]",
+    "scared": "[scared]",
+    "firm": "[firm]",
+    "urgent": "[urgent]",
+    "fast": "[fast]",
 }
 
 
@@ -57,12 +57,12 @@ def convert(text):
 
 def speak(line_id, role, text):
     body = json.dumps(
-        {"text": convert(text), "reference_id": CAST[role], "format": "wav", "normalize": True, "latency": "normal"}
+        {"text": convert(text), "reference_id": CAST[role], "format": "wav", "normalize": True, "latency": "normal", "chunk_length": 200}
     ).encode()
     req = urllib.request.Request(
         "https://api.fish.audio/v1/tts",
         data=body,
-        headers={"Content-Type": "application/json", "Authorization": "Bearer proxy-injected", "model": "s1"},
+        headers={"Content-Type": "application/json", "Authorization": "Bearer proxy-injected", "model": "s2.1-pro-free"},
     )
     with urllib.request.urlopen(req, timeout=180) as r:
         (OUT / f"{line_id}.wav").write_bytes(r.read())
