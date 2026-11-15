@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Zombie Farm — art sheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 2400px; height: 1560px; background: #0b0e16; color: #e8e4d8; font-family: "Inter Display", Inter, sans-serif; padding: 40px; display: grid; grid-template-columns: minmax(0,1fr) 620px; gap: 36px; }
+  h1 { font-size: 44px; font-weight: 900; letter-spacing: .02em; margin-bottom: 18px; }
+  h2 { font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; color: #ffb02e; margin: 18px 0 10px; }
+  .row { display: flex; gap: 18px; align-items: flex-end; }
+  .card { background: #131826; border: 1px solid #222a3d; border-radius: 14px; padding: 14px 14px 10px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .card svg { display: block; }
+  .card span { font-size: 17px; font-weight: 600; color: #9aa3b8; }
+  .phones { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .phone { position: relative; width: 292px; height: 519px; border-radius: 18px; overflow: hidden; border: 2px solid #2a3248; }
+  .phone > svg, .phone > .layer { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .sw { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sw div { width: 64px; height: 44px; border-radius: 8px; font-size: 11px; display: flex; align-items: flex-end; padding: 4px; color: #fff; text-shadow: 0 1px 2px #000; }
+  .type { background: #131826; border-radius: 14px; padding: 18px; }
+  .num { font-size: 120px; font-weight: 900; line-height: .9; color: #ffb02e; -webkit-text-stroke: 4px #05070c; paint-order: stroke fill; }
+  .sub { font-size: 40px; font-weight: 900; line-height: 1.1; text-transform: uppercase; text-shadow: 0 4px 0 #000, 0 0 14px #000; }
+  .sub b { color: #ffb02e; } .sub i { font-style: normal; color: #ff4a3d; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ФЕРМА · ЛИСТ ПЕРСОНАЖЕЙ И МИРА</h1>
+  <h2>Люди и заражённые</h2>
+  <div class="row" id="people"></div>
+  <h2>Животные</h2>
+  <div class="row" id="animals"></div>
+  <h2>Постройки и предметы</h2>
+  <div class="row" id="props"></div>
+  <div class="row" id="props2" style="margin-top:18px"></div>
+</main>
+<aside>
+  <h2 style="margin-top:0">Фоны 9:16</h2>
+  <div class="phones">
+    <div class="phone" id="bg1"></div>
+    <div class="phone" id="bg2"></div>
+  </div>
+  <h2>Палитра</h2>
+  <div class="sw" id="sw"></div>
+  <h2>Номера и субтитры</h2>
+  <div class="type" style="display:flex; gap:22px; align-items:center">
+    <div class="num">4</div>
+    <div class="sub">Укрепите <b>один дом</b>,<br/>а не весь <i>двор</i></div>
+  </div>
+</aside>
+<script type="module">
+  import * as A from "./art.js";
+  const put = (id, svg, w, label) => {
+    const el = document.createElement("div");
+    el.className = "card";
+    el.innerHTML = svg.replace("<svg ", `<svg width="${w}" `) + `<span>${label}</span>`;
+    document.getElementById(id).appendChild(el);
+  };
+  put("people", A.farmer("stand"), 150, "Фермер");
+  put("people", A.farmer("point"), 170, "Фермер — указывает");
+  put("people", A.farmer("carry"), 150, "Фермер — несёт");
+  put("people", A.bitten(), 150, "Укушенный у ворот");
+  put("people", A.infected(0), 165, "Заражённый 1");
+  put("people", A.infected(1), 165, "Заражённый 2");
+  put("people", A.horde(6, 2), 300, "Заражённые вдали");
+  put("animals", A.goose("walk"), 170, "Гусь");
+  put("animals", A.goose("honk"), 170, "Гусь — кричит");
+  put("animals", A.dog("stand"), 210, "Собака");
+  put("animals", A.dog("bark"), 210, "Собака — лает");
+  put("animals", A.cow(), 230, "Корова");
+  put("props", A.house(), 250, "Дом");
+  put("props", A.house({ boarded: true, lit: false }), 250, "Дом — заколочен");
+  put("props", A.well(), 250, "Колодец");
+  put("props", A.barn(), 230, "Амбар");
+  put("props2", A.gate(0), 330, "Ворота — закрыты");
+  put("props2", A.gate(0.7), 330, "Ворота — открыты");
+  put("props2", A.food(), 270, "Запасы");
+  put("props2", A.food({ portions: true }), 280, "Порции");
+  put("props2", A.generator({ on: true }), 180, "Генератор");
+  put("props2", A.lantern(), 80, "Фонарь");
+
+  // Background 1: empty establishing shot.
+  document.getElementById("bg1").innerHTML = A.bgFarmNight();
+  // Background 2: composed farm scene to show scale.
+  const strip = (s) => s.replace(/^<svg[^>]*>/, "").replace(/<\/svg>$/, "");
+  const vb = (s) => s.match(/viewBox="([^"]+)"/)[1].split(" ").map(Number);
+  const place = (s, x, y, w) => {
+    const [, , vw, vh] = vb(s);
+    const k = w / vw;
+    return `<g transform="translate(${x} ${y - vh * k}) scale(${k})">${strip(s)}</g>`;
+  };
+  const scene = A.bgFarmNight({ horizonHorde: true }).replace(
+    "</svg>",
+    place(A.barn(), 40, 1230, 300) +
+      place(A.house({ boarded: true }), 560, 1290, 470) +
+      place(A.fence(1080), 0, 1420, 1080) +
+      place(A.gate(0), 360, 1440, 360) +
+      place(A.well(), 60, 1600, 260) +
+      place(A.goose("walk"), 760, 1660, 170) +
+      place(A.goose("honk"), 880, 1690, 160) +
+      place(A.dog("stand"), 340, 1720, 220) +
+      place(A.farmer("point"), 560, 1820, 230) +
+      "</svg>",
+  );
+  document.getElementById("bg2").innerHTML = scene;
+  for (const [k, v] of Object.entries(A.C)) {
+    const d = document.createElement("div");
+    d.style.background = v; d.textContent = k;
+    document.getElementById("sw").appendChild(d);
+  }
+  document.body.dataset.ready = "1";
+</script>
+</body>
+</html>
