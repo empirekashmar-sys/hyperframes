@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"/><title>Hero sheet</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{width:1800px;height:1000px;background:#0b0e16;color:#e8e4d8;font-family:"Inter Display",Inter,sans-serif;padding:40px}
+h1{font-size:42px;font-weight:900;margin-bottom:6px}
+p{font-size:20px;color:#9aa3b8;margin-bottom:24px}
+.row{display:flex;gap:22px;align-items:flex-end}
+.card{background:#131826;border:1px solid #222a3d;border-radius:14px;padding:16px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.card span{font-size:18px;font-weight:600;color:#9aa3b8}
+.face{width:380px;height:380px;overflow:hidden;border-radius:12px;background:radial-gradient(circle at 50% 40%,#2a1e2e,#0b0e16)}
+.sw{display:flex;gap:10px;margin-top:26px}
+.sw div{width:120px;height:60px;border-radius:10px;font-size:14px;display:flex;align-items:flex-end;padding:6px;color:#fff;text-shadow:0 1px 2px #000}
+</style></head><body>
+<h1>ГЛАВНЫЙ ГЕРОЙ</h1>
+<p>Кожаная куртка · серые волосы · карие глаза · чёрные джинсы · белые кроссовки</p>
+<div class="row" id="poses"></div>
+<div class="sw">
+ <div style="background:#2b2321">кожанка</div><div style="background:#a9adb5">волосы</div><div style="background:#6b3d1c">глаза</div>
+ <div style="background:#16181f">джинсы</div><div style="background:#e9e7e2;color:#111;text-shadow:none">кроссовки</div><div style="background:#5b6270">футболка</div>
+</div>
+<script type="module">
+import * as A from "./art.js";
+const add=(svg,w,label,face)=>{const d=document.createElement("div");d.className="card";
+ d.innerHTML=(face?`<div class="face">${svg.replace("<svg ",'<svg width="380" height="380" ').replace('viewBox="0 0 140 260"','viewBox="28 8 64 64"')}</div>`:svg.replace("<svg ",`<svg width="${w}" `))+`<span>${label}</span>`;
+ document.getElementById("poses").appendChild(d);};
+add(A.hero("stand"),0,"Лицо крупно",true);
+add(A.hero("stand"),210,"Стоит");
+add(A.hero("walk"),210,"Идёт");
+add(A.hero("point"),240,"Указывает");
+add(A.hero("alert"),210,"Насторожен");
+document.body.dataset.ready="1";
+</script></body></html>

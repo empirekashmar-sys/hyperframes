@@ -473,3 +473,78 @@ export function bgFarmNight({ horizonHorde = true, cityGlow = 1 } = {}) {
   `,
   );
 }
+
+/* ───────────── MAIN HERO ───────────── */
+// Leather jacket, grey hair, brown eyes, black jeans, white sneakers.
+// pose: "stand" | "walk" | "point" | "alert"
+export function hero(pose = "stand") {
+  const H = {
+    leather: "#2b2321",
+    leatherHi: "#4a3c37",
+    leatherDark: "#1a1514",
+    tee: "#5b6270",
+    jeans: "#16181f",
+    jeansHi: "#262a35",
+    sneaker: "#e9e7e2",
+    sole: "#9a9ca3",
+    hair: "#a9adb5",
+    hairDark: "#7d828b",
+    skin: "#d9a882",
+    skinShade: "#bb8a66",
+    iris: "#6b3d1c",
+  };
+  const legs =
+    pose === "walk"
+      ? `<path d="M52 170 L36 244" stroke="${H.jeans}" stroke-width="16" stroke-linecap="round"/>
+         <path d="M70 170 L88 242" stroke="${H.jeansHi}" stroke-width="16" stroke-linecap="round"/>
+         <path d="M22 240 h24 q4 0 4 6 v4 h-30 q-3 0 -2 -5z" fill="${H.sneaker}"/><path d="M20 249 h30" stroke="${H.sole}" stroke-width="4"/>
+         <path d="M80 238 h22 q6 0 6 6 v4 h-30z" fill="${H.sneaker}"/><path d="M78 247 h30" stroke="${H.sole}" stroke-width="4"/>`
+      : `<path d="M50 170 L46 244" stroke="${H.jeans}" stroke-width="16" stroke-linecap="round"/>
+         <path d="M70 170 L74 244" stroke="${H.jeansHi}" stroke-width="16" stroke-linecap="round"/>
+         <path d="M32 240 h22 q4 0 4 6 v4 h-28 q-3 0 -2 -5z" fill="${H.sneaker}"/><path d="M30 249 h28" stroke="${H.sole}" stroke-width="4"/>
+         <path d="M66 240 h22 q6 0 6 6 v4 h-28z" fill="${H.sneaker}"/><path d="M64 249 h30" stroke="${H.sole}" stroke-width="4"/>`;
+  const armL =
+    pose === "walk"
+      ? `<path d="M37 94 L22 150" stroke="${H.leatherDark}" stroke-width="15" stroke-linecap="round"/><circle cx="21" cy="156" r="7" fill="${H.skinShade}"/>`
+      : pose === "alert"
+        ? `<path d="M37 94 L20 120 L34 136" stroke="${H.leatherDark}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="36" cy="138" r="7" fill="${H.skinShade}"/>`
+        : `<path d="M37 94 L29 158" stroke="${H.leatherDark}" stroke-width="15" stroke-linecap="round"/><circle cx="29" cy="164" r="7" fill="${H.skinShade}"/>`;
+  const armR =
+    pose === "point"
+      ? `<path d="M83 94 L130 76" stroke="${H.leather}" stroke-width="15" stroke-linecap="round"/><circle cx="134" cy="75" r="7" fill="${H.skin}"/>`
+      : pose === "walk"
+        ? `<path d="M83 94 L100 148" stroke="${H.leather}" stroke-width="15" stroke-linecap="round"/><circle cx="101" cy="154" r="7" fill="${H.skin}"/>`
+        : pose === "alert"
+          ? `<path d="M83 94 L104 122 L90 134" stroke="${H.leather}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="88" cy="136" r="7" fill="${H.skin}"/>`
+          : `<path d="M83 94 L91 158" stroke="${H.leather}" stroke-width="15" stroke-linecap="round"/><circle cx="91" cy="164" r="7" fill="${H.skin}"/>`;
+  const brows =
+    pose === "alert"
+      ? `<path d="M44 42 L56 46 M64 46 L76 42" stroke="${H.hairDark}" stroke-width="3.4" stroke-linecap="round"/>`
+      : `<path d="M44 44 L56 44 M64 44 L76 44" stroke="${H.hairDark}" stroke-width="3.4" stroke-linecap="round"/>`;
+  return svg(
+    "0 0 140 260",
+    `
+    <ellipse cx="60" cy="254" rx="36" ry="5" fill="#000" opacity=".35"/>
+    ${legs}
+    ${armL}
+    <path d="M33 86 Q60 74 87 86 L90 172 L30 172Z" fill="${H.leather}"/>
+    <path d="M30 160 H90 V174 H30Z" fill="${H.leatherDark}"/>
+    <path d="M50 84 L60 104 L70 84 L68 172 L52 172Z" fill="${H.tee}"/>
+    <path d="M60 104 V172" stroke="#b9bcc4" stroke-width="2"/>
+    <path d="M38 82 L52 84 L58 106 L44 98Z M82 82 L68 84 L62 106 L76 98Z" fill="${H.leatherHi}"/>
+    <path d="M36 118 h12 M72 118 h12" stroke="#b9bcc4" stroke-width="2" stroke-linecap="round"/>
+    <path d="M40 92 Q44 130 40 158" stroke="${H.leatherHi}" stroke-width="2" fill="none" opacity=".7"/>
+    <rect x="54" y="64" width="12" height="18" fill="${H.skinShade}"/>
+    <ellipse cx="60" cy="50" rx="21" ry="23" fill="${H.skin}"/>
+    <path d="M40 58 Q42 74 60 75 Q78 74 80 58 Q72 66 60 66 Q48 66 40 58Z" fill="${H.hair}" opacity=".55"/>
+    <path d="M37 52 Q32 26 52 17 Q70 10 82 24 Q88 34 84 52 Q81 42 76 37 L73 44 L68 35 L61 42 L57 33 L50 41 L46 35 Q40 42 37 52Z" fill="${H.hair}"/>
+    <path d="M52 17 Q58 24 57 33 M68 16 Q72 26 68 35 M78 22 Q78 32 76 37 M44 24 Q48 30 46 35" stroke="${H.hairDark}" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+    ${brows}
+    <ellipse cx="51" cy="51" rx="4.6" ry="3.8" fill="#f4efe6"/><circle cx="51.6" cy="51.2" r="2.7" fill="${H.iris}"/><circle cx="51.8" cy="51.2" r="1.1" fill="${C.ink}"/>
+    <ellipse cx="69" cy="51" rx="4.6" ry="3.8" fill="#f4efe6"/><circle cx="69.6" cy="51.2" r="2.7" fill="${H.iris}"/><circle cx="69.8" cy="51.2" r="1.1" fill="${C.ink}"/>
+    <path d="M58 54 Q60 60 62 58" stroke="${H.skinShade}" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M54 65 Q60 ${pose === "alert" ? 63 : 66} 66 65" stroke="#7a4a3a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    ${armR}
+  `,
+  );
+}
