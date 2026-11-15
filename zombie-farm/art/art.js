@@ -487,8 +487,9 @@ export function hero(pose = "stand") {
     jeansHi: "#262a35",
     sneaker: "#e9e7e2",
     sole: "#9a9ca3",
-    hair: "#a9adb5",
-    hairDark: "#7d828b",
+    hair: "#17181d",
+    hairDark: "#3b3f4a",
+    brow: "#121318",
     skin: "#d9a882",
     skinShade: "#bb8a66",
     iris: "#6b3d1c",
@@ -519,8 +520,8 @@ export function hero(pose = "stand") {
           : `<path d="M83 94 L91 158" stroke="${H.leather}" stroke-width="15" stroke-linecap="round"/><circle cx="91" cy="164" r="7" fill="${H.skin}"/>`;
   const brows =
     pose === "alert"
-      ? `<path d="M44 42 L56 46 M64 46 L76 42" stroke="${H.hairDark}" stroke-width="3.4" stroke-linecap="round"/>`
-      : `<path d="M44 44 L56 44 M64 44 L76 44" stroke="${H.hairDark}" stroke-width="3.4" stroke-linecap="round"/>`;
+      ? `<path d="M44 42 L56 46 M64 46 L76 42" stroke="${H.brow}" stroke-width="3" stroke-linecap="round"/>`
+      : `<path d="M44 44 L56 44 M64 44 L76 44" stroke="${H.brow}" stroke-width="3" stroke-linecap="round"/>`;
   return svg(
     "0 0 140 260",
     `
@@ -535,9 +536,8 @@ export function hero(pose = "stand") {
     <path d="M36 118 h12 M72 118 h12" stroke="#b9bcc4" stroke-width="2" stroke-linecap="round"/>
     <path d="M40 92 Q44 130 40 158" stroke="${H.leatherHi}" stroke-width="2" fill="none" opacity=".7"/>
     <rect x="54" y="64" width="12" height="18" fill="${H.skinShade}"/>
-    <ellipse cx="60" cy="50" rx="21" ry="23" fill="${H.skin}"/>
-    <path d="M40 58 Q42 74 60 75 Q78 74 80 58 Q72 66 60 66 Q48 66 40 58Z" fill="${H.hair}" opacity=".55"/>
-    <path d="M37 52 Q32 26 52 17 Q70 10 82 24 Q88 34 84 52 Q81 42 76 37 L73 44 L68 35 L61 42 L57 33 L50 41 L46 35 Q40 42 37 52Z" fill="${H.hair}"/>
+    <path d="M39 48 Q39 26 60 26 Q81 26 81 48 Q81 66 68 72 Q60 76 52 72 Q39 66 39 48Z" fill="${H.skin}"/><ellipse cx="45" cy="60" rx="4" ry="2.4" fill="#e59a86" opacity=".35"/><ellipse cx="75" cy="60" rx="4" ry="2.4" fill="#e59a86" opacity=".35"/>
+    <path d="M37 52 Q32 26 52 17 Q70 10 82 24 Q88 34 84 52 Q81 42 76 37 L73 44 L68 35 L61 42 L57 33 L50 41 L46 35 Q40 42 37 52Z" fill="${H.hair}" stroke="#4a4f5c" stroke-width="2" stroke-linejoin="round"/>
     <path d="M52 17 Q58 24 57 33 M68 16 Q72 26 68 35 M78 22 Q78 32 76 37 M44 24 Q48 30 46 35" stroke="${H.hairDark}" stroke-width="2.2" fill="none" stroke-linecap="round"/>
     ${brows}
     <ellipse cx="51" cy="51" rx="4.6" ry="3.8" fill="#f4efe6"/><circle cx="51.6" cy="51.2" r="2.7" fill="${H.iris}"/><circle cx="51.8" cy="51.2" r="1.1" fill="${C.ink}"/>
