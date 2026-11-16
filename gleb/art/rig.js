@@ -8,6 +8,8 @@ const O = "#0b0d14"; // outline
 const ol = (w = 2.6) =>
   `stroke="${O}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"`;
 
+const RIFLE_SVG = `<g transform="translate(__X__ __Y__)"><rect x="-70" y="-8" width="120" height="14" rx="3" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.8" stroke-linejoin="round"/><rect x="-96" y="-6" width="30" height="20" rx="4" fill="#5a4030" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="-30" y="4" width="12" height="28" rx="3" transform="rotate(10 -24 18)" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="4" y="4" width="10" height="22" rx="3" fill="#3a3a3a"/><rect x="48" y="-4" width="26" height="6" fill="#2a2a2a"/></g>`;
+const ARMOR_SVG = `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#3a4430" stroke="#0b0d14" stroke-width="2" stroke-linejoin="round"/><rect x="72" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="106" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><path d="M64 180 H136" stroke="#2a3022" stroke-width="4"/>`;
 function limb(x, y, len, w, color, end, endColor, cls) {
   // Two-segment limb hanging from the joint (x, y). The outer <g class=cls> pivots at the shoulder/hip,
   // the inner <g class=cls-lo> at the elbow/knee. Each group's parent space has its joint at 0,0,
@@ -213,7 +215,13 @@ const HAIR = {
 };
 
 /* ───────────── cast ───────────── */
-export function gleb({ outfit = "jacket", brow = "neutral", prop = "", injured = false } = {}) {
+export function gleb({
+  outfit = "jacket",
+  brow = "neutral",
+  prop = "",
+  injured = false,
+  armor = false,
+} = {}) {
   const jacket = outfit === "jacket";
   return build({
     skin: "#e0ae88",
@@ -225,17 +233,21 @@ export function gleb({ outfit = "jacket", brow = "neutral", prop = "", injured =
     sleeve: jacket ? "#2b2321" : "#4f6a8a",
     bottom: jacket ? "#1b1e27" : "#5a5e6a",
     shoes: jacket ? "#ecebe6" : "#2f3340",
-    torsoExtra: jacket
-      ? `<path d="M88 130 L100 160 L112 130 L111 268 L89 268Z" fill="#5b6270" ${ol(2)}/><path d="M78 128 L92 132 L98 162 L84 150Z M122 128 L108 132 L102 162 L116 150Z" fill="#4a3c37" ${ol(2)}/><path d="M100 160 V266" stroke="#b9bcc4" stroke-width="2"/>`
-      : `<path d="M88 130 Q100 142 112 130" fill="none" stroke="#344a66" stroke-width="4"/>`,
+    torsoExtra:
+      (jacket
+        ? `<path d="M88 130 L100 160 L112 130 L111 268 L89 268Z" fill="#5b6270" ${ol(2)}/><path d="M78 128 L92 132 L98 162 L84 150Z M122 128 L108 132 L102 162 L116 150Z" fill="#4a3c37" ${ol(2)}/><path d="M100 160 V266" stroke="#b9bcc4" stroke-width="2"/>`
+        : `<path d="M88 130 Q100 142 112 130" fill="none" stroke="#344a66" stroke-width="4"/>`) +
+      (armor ? ARMOR_SVG : ""),
     hairFront: HAIR.glebFront("#17181d"),
     accessory: injured
       ? `<ellipse cx="__CX__" cy="__CY__" rx="9" ry="6" transform="translate(16 -18)" fill="#8a4a6a" opacity=".75"/><path d="M__CX__ __CY__ m18 -14 q2 10 -2 22" stroke="#b3241b" stroke-width="3" fill="none" stroke-linecap="round"/>`
       : "",
     handProp:
-      prop === "phone"
-        ? `<rect x="__X__" y="__Y__" width="16" height="26" rx="3" transform="translate(-14 -22)" fill="#111" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="11" height="19" rx="2" transform="translate(-11.5 -19)" fill="#9fd2ff"/>`
-        : "",
+      prop === "rifle"
+        ? RIFLE_SVG
+        : prop === "phone"
+          ? `<rect x="__X__" y="__Y__" width="16" height="26" rx="3" transform="translate(-14 -22)" fill="#111" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="11" height="19" rx="2" transform="translate(-11.5 -19)" fill="#9fd2ff"/>`
+          : "",
   });
 }
 
@@ -384,7 +396,7 @@ export function grandpa({ brow = "worried" } = {}) {
 
 // Ded Maxim: neighbour from the first floor. Striped vest, grey beard and moustache, bald top,
 // flat cap, slippers; holds a broken vodka bottle neck.
-export function maxim({ brow = "angry", prop = "bottle", helmet = false } = {}) {
+export function maxim({ brow = "angry", prop = "bottle", helmet = false, uniform = false } = {}) {
   // tank crew helmet: padded leather cap with ear flaps and goggles pushed up
   const tankHelmet = `<path d="M__CX__ __CY__ m-42 6 q-4 -50 42 -52 q46 2 42 52 q-6 -8 -8 -22 q-34 -14 -68 0 q-2 14 -8 22z" fill="#2a2420" ${ol(2)}/>
       <path d="M__CX__ __CY__ m-30 -40 v34 M__CX__ __CY__ m-10 -46 v40 M__CX__ __CY__ m10 -46 v40 M__CX__ __CY__ m30 -40 v34" stroke="#4a3e34" stroke-width="5"/>
@@ -395,12 +407,15 @@ export function maxim({ brow = "angry", prop = "bottle", helmet = false } = {}) 
     shade: "#b77f5c",
     iris: "#4a5a6a",
     brow,
-    top: "#e9ecf2",
-    topDark: "#b9c0cc",
-    sleeve: "#d9a07c",
-    bottom: "#3a3f4a",
-    shoes: "#5a4a3a",
-    torsoExtra: `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}<path d="M66 266 Q100 282 134 266" fill="#e9ecf2" opacity=".0"/>`,
+    top: uniform ? "#56603e" : "#e9ecf2",
+    topDark: uniform ? "#3a4228" : "#b9c0cc",
+    sleeve: uniform ? "#56603e" : "#d9a07c",
+    bottom: uniform ? "#4a5236" : "#3a3f4a",
+    shoes: uniform ? "#1d1a16" : "#5a4a3a",
+    torsoExtra: uniform
+      ? `<path d="M86 132 L100 150 L114 132" fill="#e9ecf2"/>${[136, 142].map((y) => `<path d="M90 ${y} H110" stroke="#2a4a8a" stroke-width="4"/>`).join("")}` +
+        ARMOR_SVG
+      : `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}`,
     hairFront: helmet
       ? tankHelmet
       : `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
@@ -414,6 +429,8 @@ export function maxim({ brow = "angry", prop = "bottle", helmet = false } = {}) 
         ? `<path d="M__X__ __Y__ m-6 -4 v-26 l4 -10 h4 l4 10 v26 z" fill="#9fd1a8" opacity=".85" ${ol(1.6)}/><path d="M__X__ __Y__ m-6 -30 l3 -6 l3 4 l3 -6 l3 6" stroke="#cfe9d4" stroke-width="2" fill="none"/>`
         : prop === "vodka"
           ? `<path d="M__X__ __Y__ m-8 0 v-40 q0 -8 6 -12 v-14 h4 v14 q6 4 6 12 v40z" fill="#dff1ff" opacity=".9" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="16" height="12" transform="translate(-8 -30)" fill="#e23b2e"/>`
-          : "",
+          : prop === "rifle"
+            ? RIFLE_SVG
+            : "",
   });
 }
