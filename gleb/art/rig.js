@@ -254,6 +254,22 @@ export function gleb({
 
 export function masha({ outfit = "home", brow = "neutral", prop = "" } = {}) {
   const night = outfit === "night";
+  if (outfit === "tee")
+    return build({
+      skin: "#ebbb98",
+      shade: "#cc9773",
+      iris: "#3e6a3a",
+      brow,
+      top: "#b9b4c8",
+      topDark: "#8a8598",
+      sleeve: "#ebbb98",
+      bottom: "#141418",
+      shoes: "#ebbb98",
+      torsoExtra: `<path d="M86 130 Q100 142 114 130" fill="none" stroke="#8a8598" stroke-width="4"/>`,
+      hairBack: HAIR.mashaBack("#5a3522", true),
+      hairFront: HAIR.mashaFront("#5a3522"),
+      faceOpts: { lash: true },
+    });
   if (outfit === "black")
     return build({
       skin: "#ebbb98",
@@ -506,13 +522,14 @@ export function maxim({
         ? `<path d="M86 132 L100 150 L114 132" fill="#e9ecf2"/>${[136, 142].map((y) => `<path d="M90 ${y} H110" stroke="#2a4a8a" stroke-width="4"/>`).join("")}` +
           ARMOR_SVG
         : `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}`,
-    hairFront: shaved
-      ? `<ellipse cx="__CX__" cy="__CY__" rx="16" ry="8" transform="translate(-18 -28)" fill="#fff" opacity=".45"/>`
-      : banya
-        ? `<path d="M__CX__ __CY__ m-44 -6 q0 -46 44 -48 q44 2 44 48 q6 4 4 10 h-96 q-2 -6 4 -10z" fill="#e9dcc0" ${ol(2)}/><path d="M__CX__ __CY__ m-30 -30 q30 -10 60 0" stroke="#c9b48a" stroke-width="4" fill="none"/>`
-        : helmet
-          ? tankHelmet
-          : `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
+    hairFront:
+      shaved && !helmet
+        ? `<ellipse cx="__CX__" cy="__CY__" rx="16" ry="8" transform="translate(-18 -28)" fill="#fff" opacity=".45"/>`
+        : banya
+          ? `<path d="M__CX__ __CY__ m-44 -6 q0 -46 44 -48 q44 2 44 48 q6 4 4 10 h-96 q-2 -6 4 -10z" fill="#e9dcc0" ${ol(2)}/><path d="M__CX__ __CY__ m-30 -30 q30 -10 60 0" stroke="#c9b48a" stroke-width="4" fill="none"/>`
+          : helmet
+            ? tankHelmet
+            : `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
       <path d="M__CX__ __CY__ m-40 -14 q4 -30 40 -32 q36 2 40 32 q-6 -6 -40 -8 q-34 2 -40 8z" fill="#4a4f5a" ${ol(2)}/><path d="M__CX__ __CY__ m-44 -12 q44 -14 92 2 q-4 6 -10 6 q-36 -10 -76 0 q-6 -2 -6 -8z" fill="#3a3f4a" ${ol(2)}/>`,
     accessory: shaved
       ? `<path d="M__CX__ __CY__ m-20 26 q20 10 40 0" stroke="#8a5a4a" stroke-width="2" fill="none" opacity=".5"/>`
