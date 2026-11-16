@@ -1,0 +1,7 @@
+# big binaries (renders, previews) stay out of git
+*.png
+*.mp4
+*.wav
+*.mp3
+*.raw
+*.raw

@@ -319,19 +319,65 @@ export function sonYoung({ outfit = "day", brow = "neutral", bunny = true } = {}
 }
 
 // Checkpoint soldier: khaki uniform, helmet, rifle across the body.
-export function soldier({ brow = "angry" } = {}) {
+export function soldier({ brow = "angry", mask = false, prop = "" } = {}) {
+  // balaclava: dark knit over the whole head with an eye slot (evenodd cut-out)
+  const balaclava = `<g transform="translate(__CX__ __CY__)"><path fill-rule="evenodd" d="M-38 -2 a38 41 0 1 0 76 0 a38 41 0 1 0 -76 0z M-30 -12 h60 v20 h-60z" fill="#1a1c20" ${ol(2)}/><path d="M-36 30 q36 20 72 0" stroke="#2a2d34" stroke-width="3" fill="none"/></g>`;
   return build({
     skin: "#dcae8c",
     shade: "#bb8c6a",
     iris: "#3a3a2a",
     brow,
-    top: "#56603e",
-    topDark: "#3a4228",
-    sleeve: "#56603e",
-    bottom: "#4a5236",
+    top: mask ? "#3a3f36" : "#56603e",
+    topDark: mask ? "#24281f" : "#3a4228",
+    sleeve: mask ? "#3a3f36" : "#56603e",
+    bottom: mask ? "#30342c" : "#4a5236",
     shoes: "#1d1a16",
+    accessory: mask ? balaclava : "",
+    handProp:
+      prop === "flashlight"
+        ? `<rect x="__X__" y="__Y__" width="12" height="30" rx="3" transform="translate(-6 -4)" fill="#2a2a2a" ${ol(1.6)}/><path d="M__X__ __Y__ m-8 26 l-60 240 h136 l-60 -240z" fill="#fff6c8" opacity=".16"/>`
+        : "",
     torsoExtra: `<rect x="70" y="180" width="60" height="44" rx="6" fill="#3a4228" ${ol(2)}/><path d="M74 196 h52 M74 210 h52" stroke="#2a3020" stroke-width="3"/><path d="M60 150 L140 270" stroke="#1d1a16" stroke-width="10"/><rect x="88" y="190" width="70" height="12" rx="3" transform="rotate(52 100 196)" fill="#2a2a2a"/>`,
     hairFront: `<path d="M__CX__ __CY__ m-46 0 q0 -54 46 -54 q46 0 46 54 q-10 -4 -14 -10 h-64 q-4 6 -14 10z" fill="#56603e" ${ol(2)}/><path d="M__CX__ __CY__ m-50 0 h100" stroke="${O}" stroke-width="5" stroke-linecap="round"/>`,
+    faceOpts: { blush: false },
+  });
+}
+
+// Gleb's mother: grey bun, glasses, shawl over a cardigan, long skirt.
+export function granny({ brow = "worried" } = {}) {
+  return build({
+    skin: "#e4b896",
+    shade: "#c49472",
+    iris: "#5a4a3a",
+    brow,
+    top: "#7a5a7a",
+    topDark: "#5a3e5a",
+    sleeve: "#7a5a7a",
+    bottom: "#d4a888",
+    shoes: "#4a3a3a",
+    skirt: { color: "#4a4a5a", len: 120 },
+    torsoExtra: `<path d="M64 140 L100 190 L136 140 L140 170 L100 230 L60 170Z" fill="#c9a24a" ${ol(2)}/><path d="M76 150 l10 14 M124 150 l-10 14" stroke="#8a6a2a" stroke-width="3"/>`,
+    hairBack: `<circle cx="__CX__" cy="__CY__" r="18" transform="translate(0 -40)" fill="#cfd2d8" ${ol(2)}/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-38 -4 q0 -36 38 -36 q38 0 38 36 q-12 -18 -38 -18 q-26 0 -38 18z" fill="#cfd2d8" ${ol(2)}/>`,
+    faceOpts: { glasses: true, lash: true },
+  });
+}
+
+// Gleb's father: grey hair, moustache, knitted vest over a shirt.
+export function grandpa({ brow = "worried" } = {}) {
+  return build({
+    skin: "#d8a47e",
+    shade: "#b8845e",
+    iris: "#4a4a3a",
+    brow,
+    top: "#8a7a5a",
+    topDark: "#6a5a3a",
+    sleeve: "#cfd6e2",
+    bottom: "#4a4a52",
+    shoes: "#3a2a22",
+    torsoExtra: `<path d="M86 128 L100 150 L114 128" fill="#cfd6e2" ${ol(2)}/>${[170, 196, 222, 248].map((y) => `<path d="M70 ${y} l10 8 l10 -8 l10 8 l10 -8 l10 8 l10 -8" stroke="#6a5a3a" stroke-width="3" fill="none"/>`).join("")}`,
+    hairFront: `<path d="M__CX__ __CY__ m-38 6 q-2 -26 8 -32 M__CX__ __CY__ m38 6 q2 -26 -8 -32" stroke="#c9ccd2" stroke-width="12" fill="none" stroke-linecap="round"/>`,
+    accessory: `<path d="M__CX__ __CY__ m-20 26 q10 -8 20 -2 q10 -6 20 2 q-10 8 -20 4 q-10 4 -20 -4z" fill="#c9ccd2" ${ol(1.6)}/>`,
     faceOpts: { blush: false },
   });
 }

@@ -1,0 +1,17 @@
+id	role	text
+l01	soldier1	[shouting, angry] На пол! Руки за голову! Быстро!
+l02	gleb	[scared, shouting] Тихо, тихо! Тут дети!
+l03	soldier2	[shouting, angry] Заткнись! Лицом к стене!
+l04	granny	[crying] Глебушка… зачем вы приехали…
+l05	gleb	[shocked] Мам! Вы целы?!
+l06	soldier1	[threatening] Ещё слово — и целых не останется.
+l07	narrator	[tense] А в это время дед Максим отдыхал между восьмым и девятым этажом.
+l08	maxim	[whispers, angry] Ёб твою мать… опоздал, старый пень.
+l09	soldier3	[shouting] Здесь ещё кто-то был! Старик какой-то!
+l10	son_old	[whispers, scared] Бать… где дед?
+l11	gleb	[whispers, firm] Не знаю. Молчи.
+l12	soldier2	[shouting, confused] Это ещё что за хрень?! Чей танк?!
+l13	gleb	[calm] Не знаю. Стоял тут.
+l14	masha	[whispers, scared] Глеб… что с нами будет?
+l15	gleb	[warm, quiet] Всё будет хорошо. Я обещаю.
+l16	maxim	[angry, determined] Ну всё, суки… теперь вы меня разозлили.
