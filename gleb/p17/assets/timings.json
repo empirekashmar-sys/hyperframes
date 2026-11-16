@@ -1,0 +1,257 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 2.2,
+      "end": 7.613
+    },
+    {
+      "id": "l02",
+      "role": "maxim",
+      "start": 8.213,
+      "end": 14.254
+    },
+    {
+      "id": "l03",
+      "role": "narrator",
+      "start": 14.654,
+      "end": 18.335
+    },
+    {
+      "id": "l04",
+      "role": "maxim",
+      "start": 18.735,
+      "end": 23.668
+    },
+    {
+      "id": "l05",
+      "role": "narrator",
+      "start": 24.468,
+      "end": 27.481
+    },
+    {
+      "id": "l06",
+      "role": "maxim",
+      "start": 27.881,
+      "end": 33.245
+    },
+    {
+      "id": "l07",
+      "role": "narrator",
+      "start": 33.845,
+      "end": 35.604
+    },
+    {
+      "id": "l08",
+      "role": "maxim",
+      "start": 36.004,
+      "end": 37.301
+    },
+    {
+      "id": "l09",
+      "role": "narrator",
+      "start": 37.701,
+      "end": 40.412
+    },
+    {
+      "id": "l10",
+      "role": "maxim",
+      "start": 40.712,
+      "end": 43.382
+    },
+    {
+      "id": "l11",
+      "role": "narrator",
+      "start": 43.782,
+      "end": 47.139
+    },
+    {
+      "id": "l12",
+      "role": "maxim",
+      "start": 47.439,
+      "end": 48.922
+    },
+    {
+      "id": "l13",
+      "role": "narrator",
+      "start": 49.922,
+      "end": 53.964
+    },
+    {
+      "id": "l14",
+      "role": "narrator",
+      "start": 54.264,
+      "end": 58.27
+    },
+    {
+      "id": "l15",
+      "role": "zina",
+      "start": 58.47,
+      "end": 62.807
+    },
+    {
+      "id": "l16",
+      "role": "maxim",
+      "start": 63.107,
+      "end": 66.324
+    },
+    {
+      "id": "l17",
+      "role": "zina",
+      "start": 66.624,
+      "end": 72.277
+    },
+    {
+      "id": "l18",
+      "role": "narrator",
+      "start": 73.077,
+      "end": 78.442
+    },
+    {
+      "id": "l19",
+      "role": "zina",
+      "start": 78.842,
+      "end": 86.793
+    },
+    {
+      "id": "l20",
+      "role": "maxim",
+      "start": 87.093,
+      "end": 89.827
+    },
+    {
+      "id": "l21",
+      "role": "maxim",
+      "start": 90.227,
+      "end": 94.531
+    },
+    {
+      "id": "l22",
+      "role": "narrator",
+      "start": 95.131,
+      "end": 99.265
+    },
+    {
+      "id": "l23",
+      "role": "zina",
+      "start": 100.065,
+      "end": 105.932
+    },
+    {
+      "id": "l24",
+      "role": "maxim",
+      "start": 106.232,
+      "end": 108.878
+    },
+    {
+      "id": "l25",
+      "role": "masha",
+      "start": 109.178,
+      "end": 111.103
+    },
+    {
+      "id": "l26",
+      "role": "zina",
+      "start": 111.403,
+      "end": 118.365
+    },
+    {
+      "id": "l27",
+      "role": "narrator",
+      "start": 118.665,
+      "end": 122.362
+    },
+    {
+      "id": "l28",
+      "role": "maxim",
+      "start": 122.662,
+      "end": 127.081
+    },
+    {
+      "id": "l29",
+      "role": "zina",
+      "start": 127.381,
+      "end": 130.512
+    },
+    {
+      "id": "l30",
+      "role": "zina",
+      "start": 131.112,
+      "end": 136.044
+    },
+    {
+      "id": "l31",
+      "role": "soldier1",
+      "start": 137.044,
+      "end": 140.282
+    },
+    {
+      "id": "l32",
+      "role": "maxim",
+      "start": 140.582,
+      "end": 143.007
+    },
+    {
+      "id": "l33",
+      "role": "soldier1",
+      "start": 143.307,
+      "end": 150.363
+    },
+    {
+      "id": "l34",
+      "role": "soldier1",
+      "start": 150.663,
+      "end": 154.621
+    },
+    {
+      "id": "l35",
+      "role": "maxim",
+      "start": 155.021,
+      "end": 158.763
+    },
+    {
+      "id": "l36",
+      "role": "masha",
+      "start": 159.163,
+      "end": 163.063
+    },
+    {
+      "id": "l37",
+      "role": "zina",
+      "start": 163.363,
+      "end": 169.336
+    },
+    {
+      "id": "l38",
+      "role": "narrator",
+      "start": 170.336,
+      "end": 172.754
+    },
+    {
+      "id": "l39",
+      "role": "maxim",
+      "start": 173.054,
+      "end": 174.445
+    },
+    {
+      "id": "l40",
+      "role": "narrator",
+      "start": 174.745,
+      "end": 177.352
+    },
+    {
+      "id": "l41",
+      "role": "soldier1",
+      "start": 177.752,
+      "end": 180.555
+    },
+    {
+      "id": "l42",
+      "role": "narrator",
+      "start": 181.155,
+      "end": 185.599
+    }
+  ],
+  "voice_end": 185.599
+}
