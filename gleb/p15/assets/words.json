@@ -1,0 +1,1017 @@
+[
+  { "text": "Глеб", "start": 2.2, "end": 2.448, "line": "l01", "role": "narrator", "id": "w0" },
+  {
+    "text": "медленно",
+    "start": 2.448,
+    "end": 3.007,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w1"
+  },
+  {
+    "text": "обернулся.",
+    "start": 3.007,
+    "end": 3.721,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w2"
+  },
+  { "text": "Его", "start": 3.721, "end": 4.125, "line": "l01", "role": "narrator", "id": "w3" },
+  { "text": "лицо", "start": 4.125, "end": 4.528, "line": "l01", "role": "narrator", "id": "w4" },
+  { "text": "было", "start": 4.528, "end": 4.932, "line": "l01", "role": "narrator", "id": "w5" },
+  {
+    "text": "спокойным.",
+    "start": 4.932,
+    "end": 5.49,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w6"
+  },
+  { "text": "Слишком", "start": 5.49, "end": 5.894, "line": "l01", "role": "narrator", "id": "w7" },
+  {
+    "text": "спокойным.",
+    "start": 5.894,
+    "end": 6.453,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w8"
+  },
+  { "text": "Знаешь,", "start": 6.853, "end": 7.308, "line": "l02", "role": "gleb", "id": "w9" },
+  { "text": "Маша…", "start": 7.308, "end": 7.763, "line": "l02", "role": "gleb", "id": "w10" },
+  { "text": "А", "start": 7.763, "end": 8.529, "line": "l02", "role": "gleb", "id": "w11" },
+  { "text": "я", "start": 8.529, "end": 8.809, "line": "l02", "role": "gleb", "id": "w12" },
+  { "text": "ведь", "start": 8.809, "end": 9.089, "line": "l02", "role": "gleb", "id": "w13" },
+  { "text": "всё", "start": 9.089, "end": 9.369, "line": "l02", "role": "gleb", "id": "w14" },
+  { "text": "знал.", "start": 9.369, "end": 9.649, "line": "l02", "role": "gleb", "id": "w15" },
+  { "text": "И", "start": 10.049, "end": 10.245, "line": "l03", "role": "narrator", "id": "w16" },
+  {
+    "text": "вдруг",
+    "start": 10.245,
+    "end": 10.44,
+    "line": "l03",
+    "role": "narrator",
+    "id": "w17"
+  },
+  { "text": "он", "start": 10.44, "end": 10.635, "line": "l03", "role": "narrator", "id": "w18" },
+  {
+    "text": "выхватил",
+    "start": 10.635,
+    "end": 11.074,
+    "line": "l03",
+    "role": "narrator",
+    "id": "w19"
+  },
+  {
+    "text": "пистолет.",
+    "start": 11.074,
+    "end": 11.513,
+    "line": "l03",
+    "role": "narrator",
+    "id": "w20"
+  },
+  {
+    "text": "Выстрел.",
+    "start": 11.913,
+    "end": 12.322,
+    "line": "l04",
+    "role": "narrator",
+    "id": "w21"
+  },
+  { "text": "Дед", "start": 12.322, "end": 12.573, "line": "l04", "role": "narrator", "id": "w22" },
+  {
+    "text": "Максим",
+    "start": 12.573,
+    "end": 12.981,
+    "line": "l04",
+    "role": "narrator",
+    "id": "w23"
+  },
+  {
+    "text": "рухнул",
+    "start": 12.981,
+    "end": 13.389,
+    "line": "l04",
+    "role": "narrator",
+    "id": "w24"
+  },
+  { "text": "на", "start": 13.389, "end": 13.64, "line": "l04", "role": "narrator", "id": "w25" },
+  {
+    "text": "землю,",
+    "start": 13.64,
+    "end": 14.048,
+    "line": "l04",
+    "role": "narrator",
+    "id": "w26"
+  },
+  {
+    "text": "схватившись",
+    "start": 14.048,
+    "end": 14.613,
+    "line": "l04",
+    "role": "narrator",
+    "id": "w27"
+  },
+  { "text": "за", "start": 14.613, "end": 14.865, "line": "l04", "role": "narrator", "id": "w28" },
+  {
+    "text": "ногу.",
+    "start": 14.865,
+    "end": 15.273,
+    "line": "l04",
+    "role": "narrator",
+    "id": "w29"
+  },
+  { "text": "А-а-а!", "start": 16.273, "end": 17.384, "line": "l05", "role": "maxim", "id": "w30" },
+  { "text": "Глеб!", "start": 17.384, "end": 17.787, "line": "l05", "role": "maxim", "id": "w31" },
+  { "text": "Ты", "start": 17.787, "end": 18.559, "line": "l05", "role": "maxim", "id": "w32" },
+  { "text": "что", "start": 18.559, "end": 18.962, "line": "l05", "role": "maxim", "id": "w33" },
+  {
+    "text": "творишь?!",
+    "start": 18.962,
+    "end": 19.617,
+    "line": "l05",
+    "role": "maxim",
+    "id": "w34"
+  },
+  { "text": "Глеб!", "start": 19.917, "end": 20.826, "line": "l06", "role": "masha", "id": "w35" },
+  { "text": "Нет!", "start": 20.826, "end": 21.331, "line": "l06", "role": "masha", "id": "w36" },
+  {
+    "text": "Глеб",
+    "start": 21.931,
+    "end": 22.174,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w37"
+  },
+  {
+    "text": "скинул",
+    "start": 22.174,
+    "end": 22.57,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w38"
+  },
+  {
+    "text": "кожаную",
+    "start": 22.57,
+    "end": 23.269,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w39"
+  },
+  {
+    "text": "куртку.",
+    "start": 23.269,
+    "end": 23.664,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w40"
+  },
+  { "text": "Под", "start": 23.664, "end": 23.908, "line": "l07", "role": "narrator", "id": "w41" },
+  { "text": "ней", "start": 23.908, "end": 24.151, "line": "l07", "role": "narrator", "id": "w42" },
+  {
+    "text": "обтягивающая",
+    "start": 24.151,
+    "end": 25.306,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w43"
+  },
+  {
+    "text": "чёрная",
+    "start": 25.306,
+    "end": 25.854,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w44"
+  },
+  {
+    "text": "футболка.",
+    "start": 25.854,
+    "end": 26.401,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w45"
+  },
+  { "text": "И", "start": 26.401, "end": 26.644, "line": "l07", "role": "narrator", "id": "w46" },
+  {
+    "text": "чёрный",
+    "start": 26.644,
+    "end": 27.04,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w47"
+  },
+  {
+    "text": "бронежилет.",
+    "start": 27.04,
+    "end": 27.739,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w48"
+  },
+  { "text": "С", "start": 27.739, "end": 27.83, "line": "l07", "role": "narrator", "id": "w49" },
+  {
+    "text": "надписью",
+    "start": 27.83,
+    "end": 28.378,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w50"
+  },
+  {
+    "text": "«ГУЛЬ».",
+    "start": 28.378,
+    "end": 28.621,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w51"
+  },
+  { "text": "Я", "start": 29.421, "end": 29.679, "line": "l08", "role": "gleb", "id": "w52" },
+  { "text": "всё", "start": 29.679, "end": 29.936, "line": "l08", "role": "gleb", "id": "w53" },
+  { "text": "это", "start": 29.936, "end": 30.355, "line": "l08", "role": "gleb", "id": "w54" },
+  { "text": "знал.", "start": 30.355, "end": 30.938, "line": "l08", "role": "gleb", "id": "w55" },
+  { "text": "Про", "start": 30.938, "end": 31.196, "line": "l08", "role": "gleb", "id": "w56" },
+  { "text": "дачу.", "start": 31.196, "end": 31.793, "line": "l08", "role": "gleb", "id": "w57" },
+  { "text": "Про", "start": 31.793, "end": 32.051, "line": "l08", "role": "gleb", "id": "w58" },
+  { "text": "море.", "start": 32.051, "end": 32.743, "line": "l08", "role": "gleb", "id": "w59" },
+  { "text": "Про", "start": 32.743, "end": 33.001, "line": "l08", "role": "gleb", "id": "w60" },
+  { "text": "вас", "start": 33.001, "end": 33.259, "line": "l08", "role": "gleb", "id": "w61" },
+  { "text": "двоих.", "start": 33.259, "end": 33.677, "line": "l08", "role": "gleb", "id": "w62" },
+  { "text": "И", "start": 33.977, "end": 34.25, "line": "l09", "role": "gleb", "id": "w63" },
+  { "text": "знаешь", "start": 34.25, "end": 34.693, "line": "l09", "role": "gleb", "id": "w64" },
+  { "text": "что?", "start": 34.693, "end": 34.966, "line": "l09", "role": "gleb", "id": "w65" },
+  { "text": "Детей", "start": 34.966, "end": 35.409, "line": "l09", "role": "gleb", "id": "w66" },
+  { "text": "мне", "start": 35.409, "end": 35.682, "line": "l09", "role": "gleb", "id": "w67" },
+  { "text": "не", "start": 35.682, "end": 35.955, "line": "l09", "role": "gleb", "id": "w68" },
+  { "text": "жалко.", "start": 35.955, "end": 36.398, "line": "l09", "role": "gleb", "id": "w69" },
+  { "text": "И", "start": 36.398, "end": 36.855, "line": "l09", "role": "gleb", "id": "w70" },
+  { "text": "вас", "start": 36.855, "end": 37.127, "line": "l09", "role": "gleb", "id": "w71" },
+  { "text": "мне", "start": 37.127, "end": 37.4, "line": "l09", "role": "gleb", "id": "w72" },
+  { "text": "не", "start": 37.4, "end": 37.673, "line": "l09", "role": "gleb", "id": "w73" },
+  { "text": "жалко.", "start": 37.673, "end": 38.116, "line": "l09", "role": "gleb", "id": "w74" },
+  { "text": "Глеб…", "start": 38.716, "end": 39.054, "line": "l10", "role": "masha", "id": "w75" },
+  { "text": "Кто", "start": 39.054, "end": 39.879, "line": "l10", "role": "masha", "id": "w76" },
+  { "text": "ты", "start": 39.879, "end": 40.218, "line": "l10", "role": "masha", "id": "w77" },
+  {
+    "text": "такой?..",
+    "start": 40.218,
+    "end": 40.768,
+    "line": "l10",
+    "role": "masha",
+    "id": "w78"
+  },
+  { "text": "В", "start": 41.368, "end": 41.461, "line": "l11", "role": "narrator", "id": "w79" },
+  { "text": "его", "start": 41.461, "end": 41.868, "line": "l11", "role": "narrator", "id": "w80" },
+  { "text": "ухе", "start": 41.868, "end": 42.274, "line": "l11", "role": "narrator", "id": "w81" },
+  { "text": "тихо", "start": 42.274, "end": 42.68, "line": "l11", "role": "narrator", "id": "w82" },
+  {
+    "text": "щёлкнул",
+    "start": 42.68,
+    "end": 43.086,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w83"
+  },
+  {
+    "text": "наушник.",
+    "start": 43.086,
+    "end": 43.649,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w84"
+  },
+  {
+    "text": "Приём,",
+    "start": 43.949,
+    "end": 44.244,
+    "line": "l12",
+    "role": "valkyrie",
+    "id": "w85"
+  },
+  {
+    "text": "Гуль.",
+    "start": 44.244,
+    "end": 44.667,
+    "line": "l12",
+    "role": "valkyrie",
+    "id": "w86"
+  },
+  { "text": "Это", "start": 44.667, "end": 45.311, "line": "l12", "role": "valkyrie", "id": "w87" },
+  {
+    "text": "Валькирия.",
+    "start": 45.311,
+    "end": 45.833,
+    "line": "l12",
+    "role": "valkyrie",
+    "id": "w88"
+  },
+  { "text": "Что", "start": 45.833, "end": 46.944, "line": "l12", "role": "valkyrie", "id": "w89" },
+  {
+    "text": "делаем?",
+    "start": 46.944,
+    "end": 47.353,
+    "line": "l12",
+    "role": "valkyrie",
+    "id": "w90"
+  },
+  { "text": "Принял.", "start": 47.653, "end": 48.522, "line": "l13", "role": "gleb", "id": "w91" },
+  { "text": "Жди.", "start": 48.522, "end": 48.943, "line": "l13", "role": "gleb", "id": "w92" },
+  { "text": "Ты", "start": 49.543, "end": 49.766, "line": "l14", "role": "gleb", "id": "w93" },
+  { "text": "думала,", "start": 49.766, "end": 50.405, "line": "l14", "role": "gleb", "id": "w94" },
+  { "text": "всё", "start": 50.405, "end": 50.629, "line": "l14", "role": "gleb", "id": "w95" },
+  { "text": "это", "start": 50.629, "end": 50.992, "line": "l14", "role": "gleb", "id": "w96" },
+  {
+    "text": "началось",
+    "start": 50.992,
+    "end": 51.495,
+    "line": "l14",
+    "role": "gleb",
+    "id": "w97"
+  },
+  { "text": "из-за", "start": 51.495, "end": 51.858, "line": "l14", "role": "gleb", "id": "w98" },
+  { "text": "войны?", "start": 51.858, "end": 52.477, "line": "l14", "role": "gleb", "id": "w99" },
+  { "text": "Нет,", "start": 52.477, "end": 52.7, "line": "l14", "role": "gleb", "id": "w100" },
+  { "text": "Маша.", "start": 52.7, "end": 53.063, "line": "l14", "role": "gleb", "id": "w101" },
+  { "text": "В", "start": 53.363, "end": 53.462, "line": "l15", "role": "gleb", "id": "w102" },
+  { "text": "мире", "start": 53.462, "end": 53.887, "line": "l15", "role": "gleb", "id": "w103" },
+  { "text": "вирус.", "start": 53.887, "end": 54.312, "line": "l15", "role": "gleb", "id": "w104" },
+  { "text": "Он", "start": 54.312, "end": 54.574, "line": "l15", "role": "gleb", "id": "w105" },
+  {
+    "text": "превращает",
+    "start": 54.574,
+    "end": 55.594,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w106"
+  },
+  { "text": "людей", "start": 55.594, "end": 56.019, "line": "l15", "role": "gleb", "id": "w107" },
+  { "text": "в", "start": 56.019, "end": 56.118, "line": "l15", "role": "gleb", "id": "w108" },
+  { "text": "зомби.", "start": 56.118, "end": 56.543, "line": "l15", "role": "gleb", "id": "w109" },
+  { "text": "А", "start": 56.543, "end": 57.125, "line": "l15", "role": "gleb", "id": "w110" },
+  { "text": "война", "start": 57.125, "end": 57.551, "line": "l15", "role": "gleb", "id": "w111" },
+  { "text": "просто", "start": 57.551, "end": 57.976, "line": "l15", "role": "gleb", "id": "w112" },
+  {
+    "text": "прикрытие.",
+    "start": 57.976,
+    "end": 58.729,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w113"
+  },
+  { "text": "Чтобы", "start": 58.729, "end": 59.276, "line": "l15", "role": "gleb", "id": "w114" },
+  { "text": "никто", "start": 59.276, "end": 59.701, "line": "l15", "role": "gleb", "id": "w115" },
+  { "text": "не", "start": 59.701, "end": 59.963, "line": "l15", "role": "gleb", "id": "w116" },
+  {
+    "text": "задавал",
+    "start": 59.963,
+    "end": 60.552,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w117"
+  },
+  {
+    "text": "вопросов.",
+    "start": 60.552,
+    "end": 61.141,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w118"
+  },
+  {
+    "text": "Глеб",
+    "start": 61.941,
+    "end": 62.188,
+    "line": "l16",
+    "role": "narrator",
+    "id": "w119"
+  },
+  {
+    "text": "достал",
+    "start": 62.188,
+    "end": 62.588,
+    "line": "l16",
+    "role": "narrator",
+    "id": "w120"
+  },
+  {
+    "text": "сигарету.",
+    "start": 62.588,
+    "end": 63.296,
+    "line": "l16",
+    "role": "narrator",
+    "id": "w121"
+  },
+  {
+    "text": "Закурил.",
+    "start": 63.296,
+    "end": 63.851,
+    "line": "l16",
+    "role": "narrator",
+    "id": "w122"
+  },
+  { "text": "Я", "start": 64.851, "end": 65.081, "line": "l17", "role": "gleb", "id": "w123" },
+  { "text": "всегда", "start": 65.081, "end": 65.454, "line": "l17", "role": "gleb", "id": "w124" },
+  { "text": "был", "start": 65.454, "end": 65.683, "line": "l17", "role": "gleb", "id": "w125" },
+  { "text": "предан", "start": 65.683, "end": 66.057, "line": "l17", "role": "gleb", "id": "w126" },
+  { "text": "этим", "start": 66.057, "end": 66.43, "line": "l17", "role": "gleb", "id": "w127" },
+  { "text": "людям.", "start": 66.43, "end": 66.803, "line": "l17", "role": "gleb", "id": "w128" },
+  {
+    "text": "Всегда.",
+    "start": 66.803,
+    "end": 67.458,
+    "line": "l17",
+    "role": "gleb",
+    "id": "w129"
+  },
+  { "text": "Ещё", "start": 67.458, "end": 68.104, "line": "l17", "role": "gleb", "id": "w130" },
+  { "text": "до", "start": 68.104, "end": 68.334, "line": "l17", "role": "gleb", "id": "w131" },
+  { "text": "того,", "start": 68.334, "end": 68.707, "line": "l17", "role": "gleb", "id": "w132" },
+  { "text": "как", "start": 68.707, "end": 68.936, "line": "l17", "role": "gleb", "id": "w133" },
+  { "text": "мы", "start": 68.936, "end": 69.166, "line": "l17", "role": "gleb", "id": "w134" },
+  { "text": "с", "start": 69.166, "end": 69.252, "line": "l17", "role": "gleb", "id": "w135" },
+  { "text": "тобой", "start": 69.252, "end": 69.625, "line": "l17", "role": "gleb", "id": "w136" },
+  {
+    "text": "познакомились.",
+    "start": 69.625,
+    "end": 70.429,
+    "line": "l17",
+    "role": "gleb",
+    "id": "w137"
+  },
+  { "text": "Так", "start": 70.929, "end": 71.334, "line": "l18", "role": "maxim", "id": "w138" },
+  { "text": "ты…", "start": 71.334, "end": 72.004, "line": "l18", "role": "maxim", "id": "w139" },
+  { "text": "Ты", "start": 72.004, "end": 72.409, "line": "l18", "role": "maxim", "id": "w140" },
+  { "text": "всё", "start": 72.409, "end": 73.136, "line": "l18", "role": "maxim", "id": "w141" },
+  { "text": "это", "start": 73.136, "end": 73.793, "line": "l18", "role": "maxim", "id": "w142" },
+  { "text": "время…", "start": 73.793, "end": 74.45, "line": "l18", "role": "maxim", "id": "w143" },
+  { "text": "Молчи,", "start": 74.75, "end": 75.123, "line": "l19", "role": "gleb", "id": "w144" },
+  { "text": "дед.", "start": 75.123, "end": 75.353, "line": "l19", "role": "gleb", "id": "w145" },
+  { "text": "Ты", "start": 75.353, "end": 75.583, "line": "l19", "role": "gleb", "id": "w146" },
+  { "text": "своё", "start": 75.583, "end": 76.244, "line": "l19", "role": "gleb", "id": "w147" },
+  { "text": "уже", "start": 76.244, "end": 76.618, "line": "l19", "role": "gleb", "id": "w148" },
+  {
+    "text": "отговорил.",
+    "start": 76.618,
+    "end": 77.279,
+    "line": "l19",
+    "role": "gleb",
+    "id": "w149"
+  },
+  {
+    "text": "Над",
+    "start": 78.079,
+    "end": 78.308,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w150"
+  },
+  {
+    "text": "лагерем",
+    "start": 78.308,
+    "end": 78.825,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w151"
+  },
+  {
+    "text": "загрохотал",
+    "start": 78.825,
+    "end": 79.486,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w152"
+  },
+  {
+    "text": "вертолёт.",
+    "start": 79.486,
+    "end": 80.003,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w153"
+  },
+  {
+    "text": "Чёрный.",
+    "start": 80.003,
+    "end": 80.376,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w154"
+  },
+  {
+    "text": "Без",
+    "start": 80.376,
+    "end": 80.761,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w155"
+  },
+  {
+    "text": "опознавательных",
+    "start": 80.761,
+    "end": 81.709,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w156"
+  },
+  {
+    "text": "знаков.",
+    "start": 81.709,
+    "end": 82.082,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w157"
+  },
+  { "text": "Из", "start": 82.682, "end": 82.911, "line": "l21", "role": "narrator", "id": "w158" },
+  {
+    "text": "него",
+    "start": 82.911,
+    "end": 83.283,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w159"
+  },
+  {
+    "text": "спрыгнула",
+    "start": 83.283,
+    "end": 83.797,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w160"
+  },
+  {
+    "text": "девушка.",
+    "start": 83.797,
+    "end": 84.312,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w161"
+  },
+  {
+    "text": "Чёрный",
+    "start": 84.312,
+    "end": 84.684,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w162"
+  },
+  {
+    "text": "бронежилет.",
+    "start": 84.684,
+    "end": 85.341,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w163"
+  },
+  {
+    "text": "Ярко-белые",
+    "start": 85.341,
+    "end": 86.142,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w164"
+  },
+  {
+    "text": "волосы.",
+    "start": 86.142,
+    "end": 86.657,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w165"
+  },
+  {
+    "text": "Ледяные",
+    "start": 86.657,
+    "end": 87.315,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w166"
+  },
+  {
+    "text": "голубые",
+    "start": 87.315,
+    "end": 87.972,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w167"
+  },
+  {
+    "text": "глаза.",
+    "start": 87.972,
+    "end": 88.344,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w168"
+  },
+  { "text": "На", "start": 88.344, "end": 88.573, "line": "l21", "role": "narrator", "id": "w169" },
+  {
+    "text": "груди",
+    "start": 88.573,
+    "end": 88.945,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w170"
+  },
+  {
+    "text": "надпись",
+    "start": 88.945,
+    "end": 89.316,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w171"
+  },
+  {
+    "text": "«ВАЛЬКИРИЯ».",
+    "start": 89.316,
+    "end": 89.974,
+    "line": "l21",
+    "role": "narrator",
+    "id": "w172"
+  },
+  { "text": "Ну", "start": 90.574, "end": 90.835, "line": "l22", "role": "valkyrie", "id": "w173" },
+  {
+    "text": "что,",
+    "start": 90.835,
+    "end": 91.097,
+    "line": "l22",
+    "role": "valkyrie",
+    "id": "w174"
+  },
+  {
+    "text": "Глеб…",
+    "start": 91.097,
+    "end": 91.359,
+    "line": "l22",
+    "role": "valkyrie",
+    "id": "w175"
+  },
+  {
+    "text": "Летим?",
+    "start": 91.359,
+    "end": 91.978,
+    "line": "l22",
+    "role": "valkyrie",
+    "id": "w176"
+  },
+  { "text": "Да.", "start": 92.378, "end": 92.816, "line": "l23", "role": "gleb", "id": "w177" },
+  { "text": "Летим.", "start": 92.816, "end": 93.798, "line": "l23", "role": "gleb", "id": "w178" },
+  { "text": "Глеб!", "start": 94.398, "end": 94.692, "line": "l24", "role": "masha", "id": "w179" },
+  { "text": "Я", "start": 94.692, "end": 94.986, "line": "l24", "role": "masha", "id": "w180" },
+  { "text": "же", "start": 94.986, "end": 95.607, "line": "l24", "role": "masha", "id": "w181" },
+  {
+    "text": "беременна!",
+    "start": 95.607,
+    "end": 96.893,
+    "line": "l24",
+    "role": "masha",
+    "id": "w182"
+  },
+  {
+    "text": "Пожалуйста!",
+    "start": 96.893,
+    "end": 97.739,
+    "line": "l24",
+    "role": "masha",
+    "id": "w183"
+  },
+  {
+    "text": "Глеб",
+    "start": 98.139,
+    "end": 98.377,
+    "line": "l25",
+    "role": "narrator",
+    "id": "w184"
+  },
+  {
+    "text": "повернулся",
+    "start": 98.377,
+    "end": 99.061,
+    "line": "l25",
+    "role": "narrator",
+    "id": "w185"
+  },
+  { "text": "к", "start": 99.061, "end": 99.15, "line": "l25", "role": "narrator", "id": "w186" },
+  {
+    "text": "Маше.",
+    "start": 99.15,
+    "end": 99.537,
+    "line": "l25",
+    "role": "narrator",
+    "id": "w187"
+  },
+  { "text": "И", "start": 99.537, "end": 99.774, "line": "l25", "role": "narrator", "id": "w188" },
+  {
+    "text": "поднял",
+    "start": 99.774,
+    "end": 100.161,
+    "line": "l25",
+    "role": "narrator",
+    "id": "w189"
+  },
+  {
+    "text": "пистолет.",
+    "start": 100.161,
+    "end": 100.697,
+    "line": "l25",
+    "role": "narrator",
+    "id": "w190"
+  },
+  {
+    "text": "Сдохни.",
+    "start": 101.097,
+    "end": 101.854,
+    "line": "l26",
+    "role": "gleb",
+    "id": "w191"
+  },
+  {
+    "text": "Выстрел.",
+    "start": 102.254,
+    "end": 102.819,
+    "line": "l27",
+    "role": "narrator",
+    "id": "w192"
+  },
+  {
+    "text": "Маша!!!",
+    "start": 103.819,
+    "end": 104.928,
+    "line": "l28",
+    "role": "maxim",
+    "id": "w193"
+  },
+  {
+    "text": "Глеб",
+    "start": 105.728,
+    "end": 105.933,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w194"
+  },
+  {
+    "text": "и",
+    "start": 105.933,
+    "end": 106.138,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w195"
+  },
+  {
+    "text": "Валькирия",
+    "start": 106.138,
+    "end": 106.728,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w196"
+  },
+  {
+    "text": "запрыгнули",
+    "start": 106.728,
+    "end": 107.318,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w197"
+  },
+  {
+    "text": "в",
+    "start": 107.318,
+    "end": 107.395,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w198"
+  },
+  {
+    "text": "вертолёт.",
+    "start": 107.395,
+    "end": 107.856,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w199"
+  },
+  {
+    "text": "Он",
+    "start": 107.856,
+    "end": 108.061,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w200"
+  },
+  {
+    "text": "поднялся",
+    "start": 108.061,
+    "end": 108.523,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w201"
+  },
+  {
+    "text": "над",
+    "start": 108.523,
+    "end": 108.728,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w202"
+  },
+  {
+    "text": "лагерем",
+    "start": 108.728,
+    "end": 109.189,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w203"
+  },
+  {
+    "text": "и",
+    "start": 109.189,
+    "end": 109.394,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w204"
+  },
+  {
+    "text": "исчез",
+    "start": 109.394,
+    "end": 109.728,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w205"
+  },
+  {
+    "text": "в",
+    "start": 109.728,
+    "end": 109.805,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w206"
+  },
+  {
+    "text": "закатном",
+    "start": 109.805,
+    "end": 110.266,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w207"
+  },
+  {
+    "text": "небе.",
+    "start": 110.266,
+    "end": 110.599,
+    "line": "l29",
+    "role": "narrator",
+    "id": "w208"
+  },
+  {
+    "text": "Маша…",
+    "start": 111.599,
+    "end": 112.262,
+    "line": "l30",
+    "role": "maxim",
+    "id": "w209"
+  },
+  {
+    "text": "Машенька…",
+    "start": 112.262,
+    "end": 113.57,
+    "line": "l30",
+    "role": "maxim",
+    "id": "w210"
+  },
+  {
+    "text": "Держись…",
+    "start": 113.57,
+    "end": 114.442,
+    "line": "l30",
+    "role": "maxim",
+    "id": "w211"
+  },
+  { "text": "Не", "start": 114.442, "end": 115.23, "line": "l30", "role": "maxim", "id": "w212" },
+  {
+    "text": "закрывай",
+    "start": 115.23,
+    "end": 116.148,
+    "line": "l30",
+    "role": "maxim",
+    "id": "w213"
+  },
+  {
+    "text": "глаза…",
+    "start": 116.148,
+    "end": 116.811,
+    "line": "l30",
+    "role": "maxim",
+    "id": "w214"
+  },
+  {
+    "text": "Максим…",
+    "start": 117.311,
+    "end": 117.818,
+    "line": "l31",
+    "role": "masha",
+    "id": "w215"
+  },
+  { "text": "Мне", "start": 117.818, "end": 118.587, "line": "l31", "role": "masha", "id": "w216" },
+  {
+    "text": "холодно…",
+    "start": 118.587,
+    "end": 119.289,
+    "line": "l31",
+    "role": "masha",
+    "id": "w217"
+  },
+  { "text": "А", "start": 120.489, "end": 120.67, "line": "l32", "role": "narrator", "id": "w218" },
+  {
+    "text": "на",
+    "start": 120.67,
+    "end": 120.851,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w219"
+  },
+  {
+    "text": "краю",
+    "start": 120.851,
+    "end": 121.145,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w220"
+  },
+  {
+    "text": "лагеря",
+    "start": 121.145,
+    "end": 121.552,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w221"
+  },
+  {
+    "text": "из",
+    "start": 121.552,
+    "end": 121.733,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w222"
+  },
+  {
+    "text": "палатки",
+    "start": 121.733,
+    "end": 122.141,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w223"
+  },
+  {
+    "text": "вышел",
+    "start": 122.141,
+    "end": 122.435,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w224"
+  },
+  {
+    "text": "человек.",
+    "start": 122.435,
+    "end": 122.842,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w225"
+  },
+  {
+    "text": "И",
+    "start": 122.842,
+    "end": 123.023,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w226"
+  },
+  {
+    "text": "его",
+    "start": 123.023,
+    "end": 123.318,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w227"
+  },
+  {
+    "text": "глаза",
+    "start": 123.318,
+    "end": 123.612,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w228"
+  },
+  {
+    "text": "светились",
+    "start": 123.612,
+    "end": 124.019,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w229"
+  },
+  {
+    "text": "мутно-белым.",
+    "start": 124.019,
+    "end": 124.54,
+    "line": "l32",
+    "role": "narrator",
+    "id": "w230"
+  }
+]

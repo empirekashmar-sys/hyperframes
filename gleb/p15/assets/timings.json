@@ -1,0 +1,197 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 2.2,
+      "end": 6.453
+    },
+    {
+      "id": "l02",
+      "role": "gleb",
+      "start": 6.853,
+      "end": 9.649
+    },
+    {
+      "id": "l03",
+      "role": "narrator",
+      "start": 10.049,
+      "end": 11.513
+    },
+    {
+      "id": "l04",
+      "role": "narrator",
+      "start": 11.913,
+      "end": 15.273
+    },
+    {
+      "id": "l05",
+      "role": "maxim",
+      "start": 16.273,
+      "end": 19.617
+    },
+    {
+      "id": "l06",
+      "role": "masha",
+      "start": 19.917,
+      "end": 21.331
+    },
+    {
+      "id": "l07",
+      "role": "narrator",
+      "start": 21.931,
+      "end": 28.621
+    },
+    {
+      "id": "l08",
+      "role": "gleb",
+      "start": 29.421,
+      "end": 33.677
+    },
+    {
+      "id": "l09",
+      "role": "gleb",
+      "start": 33.977,
+      "end": 38.116
+    },
+    {
+      "id": "l10",
+      "role": "masha",
+      "start": 38.716,
+      "end": 40.768
+    },
+    {
+      "id": "l11",
+      "role": "narrator",
+      "start": 41.368,
+      "end": 43.649
+    },
+    {
+      "id": "l12",
+      "role": "valkyrie",
+      "start": 43.949,
+      "end": 47.353
+    },
+    {
+      "id": "l13",
+      "role": "gleb",
+      "start": 47.653,
+      "end": 48.943
+    },
+    {
+      "id": "l14",
+      "role": "gleb",
+      "start": 49.543,
+      "end": 53.063
+    },
+    {
+      "id": "l15",
+      "role": "gleb",
+      "start": 53.363,
+      "end": 61.141
+    },
+    {
+      "id": "l16",
+      "role": "narrator",
+      "start": 61.941,
+      "end": 63.851
+    },
+    {
+      "id": "l17",
+      "role": "gleb",
+      "start": 64.851,
+      "end": 70.429
+    },
+    {
+      "id": "l18",
+      "role": "maxim",
+      "start": 70.929,
+      "end": 74.45
+    },
+    {
+      "id": "l19",
+      "role": "gleb",
+      "start": 74.75,
+      "end": 77.279
+    },
+    {
+      "id": "l20",
+      "role": "narrator",
+      "start": 78.079,
+      "end": 82.082
+    },
+    {
+      "id": "l21",
+      "role": "narrator",
+      "start": 82.682,
+      "end": 89.974
+    },
+    {
+      "id": "l22",
+      "role": "valkyrie",
+      "start": 90.574,
+      "end": 91.978
+    },
+    {
+      "id": "l23",
+      "role": "gleb",
+      "start": 92.378,
+      "end": 93.798
+    },
+    {
+      "id": "l24",
+      "role": "masha",
+      "start": 94.398,
+      "end": 97.739
+    },
+    {
+      "id": "l25",
+      "role": "narrator",
+      "start": 98.139,
+      "end": 100.697
+    },
+    {
+      "id": "l26",
+      "role": "gleb",
+      "start": 101.097,
+      "end": 101.854
+    },
+    {
+      "id": "l27",
+      "role": "narrator",
+      "start": 102.254,
+      "end": 102.819
+    },
+    {
+      "id": "l28",
+      "role": "maxim",
+      "start": 103.819,
+      "end": 104.928
+    },
+    {
+      "id": "l29",
+      "role": "narrator",
+      "start": 105.728,
+      "end": 110.599
+    },
+    {
+      "id": "l30",
+      "role": "maxim",
+      "start": 111.599,
+      "end": 116.811
+    },
+    {
+      "id": "l31",
+      "role": "masha",
+      "start": 117.311,
+      "end": 119.289
+    },
+    {
+      "id": "l32",
+      "role": "narrator",
+      "start": 120.489,
+      "end": 124.54
+    }
+  ],
+  "voice_end": 124.54
+}

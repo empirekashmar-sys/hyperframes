@@ -21,6 +21,7 @@ function limb(x, y, len, w, color, end, endColor, cls) {
   return `<g transform="translate(${x} ${y})"><g class="${cls}">
     <rect x="${-w / 2}" y="${-w / 2}" width="${w}" height="${l1 + w / 2 + w2 / 2}" rx="${w / 2}" fill="${color}" ${ol()}/>
     <rect x="${w * 0.08}" y="0" width="${w * 0.28}" height="${l1}" rx="${w * 0.14}" fill="#000" opacity=".14"/>
+    <rect x="${-w * 0.36}" y="${w * 0.1}" width="${w * 0.14}" height="${l1 - w * 0.2}" rx="${w * 0.07}" fill="#fff" opacity=".12"/>
     <g transform="translate(0 ${l1})"><g class="${cls}-lo">
       <rect x="${-w2 / 2}" y="${-w2 / 2}" width="${w2}" height="${l2 + w2 / 2}" rx="${w2 / 2}" fill="${color}" ${ol()}/>
       <rect x="${w2 * 0.08}" y="0" width="${w2 * 0.28}" height="${l2 - 4}" rx="${w2 * 0.14}" fill="#000" opacity=".14"/>
@@ -51,8 +52,9 @@ function face({
   const eye = (
     x,
   ) => `<ellipse cx="${x}" cy="${ey}" rx="${r * 0.15}" ry="${r * 0.17}" fill="#f6f1e8" ${ol(1.6)}/>
-      <circle cx="${x + 0.8}" cy="${ey + 0.8}" r="${r * 0.1}" fill="${iris}"/><circle cx="${x + 1}" cy="${ey + 0.8}" r="${r * 0.045}" fill="${O}"/>
-      <circle cx="${x + 2.6}" cy="${ey - 1.8}" r="${r * 0.03}" fill="#fff"/>
+      <circle cx="${x + 0.8}" cy="${ey + 0.8}" r="${r * 0.112}" fill="${iris}" stroke="${O}" stroke-width="0.9" stroke-opacity=".55"/><path d="M${x + 0.8 - r * 0.1} ${ey + 0.8} a${r * 0.1} ${r * 0.1} 0 0 0 ${r * 0.2} 0z" fill="#000" opacity=".22"/><circle cx="${x + 1}" cy="${ey + 0.8}" r="${r * 0.05}" fill="${O}"/>
+      <circle cx="${x + 3}" cy="${ey - 2}" r="${r * 0.038}" fill="#fff"/><circle cx="${x - 2}" cy="${ey + 3.4}" r="${r * 0.018}" fill="#fff" opacity=".85"/>
+      <path d="M${x - r * 0.15} ${ey - r * 0.06} q${r * 0.15} -${r * 0.16} ${r * 0.3} 0" fill="none" stroke="${O}" stroke-width="${r * 0.05}" stroke-linecap="round"/>
       ${lash ? `<path d="M${x - r * 0.16} ${ey - r * 0.12} l-4 -3 M${x + r * 0.16} ${ey - r * 0.12} l4 -3" ${ol(1.6)}/>` : ""}`;
   const closed = (x) =>
     `<path d="M${x - r * 0.15} ${ey + 1} q${r * 0.15} ${r * 0.1} ${r * 0.3} 0" fill="none" ${ol(2.4)}/>`;
@@ -147,6 +149,7 @@ function build(spec) {
   const torso = `
     <path d="M${cx - half + 6} ${shoulder} Q${cx} ${shoulder - 10} ${cx + half - 6} ${shoulder} L${cx + half} ${shoulder + 16} L${cx + half - 2} ${hip + 6} Q${cx} ${hip + 14} ${cx - half + 2} ${hip + 6} L${cx - half} ${shoulder + 16}Z" fill="${top}" ${ol()}/>
     <path d="M${cx + half * 0.35} ${shoulder + 4} L${cx + half - 1} ${shoulder + 18} L${cx + half - 3} ${hip + 4} L${cx + half * 0.35} ${hip + 8}Z" fill="${topDark}" opacity=".55"/>
+    <path d="M${cx - half + 5} ${shoulder + 14} L${cx - half + 3} ${hip} " stroke="#fff" stroke-width="3" opacity=".14" stroke-linecap="round"/>
     ${torsoExtra}`;
   const armL = limb(armX[0], shoulder + 8, P.arm, P.armW, sleeve, hand, shade, "armL");
   const armR = limb(
@@ -165,10 +168,12 @@ function build(spec) {
       .replace(/__CY__/g, hcy)
       .replace(/__R__/g, P.r)}
     <rect x="${cx - P.r * 0.24}" y="${hcy + P.r * 0.6}" width="${P.r * 0.48}" height="${P.r * 0.5}" fill="${shade}" ${ol(2)}/>
+    <ellipse cx="${cx}" cy="${hcy + P.r * 0.86}" rx="${P.r * 0.26}" ry="${P.r * 0.12}" fill="#000" opacity=".22"/>
     <ellipse cx="${cx - P.r * 0.95}" cy="${hcy + P.r * 0.08}" rx="${P.r * 0.14}" ry="${P.r * 0.2}" fill="${shade}" ${ol(2)}/>
     <ellipse cx="${cx + P.r * 0.95}" cy="${hcy + P.r * 0.08}" rx="${P.r * 0.14}" ry="${P.r * 0.2}" fill="${shade}" ${ol(2)}/>
     <ellipse cx="${cx}" cy="${hcy}" rx="${P.r * (kid === 3 ? 0.86 : 0.92)}" ry="${P.r * (kid === 3 ? 1.06 : 1)}" fill="${skin}" ${ol()}/>
     <path d="M${cx + P.r * 0.35} ${hcy - P.r * 0.8} Q${cx + P.r * 1.0} ${hcy} ${cx + P.r * 0.4} ${hcy + P.r * 0.9} Q${cx + P.r * 0.85} ${hcy} ${cx + P.r * 0.35} ${hcy - P.r * 0.8}Z" fill="${shade}" opacity=".35"/>
+    <ellipse cx="${cx - P.r * 0.32}" cy="${hcy - P.r * 0.42}" rx="${P.r * 0.3}" ry="${P.r * 0.15}" fill="#fff" opacity=".16" transform="rotate(-18 ${cx - P.r * 0.32} ${hcy - P.r * 0.42})"/>
     ${face({ cx, cy: hcy, r: P.r, skin, shade, iris, brow, ...faceOpts })}
     ${hairFront
       .replace(/__CX__/g, cx)
@@ -222,8 +227,28 @@ export function gleb({
   prop = "",
   injured = false,
   armor = false,
+  ghoul = false,
 } = {}) {
   const jacket = outfit === "jacket";
+  if (ghoul)
+    return build({
+      skin: "#e0ae88",
+      shade: "#c08b66",
+      iris: "#6b3d1c",
+      brow,
+      top: "#141418",
+      topDark: "#0a0a0c",
+      sleeve: "#e0ae88",
+      bottom: "#1b1e27",
+      shoes: "#2a2a2e",
+      torsoExtra: `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#1d1f24" stroke="#0b0d14" stroke-width="2"/><rect x="74" y="168" width="52" height="20" rx="3" fill="#f2efe6"/><text x="100" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="#c9302c">ГУЛЬ</text><rect x="72" y="210" width="22" height="26" rx="3" fill="#2a2d34"/><rect x="106" y="210" width="22" height="26" rx="3" fill="#2a2d34"/>`,
+      hairFront: HAIR.glebFront("#17181d"),
+      accessory: `<path d="M__CX__ __CY__ m40 0 q8 0 8 10 v14" stroke="#2a2a2e" stroke-width="4" fill="none"/><circle cx="__CX__" cy="__CY__" r="5" transform="translate(42 2)" fill="#2a2a2e"/>`,
+      handProp:
+        prop === "pistol"
+          ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-4" width="40" height="12" rx="2" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/><rect x="-4" y="4" width="12" height="22" rx="3" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/></g>`
+          : "",
+    });
   return build({
     skin: "#e0ae88",
     shade: "#c08b66",
@@ -244,11 +269,13 @@ export function gleb({
       ? `<ellipse cx="__CX__" cy="__CY__" rx="9" ry="6" transform="translate(16 -18)" fill="#8a4a6a" opacity=".75"/><path d="M__CX__ __CY__ m18 -14 q2 10 -2 22" stroke="#b3241b" stroke-width="3" fill="none" stroke-linecap="round"/>`
       : "",
     handProp:
-      prop === "rifle"
-        ? RIFLE_SVG
-        : prop === "phone"
-          ? `<rect x="__X__" y="__Y__" width="16" height="26" rx="3" transform="translate(-14 -22)" fill="#111" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="11" height="19" rx="2" transform="translate(-11.5 -19)" fill="#9fd2ff"/>`
-          : "",
+      prop === "pistol"
+        ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-4" width="40" height="12" rx="2" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/><rect x="-4" y="4" width="12" height="22" rx="3" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/></g>`
+        : prop === "rifle"
+          ? RIFLE_SVG
+          : prop === "phone"
+            ? `<rect x="__X__" y="__Y__" width="16" height="26" rx="3" transform="translate(-14 -22)" fill="#111" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="11" height="19" rx="2" transform="translate(-11.5 -19)" fill="#9fd2ff"/>`
+            : "",
   });
 }
 
@@ -468,6 +495,25 @@ export function feldsher({ brow = "neutral" } = {}) {
     torsoExtra: `<path d="M100 132 V268" stroke="#c9ccd2" stroke-width="3"/><rect x="110" y="170" width="20" height="24" rx="3" fill="#c9ccd2"/><path d="M84 132 Q76 200 92 230 M92 230 a6 6 0 1 0 1 0" stroke="#3a3a40" stroke-width="3" fill="none"/>`,
     hairFront: `<path d="M__CX__ __CY__ m-42 -2 q-6 -46 42 -48 q48 2 42 48 q-8 -20 -42 -22 q-34 2 -42 22z" fill="#b9b4b0" ${ol(2)}/>${[-30, -12, 6, 24].map((d) => `<circle cx="__CX__" cy="__CY__" r="9" transform="translate(${d} -46)" fill="#b9b4b0" ${ol(1.6)}/>`).join("")}`,
     faceOpts: { glasses: true, lash: true },
+  });
+}
+
+// Valkyrie: white hair, ice-blue eyes, black body armour with her callsign.
+export function valkyrie({ brow = "neutral" } = {}) {
+  return build({
+    skin: "#f0d0bc",
+    shade: "#d4b09a",
+    iris: "#4ab8f0",
+    brow,
+    top: "#141418",
+    topDark: "#0a0a0c",
+    sleeve: "#141418",
+    bottom: "#141418",
+    shoes: "#2a2a2e",
+    torsoExtra: `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#1d1f24" stroke="#0b0d14" stroke-width="2"/><rect x="66" y="222" width="68" height="20" rx="3" fill="#f2efe6"/><text x="100" y="237" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="11" fill="#2a5aa8">ВАЛЬКИРИЯ</text>`,
+    hairBack: HAIR.mashaBack("#f4f6fa", true),
+    hairFront: HAIR.mashaFront("#f4f6fa"),
+    faceOpts: { lash: true },
   });
 }
 
