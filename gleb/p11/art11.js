@@ -110,9 +110,9 @@ export function room() {
 export function sofaFront() {
   return svg(
     "0 0 1080 1100",
-    `<rect x="320" y="740" width="440" height="120" rx="24" fill="#7a9a7a" ${ol()}/>
-     <rect x="290" y="680" width="60" height="180" rx="20" fill="#6a8a6a" ${ol()}/><rect x="730" y="680" width="60" height="180" rx="20" fill="#6a8a6a" ${ol()}/>
-     <path d="M340 860 v20 M740 860 v20" ${ol(8)}/>`,
+    `<rect x="320" y="740" width="440" height="230" rx="24" fill="#7a9a7a" ${ol()}/>
+     <rect x="290" y="680" width="60" height="290" rx="20" fill="#6a8a6a" ${ol()}/><rect x="730" y="680" width="60" height="290" rx="20" fill="#6a8a6a" ${ol()}/>
+     <path d="M340 970 v20 M740 970 v20" ${ol(8)}/>`,
   );
 }
 // Grill smoke.

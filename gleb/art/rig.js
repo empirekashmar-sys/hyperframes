@@ -452,6 +452,25 @@ export function zina({ brow = "angry", prop = "" } = {}) {
   });
 }
 
+// Village medic: white coat, grey perm, glasses (.glasses can drop).
+export function feldsher({ brow = "neutral" } = {}) {
+  return build({
+    skin: "#e4b896",
+    shade: "#c49472",
+    iris: "#4a5a6a",
+    brow,
+    top: "#f2f4f6",
+    topDark: "#c9ccd2",
+    sleeve: "#f2f4f6",
+    bottom: "#e4b896",
+    shoes: "#3a3a40",
+    skirt: { color: "#5a5e6a", len: 110 },
+    torsoExtra: `<path d="M100 132 V268" stroke="#c9ccd2" stroke-width="3"/><rect x="110" y="170" width="20" height="24" rx="3" fill="#c9ccd2"/><path d="M84 132 Q76 200 92 230 M92 230 a6 6 0 1 0 1 0" stroke="#3a3a40" stroke-width="3" fill="none"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-42 -2 q-6 -46 42 -48 q48 2 42 48 q-8 -20 -42 -22 q-34 2 -42 22z" fill="#b9b4b0" ${ol(2)}/>${[-30, -12, 6, 24].map((d) => `<circle cx="__CX__" cy="__CY__" r="9" transform="translate(${d} -46)" fill="#b9b4b0" ${ol(1.6)}/>`).join("")}`,
+    faceOpts: { glasses: true, lash: true },
+  });
+}
+
 // Gleb's mother: grey bun, glasses, shawl over a cardigan, long skirt.
 export function granny({ brow = "worried" } = {}) {
   return build({

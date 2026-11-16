@@ -1,0 +1,485 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "maxim",
+      "start": 2.2,
+      "end": 6.208
+    },
+    {
+      "id": "l02",
+      "role": "maxim",
+      "start": 6.558,
+      "end": 13.04
+    },
+    {
+      "id": "l03",
+      "role": "narrator",
+      "start": 13.39,
+      "end": 15.986
+    },
+    {
+      "id": "l04",
+      "role": "maxim",
+      "start": 16.586,
+      "end": 19.304
+    },
+    {
+      "id": "l05",
+      "role": "masha",
+      "start": 19.654,
+      "end": 25.265
+    },
+    {
+      "id": "l06",
+      "role": "masha",
+      "start": 25.665,
+      "end": 28.633
+    },
+    {
+      "id": "l07",
+      "role": "maxim",
+      "start": 28.983,
+      "end": 29.662
+    },
+    {
+      "id": "l08",
+      "role": "masha",
+      "start": 30.012,
+      "end": 31.784
+    },
+    {
+      "id": "l09",
+      "role": "maxim",
+      "start": 32.384,
+      "end": 35.047
+    },
+    {
+      "id": "l10",
+      "role": "masha",
+      "start": 35.397,
+      "end": 40.768
+    },
+    {
+      "id": "l11",
+      "role": "narrator",
+      "start": 41.568,
+      "end": 44.364
+    },
+    {
+      "id": "l12",
+      "role": "narrator",
+      "start": 44.764,
+      "end": 46.952
+    },
+    {
+      "id": "l13",
+      "role": "masha",
+      "start": 48.352,
+      "end": 50.65
+    },
+    {
+      "id": "l14",
+      "role": "narrator",
+      "start": 51.0,
+      "end": 53.562
+    },
+    {
+      "id": "l15",
+      "role": "maxim",
+      "start": 54.362,
+      "end": 57.435
+    },
+    {
+      "id": "l16",
+      "role": "masha",
+      "start": 57.785,
+      "end": 61.527
+    },
+    {
+      "id": "l17",
+      "role": "maxim",
+      "start": 61.877,
+      "end": 65.467
+    },
+    {
+      "id": "l18",
+      "role": "maxim",
+      "start": 65.817,
+      "end": 72.075
+    },
+    {
+      "id": "l19",
+      "role": "narrator",
+      "start": 72.425,
+      "end": 75.303
+    },
+    {
+      "id": "l20",
+      "role": "maxim",
+      "start": 75.903,
+      "end": 81.271
+    },
+    {
+      "id": "l21",
+      "role": "masha",
+      "start": 81.671,
+      "end": 84.238
+    },
+    {
+      "id": "l22",
+      "role": "narrator",
+      "start": 84.588,
+      "end": 86.928
+    },
+    {
+      "id": "l23",
+      "role": "masha",
+      "start": 87.328,
+      "end": 90.663
+    },
+    {
+      "id": "l24",
+      "role": "maxim",
+      "start": 91.013,
+      "end": 95.576
+    },
+    {
+      "id": "l25",
+      "role": "maxim",
+      "start": 95.926,
+      "end": 100.458
+    },
+    {
+      "id": "l26",
+      "role": "narrator",
+      "start": 101.258,
+      "end": 104.892
+    },
+    {
+      "id": "l27",
+      "role": "narrator",
+      "start": 106.092,
+      "end": 108.728
+    },
+    {
+      "id": "l28",
+      "role": "narrator",
+      "start": 109.128,
+      "end": 114.494
+    },
+    {
+      "id": "l29",
+      "role": "maxim",
+      "start": 114.894,
+      "end": 118.643
+    },
+    {
+      "id": "l30",
+      "role": "narrator",
+      "start": 119.443,
+      "end": 122.837
+    },
+    {
+      "id": "l31",
+      "role": "maxim",
+      "start": 123.437,
+      "end": 127.09
+    },
+    {
+      "id": "l32",
+      "role": "masha",
+      "start": 127.44,
+      "end": 129.216
+    },
+    {
+      "id": "l33",
+      "role": "maxim",
+      "start": 129.566,
+      "end": 132.676
+    },
+    {
+      "id": "l34",
+      "role": "narrator",
+      "start": 133.876,
+      "end": 137.134
+    },
+    {
+      "id": "l35",
+      "role": "maxim",
+      "start": 137.734,
+      "end": 140.369
+    },
+    {
+      "id": "l36",
+      "role": "narrator",
+      "start": 141.369,
+      "end": 143.681
+    },
+    {
+      "id": "l37",
+      "role": "maxim",
+      "start": 144.081,
+      "end": 146.958
+    },
+    {
+      "id": "l38",
+      "role": "narrator",
+      "start": 148.158,
+      "end": 150.17
+    },
+    {
+      "id": "l39",
+      "role": "masha",
+      "start": 150.67,
+      "end": 156.288
+    },
+    {
+      "id": "l40",
+      "role": "maxim",
+      "start": 156.638,
+      "end": 159.695
+    },
+    {
+      "id": "l41",
+      "role": "masha",
+      "start": 160.095,
+      "end": 164.754
+    },
+    {
+      "id": "l42",
+      "role": "narrator",
+      "start": 165.554,
+      "end": 169.358
+    },
+    {
+      "id": "l43",
+      "role": "maxim",
+      "start": 169.958,
+      "end": 176.357
+    },
+    {
+      "id": "l44",
+      "role": "neighbor",
+      "start": 176.707,
+      "end": 184.134
+    },
+    {
+      "id": "l45",
+      "role": "narrator",
+      "start": 184.934,
+      "end": 189.706
+    },
+    {
+      "id": "l46",
+      "role": "maxim",
+      "start": 190.106,
+      "end": 195.813
+    },
+    {
+      "id": "l47",
+      "role": "narrator",
+      "start": 197.013,
+      "end": 200.9
+    },
+    {
+      "id": "l48",
+      "role": "feldsher",
+      "start": 201.5,
+      "end": 207.69
+    },
+    {
+      "id": "l49",
+      "role": "masha",
+      "start": 208.09,
+      "end": 208.993
+    },
+    {
+      "id": "l50",
+      "role": "feldsher",
+      "start": 209.343,
+      "end": 212.116
+    },
+    {
+      "id": "l51",
+      "role": "maxim",
+      "start": 212.466,
+      "end": 213.224
+    },
+    {
+      "id": "l52",
+      "role": "narrator",
+      "start": 213.824,
+      "end": 215.502
+    },
+    {
+      "id": "l53",
+      "role": "feldsher",
+      "start": 215.902,
+      "end": 219.461
+    },
+    {
+      "id": "l54",
+      "role": "maxim",
+      "start": 219.811,
+      "end": 223.911
+    },
+    {
+      "id": "l55",
+      "role": "feldsher",
+      "start": 224.511,
+      "end": 229.5
+    },
+    {
+      "id": "l56",
+      "role": "feldsher",
+      "start": 229.85,
+      "end": 236.244
+    },
+    {
+      "id": "l57",
+      "role": "maxim",
+      "start": 236.594,
+      "end": 239.943
+    },
+    {
+      "id": "l58",
+      "role": "masha",
+      "start": 240.293,
+      "end": 242.082
+    },
+    {
+      "id": "l59",
+      "role": "narrator",
+      "start": 243.482,
+      "end": 246.979
+    },
+    {
+      "id": "l60",
+      "role": "maxim",
+      "start": 247.579,
+      "end": 250.884
+    },
+    {
+      "id": "l61",
+      "role": "narrator",
+      "start": 251.284,
+      "end": 255.314
+    },
+    {
+      "id": "l62",
+      "role": "maxim",
+      "start": 255.914,
+      "end": 262.54
+    },
+    {
+      "id": "l63",
+      "role": "narrator",
+      "start": 262.89,
+      "end": 265.908
+    },
+    {
+      "id": "l64",
+      "role": "masha",
+      "start": 266.508,
+      "end": 270.07
+    },
+    {
+      "id": "l65",
+      "role": "maxim",
+      "start": 270.42,
+      "end": 276.117
+    },
+    {
+      "id": "l66",
+      "role": "masha",
+      "start": 276.517,
+      "end": 280.307
+    },
+    {
+      "id": "l67",
+      "role": "maxim",
+      "start": 280.707,
+      "end": 290.422
+    },
+    {
+      "id": "l68",
+      "role": "maxim",
+      "start": 290.772,
+      "end": 293.645
+    },
+    {
+      "id": "l69",
+      "role": "masha",
+      "start": 294.045,
+      "end": 295.662
+    },
+    {
+      "id": "l70",
+      "role": "masha",
+      "start": 296.012,
+      "end": 299.793
+    },
+    {
+      "id": "l71",
+      "role": "narrator",
+      "start": 300.393,
+      "end": 304.821
+    },
+    {
+      "id": "l72",
+      "role": "maxim",
+      "start": 305.421,
+      "end": 309.861
+    },
+    {
+      "id": "l73",
+      "role": "narrator",
+      "start": 311.261,
+      "end": 316.194
+    },
+    {
+      "id": "l74",
+      "role": "voice",
+      "start": 316.794,
+      "end": 321.099
+    },
+    {
+      "id": "l75",
+      "role": "voice",
+      "start": 321.499,
+      "end": 325.261
+    },
+    {
+      "id": "l76",
+      "role": "masha",
+      "start": 325.661,
+      "end": 327.081
+    },
+    {
+      "id": "l77",
+      "role": "voice",
+      "start": 327.881,
+      "end": 330.302
+    },
+    {
+      "id": "l78",
+      "role": "narrator",
+      "start": 330.902,
+      "end": 333.165
+    },
+    {
+      "id": "l79",
+      "role": "masha",
+      "start": 333.765,
+      "end": 336.777
+    },
+    {
+      "id": "l80",
+      "role": "maxim",
+      "start": 337.577,
+      "end": 339.912
+    }
+  ],
+  "voice_end": 339.912
+}
