@@ -4,11 +4,12 @@ import csv, json, re, subprocess, wave, struct, math
 from pathlib import Path
 
 HERE = Path(__file__).parent
-SRC = HERE / "assets" / "vo"
+SRC = HERE / "assets" / "vo3"
 NORM = SRC / "norm"; NORM.mkdir(exist_ok=True)
-rows = list(csv.DictReader(open(HERE / "script.tsv", encoding="utf-8"), delimiter="\t"))
-GAP = {"l01": .5, "l02": .5, "l03": .6, "l04": .25, "l05": .4, "l06": .8, "l07": .8, "l08": .3, "l09": .5, "l10": .2, "l11": 1.0,
-       "l12": .5, "l13": .3, "l14": .3, "l15": .8, "l16": 0}
+rows = list(csv.DictReader(open(HERE / "script3.tsv", encoding="utf-8"), delimiter="\t"))
+GAP = {"l01": .4, "l02": .5, "l03": .7, "l04": .5, "l05": .2, "l06": .4, "l07": .3, "l08": .2, "l09": .8, "l10": .6,
+       "l11": .25, "l12": .2, "l13": .3, "l14": .2, "l15": .5, "l16": 1.2, "l17": .9, "l18": .8, "l19": .5, "l20": .2,
+       "l21": 1.0, "l22": .5, "l23": .3, "l24": .9, "l25": .5, "l26": .3, "l27": .2, "l28": .8, "l29": 0}
 LEAD = 1.2
 VOW = set("аеёиоуыэюяАЕЁИОУЫЭЮЯ")
 
@@ -36,7 +37,9 @@ t, lines, words, lips, parts = LEAD, [], [], [], []
 for r in rows:
     lid = r["id"]; dst = NORM / f"{lid}.wav"
     run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(SRC / f"{lid}.wav"), "-af",
-        "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,loudnorm=I=-18:TP=-2:LRA=9",
+        "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,"
+        + ("highpass=f=350,lowpass=f=3200,acrusher=bits=10:mix=0.25,volume=0.8," if r["role"] in ("radio", "robot") else "")
+        + "loudnorm=I=-18:TP=-2:LRA=9",
         "-ar", "48000", "-ac", "1", str(dst))
     d = dur(dst)
     lines.append({"id": lid, "role": r["role"], "start": round(t, 3), "end": round(t + d, 3)})
@@ -64,9 +67,9 @@ inputs, filt = [], []
 for i, (p, g) in enumerate(parts):
     inputs += ["-i", str(p)]; filt.append(f"[{i}]apad=pad_dur={g}[a{i}]")
 filt.append("".join(f"[a{i}]" for i in range(len(parts))) + f"concat=n={len(parts)}:v=0:a=1,adelay={int(LEAD*1000)}[o]")
-run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", *inputs, "-filter_complex", ";".join(filt), "-map", "[o]", "-ar", "48000", "-ac", "2", str(HERE / "assets" / "vo.wav"))
-json.dump({"lines": lines, "voice_end": round(t, 3)}, open(HERE / "assets" / "timings.json", "w"), indent=1)
-json.dump(words, open(HERE / "assets" / "words.json", "w"), ensure_ascii=False)
-json.dump(lips, open(HERE / "assets" / "lips.json", "w"))
+run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", *inputs, "-filter_complex", ";".join(filt), "-map", "[o]", "-ar", "48000", "-ac", "2", str(HERE / "assets" / "vo3.wav"))
+json.dump({"lines": lines, "voice_end": round(t, 3)}, open(HERE / "assets" / "timings3.json", "w"), indent=1)
+json.dump(words, open(HERE / "assets" / "words3.json", "w"), ensure_ascii=False)
+json.dump(lips, open(HERE / "assets" / "lips3.json", "w"))
 for l in lines: print(l["id"], l["role"], l["start"], l["end"])
 print("voice end", round(t, 2), "words", len(words))

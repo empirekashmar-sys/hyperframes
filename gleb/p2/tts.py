@@ -12,7 +12,7 @@ import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).parent
-OUT = HERE / "assets" / "vo"
+OUT = HERE / "assets" / "vo3"
 OUT.mkdir(parents=True, exist_ok=True)
 
 # role -> Fish Audio voice model id (generic library voices, no celebrity clones)
@@ -23,6 +23,8 @@ CAST = {
     "son_old": "757954ebf9cb4acab46aafefa74b9b3a",  # teen guy (~16)
     "son_young": "e503facf02cc49cda839f3c226503a70",  # little boy
     "maxim": "59977ee6f0f643b1b18a984352b2e5bc",  # old man
+    "radio": "c2805221e4b544458014d610f82b5aa5",  # news voice (filtered later)
+    "robot": "c2805221e4b544458014d610f82b5aa5",
 }
 # script tags -> Fish s1 emotion / tone markers
 TAGS = {
@@ -48,6 +50,10 @@ TAGS = {
     "sleepy": "[sleepy, yawning]",
     "trying to stay calm": "[trying to stay calm]",
     "groaning": "[groaning]",
+    "crying": "[crying, sobbing]",
+    "proud": "[proud]",
+    "nervous": "[nervous]",
+    "relieved": "[relieved]",
     "in pain": "[in pain]",
     "shouting": "[shouting]",
     "angry": "[angry]",
@@ -84,13 +90,26 @@ def speak(line_id, role, text):
     print(f"{line_id} {role:9} {convert(text)}")
 
 
+def speak_retry(line_id, role, text, tries=4):
+    import time
+    if (OUT / f"{line_id}.wav").exists() and (OUT / f"{line_id}.wav").stat().st_size > 10000:
+        return
+    for k in range(tries):
+        try:
+            return speak(line_id, role, text)
+        except Exception as e:  # network hiccups: retry with backoff
+            print("retry", line_id, e)
+            time.sleep(3 * (k + 1))
+    raise SystemExit(f"failed: {line_id}")
+
+
 def main():
     only = set(sys.argv[1:])
-    with open(HERE / "script.tsv", encoding="utf-8") as f:
+    with open(HERE / "script3.tsv", encoding="utf-8") as f:
         for row in csv.DictReader(f, delimiter="\t"):
             if only and row["id"] not in only:
                 continue
-            speak(row["id"], row["role"], row["text"])
+            speak_retry(row["id"], row["role"], row["text"])
 
 
 if __name__ == "__main__":

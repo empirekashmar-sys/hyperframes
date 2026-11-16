@@ -106,3 +106,47 @@ export function boxes() {
     `<ellipse cx="150" cy="232" rx="140" ry="8" fill="#000" opacity=".35"/>${box(10, 100, 150, 130, "ВОДА")}${box(140, 60, 150, 170, "ЕДА")}`,
   );
 }
+
+// Inside the car at night, looking in through the windscreen: dark street outside, frame, dashboard
+// with glowing radio. Characters are drawn between `cabBack` and `cabFront`.
+export function cabBack() {
+  return svg(
+    "0 0 1080 1100",
+    `<rect x="-600" width="2280" height="1300" fill="#05070d"/>
+     <g class="street">${Array.from({ length: 8 }, (_, i) => `<circle cx="${i * 170}" cy="300" r="14" fill="#ffd27a" opacity=".8"/><circle cx="${i * 170}" cy="300" r="60" fill="#ffd27a" opacity=".08"/>`).join("")}
+       ${Array.from({ length: 10 }, (_, i) => `<rect x="${i * 130 - 40}" y="${330 - (i % 3) * 60}" width="100" height="${260 + (i % 3) * 60}" fill="#0d111c"/>`).join("")}</g>
+     <rect x="-600" y="600" width="2280" height="700" fill="#0a0c12"/>
+     <path d="M60 120 Q540 60 1020 120 L1060 720 H20Z" fill="none" stroke="#1a1d26" stroke-width="40"/>
+     <rect x="420" y="96" width="240" height="40" rx="10" fill="#1a1d26"/>`,
+  );
+}
+export function cabFront({ lit = false } = {}) {
+  return svg(
+    "0 0 1080 1100",
+    `<path d="M-200 700 Q540 640 1280 700 V1300 H-200Z" fill="#191b22" stroke="${O}" stroke-width="4"/>
+     <path d="M-200 760 Q540 700 1280 760" stroke="#2a2d36" stroke-width="10" fill="none"/>
+     <g transform="translate(330 760)"><circle r="150" fill="none" stroke="#14161c" stroke-width="30"/><circle r="150" fill="none" stroke="${O}" stroke-width="4"/><path d="M-140 10 H140 M0 10 V140" stroke="#14161c" stroke-width="26"/><circle r="34" fill="#22252e" stroke="${O}" stroke-width="3"/></g>
+     <rect x="250" y="700" width="160" height="50" rx="10" fill="#0d0f14"/>
+     <circle cx="290" cy="725" r="18" fill="${lit ? "#7cff9a" : "#2a2d36"}"/><circle cx="350" cy="725" r="18" fill="${lit ? "#ffb02e" : "#2a2d36"}"/>
+     <g id="radio"><rect x="610" y="760" width="250" height="90" rx="10" fill="#0d0f14" stroke="${O}" stroke-width="3"/>
+       <rect x="630" y="776" width="210" height="40" rx="4" fill="${lit ? "#1d3a2a" : "#101418"}"/>
+       ${lit ? `<text x="735" y="806" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="26" fill="#7cff9a">FM 101.4</text>` : ""}
+       <circle cx="650" cy="832" r="9" fill="#2a2d36"/><circle cx="820" cy="832" r="9" fill="#2a2d36"/></g>
+     <g id="key" transform="translate(470 820)"><rect x="-6" y="-30" width="12" height="40" rx="4" fill="#8a8d96" stroke="${O}" stroke-width="2"/><circle cy="-36" r="14" fill="#5a5d66" stroke="${O}" stroke-width="2"/></g>`,
+  );
+}
+
+// Phone call screen: calling "Бабушка" / unreachable.
+export function callScreen({ state = "calling" } = {}) {
+  const t = (x, y, fill, text, size, w = 900) =>
+    `<text x="${x}" y="${y}" text-anchor="middle" font-family="Inter, sans-serif" font-weight="${w}" font-size="${size}" fill="${fill}">${text}</text>`;
+  return svg(
+    "0 0 520 980",
+    `<rect width="520" height="980" rx="70" fill="#0b0c10"/><rect x="24" y="24" width="472" height="932" rx="54" fill="#141a26"/>
+     <rect x="200" y="44" width="120" height="30" rx="15" fill="#0b0c10"/>
+     <circle cx="260" cy="300" r="100" fill="#3a4a6a"/><circle cx="260" cy="270" r="40" fill="#cfd6e2"/><path d="M190 360 q70 -70 140 0" fill="#cfd6e2"/>
+     ${t(260, 470, "#fff", "Бабушка", 56)}
+     ${state === "calling" ? t(260, 530, "#9fb0c8", "вызов…", 30, 600) : t(260, 530, "#ff6a5a", "абонент недоступен", 30, 700)}
+     <circle cx="260" cy="820" r="54" fill="#e23b2e"/><path d="M232 826 q28 -26 56 0" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"/>`,
+  );
+}

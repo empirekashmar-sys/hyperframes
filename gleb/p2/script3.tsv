@@ -1,0 +1,30 @@
+id	role	text
+l01	narrator	[tense] Тишина. [pause] Потом звон в ушах.
+l02	gleb	[groaning, in pain] Ммм… голова…
+l03	gleb	[shocked, quiet] Кровь…
+l04	narrator	Глеб ударился головой о ступеньки. Держась за голову, он спустился на первый этаж.
+l05	maxim	[shouting, angry] Ёб твою мать! Это что, блядь, такое ебануло?! У меня водка разбилась, сука!
+l06	gleb	[tired, serious] Дед Максим… война началась.
+l07	maxim	[shocked] Уххх бля… [pause] [angry, determined] Ну ничего, на хуй! Щас я, блядь, своё ружьё достану — я им, блядь, покажу!
+l08	gleb	[tired, laughs] Дед, какое ружьё? Тебе восемьдесят лет!
+l09	maxim	[angry] А ты мне годы не считай, сопляк! Я в армии снайпером был!
+l10	narrator	[tense] Глеб спустился в подвал и сложил всё нужное в две коробки.
+l11	masha	[scared] Глеб! Мы здесь!
+l12	son_young	[crying] Мам, мне страшно…
+l13	masha	[trying to stay calm] Я рядом, зайка. Я рядом.
+l14	son_old	[serious] Бать, я взял аптечку и все зарядки.
+l15	gleb	[warm, proud] Молодец, сын.
+l16	gleb	[firm] Все в машину. Быстро.
+l17	gleb	[nervous, whispers] Давай, родная… давай…
+l18	gleb	[relieved, laughs] Есть!
+l19	radio	[calm] …жителям города рекомендуется оставаться в укрытиях. Повторяем: оставайтесь в укрытиях…
+l20	son_young	[scared] Пап, а мы куда?
+l21	gleb	[calm] На дачу. Там тихо.
+l22	narrator	[tense] Через два часа они были на месте. [pause] Но дачи больше не было.
+l23	masha	[shocked, whispers] Господи…
+l24	son_old	[scared] Бать… что теперь?
+l25	robot	[calm] Абонент временно недоступен.
+l26	gleb	[quiet, determined] К бабушке с дедушкой. В город.
+l27	masha	[scared] Глеб, там же бомбят!
+l28	gleb	[firm, sad] Они там одни, Маш. Мы их не бросим.
+l29	narrator	[tense] И Глеб развернул машину. Обратно. Туда, откуда все бежали.

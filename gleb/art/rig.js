@@ -59,19 +59,39 @@ function face({
     worried: `M${cx - ex - r * 0.17} ${browY} l${r * 0.34} -${r * 0.1} M${cx + ex - r * 0.17} ${browY - r * 0.1} l${r * 0.34} ${r * 0.1}`,
     angry: `M${cx - ex - r * 0.17} ${browY - r * 0.08} l${r * 0.34} ${r * 0.12} M${cx + ex - r * 0.17} ${browY + r * 0.04} l${r * 0.34} -${r * 0.12}`,
     happy: `M${cx - ex - r * 0.17} ${browY + 2} q${r * 0.17} -${r * 0.12} ${r * 0.34} 0 M${cx + ex - r * 0.17} ${browY + 2} q${r * 0.17} -${r * 0.12} ${r * 0.34} 0`,
+    sad: `M${cx - ex - r * 0.17} ${browY - r * 0.02} l${r * 0.34} -${r * 0.16} M${cx + ex - r * 0.17} ${browY - r * 0.18} l${r * 0.34} ${r * 0.16}`,
+    shock: `M${cx - ex - r * 0.17} ${browY - r * 0.12} q${r * 0.17} -${r * 0.12} ${r * 0.34} 0 M${cx + ex - r * 0.17} ${browY - r * 0.12} q${r * 0.17} -${r * 0.12} ${r * 0.34} 0`,
   };
+  // wide eyes (shock/fear): bigger whites, tiny pupils; squint (pain/determination): lids half down
+  const wide = (x) =>
+    `<ellipse cx="${x}" cy="${ey}" rx="${r * 0.18}" ry="${r * 0.21}" fill="#f6f1e8" ${ol(1.6)}/><circle cx="${x}" cy="${ey}" r="${r * 0.06}" fill="${iris}"/><circle cx="${x}" cy="${ey}" r="${r * 0.03}" fill="${O}"/>`;
+  const squint = (x) =>
+    `<ellipse cx="${x}" cy="${ey + 1}" rx="${r * 0.15}" ry="${r * 0.08}" fill="#f6f1e8" ${ol(1.6)}/><circle cx="${x + 0.8}" cy="${ey + 1.5}" r="${r * 0.07}" fill="${iris}"/><path d="M${x - r * 0.18} ${ey - r * 0.04} h${r * 0.36}" ${ol(2.8)}/>`;
   const my = cy + r * 0.52;
   return `
     ${blush ? `<ellipse cx="${cx - r * 0.55}" cy="${cy + r * 0.32}" rx="${r * 0.16}" ry="${r * 0.09}" fill="#e88f7c" opacity=".35"/><ellipse cx="${cx + r * 0.55}" cy="${cy + r * 0.32}" rx="${r * 0.16}" ry="${r * 0.09}" fill="#e88f7c" opacity=".35"/>` : ""}
     ${freckles ? [-0.5, -0.38, 0.38, 0.5].map((k, i) => `<circle cx="${cx + r * k}" cy="${cy + r * (0.22 + (i % 2) * 0.08)}" r="1.3" fill="#a8704f"/>`).join("") : ""}
     <g class="eyes-open">${eye(cx - ex)}${eye(cx + ex)}</g>
     <g class="eyes-closed" opacity="0">${closed(cx - ex)}${closed(cx + ex)}</g>
+    <g class="eyes-wide" opacity="0">${wide(cx - ex)}${wide(cx + ex)}</g>
+    <g class="eyes-squint" opacity="0">${squint(cx - ex)}${squint(cx + ex)}</g>
+    <g class="tear" opacity="0"><path d="M${cx - ex + 2} ${ey + r * 0.2} q-5 9 0 13 q5 -4 0 -13z" fill="#8fd0ff" ${ol(1.2)}/><path d="M${cx + ex - 2} ${ey + r * 0.2} q-5 9 0 13 q5 -4 0 -13z" fill="#8fd0ff" ${ol(1.2)}/></g>
+    <g class="sweat" opacity="0"><path d="M${cx + r * 0.72} ${cy - r * 0.42} q-6 10 0 15 q6 -5 0 -15z" fill="#bfe6ff" ${ol(1.2)}/></g>
     ${glasses ? `<circle cx="${cx - ex}" cy="${ey}" r="${r * 0.27}" fill="none" ${ol(2.6)}/><circle cx="${cx + ex}" cy="${ey}" r="${r * 0.27}" fill="none" ${ol(2.6)}/><path d="M${cx - ex + r * 0.27} ${ey} h${2 * ex - r * 0.54}" ${ol(2.6)}/>` : ""}
-    <path class="brows" d="${brows[brow] || brows.neutral}" fill="none" stroke="${O}" stroke-width="${r * 0.09}" stroke-linecap="round"/>
+    <g class="brows">${Object.entries(brows)
+      .map(
+        ([k, d]) =>
+          `<path class="b-${k}" d="${d}" fill="none" stroke="${O}" stroke-width="${r * 0.09}" stroke-linecap="round" opacity="${k === (brows[brow] ? brow : "neutral") ? 1 : 0}"/>`,
+      )
+      .join("")}</g>
     <path d="M${cx - 1} ${cy + r * 0.08} q${r * 0.1} ${r * 0.2} -${r * 0.04} ${r * 0.24}" fill="none" stroke="${shade}" stroke-width="2.2" stroke-linecap="round"/>
     <g class="m0"><path d="M${cx - r * 0.2} ${my} q${r * 0.2} ${r * 0.1} ${r * 0.4} 0" fill="none" stroke="#6a2c2c" stroke-width="2.6" stroke-linecap="round"/></g>
     <g class="m1" opacity="0"><ellipse cx="${cx}" cy="${my + 1}" rx="${r * 0.17}" ry="${r * 0.1}" fill="#5a1f22" ${ol(1.8)}/></g>
-    <g class="m2" opacity="0"><ellipse cx="${cx}" cy="${my + 3}" rx="${r * 0.2}" ry="${r * 0.2}" fill="#5a1f22" ${ol(1.8)}/><ellipse cx="${cx}" cy="${my + 9}" rx="${r * 0.12}" ry="${r * 0.07}" fill="#d9707a"/></g>`;
+    <g class="m2" opacity="0"><ellipse cx="${cx}" cy="${my + 3}" rx="${r * 0.2}" ry="${r * 0.2}" fill="#5a1f22" ${ol(1.8)}/><ellipse cx="${cx}" cy="${my + 9}" rx="${r * 0.12}" ry="${r * 0.07}" fill="#d9707a"/></g>
+    <g class="mo-smile" opacity="0"><path d="M${cx - r * 0.26} ${my - 2} q${r * 0.26} ${r * 0.26} ${r * 0.52} 0 q-${r * 0.26} ${r * 0.1} -${r * 0.52} 0z" fill="#5a1f22" ${ol(1.8)}/><path d="M${cx - r * 0.2} ${my} h${r * 0.4}" stroke="#fff" stroke-width="3"/></g>
+    <g class="mo-frown" opacity="0"><path d="M${cx - r * 0.2} ${my + 4} q${r * 0.2} -${r * 0.14} ${r * 0.4} 0" fill="none" stroke="#6a2c2c" stroke-width="2.8" stroke-linecap="round"/></g>
+    <g class="mo-grimace" opacity="0"><rect x="${cx - r * 0.24}" y="${my - 3}" width="${r * 0.48}" height="${r * 0.16}" rx="3" fill="#fff" ${ol(1.8)}/><path d="M${cx - r * 0.24} ${my + r * 0.05} h${r * 0.48} M${cx - r * 0.08} ${my - 3} v${r * 0.16} M${cx + r * 0.08} ${my - 3} v${r * 0.16}" stroke="${O}" stroke-width="1.4"/></g>
+    <g class="mo-o" opacity="0"><ellipse cx="${cx}" cy="${my + 2}" rx="${r * 0.08}" ry="${r * 0.11}" fill="#5a1f22" ${ol(1.8)}/></g>`;
 }
 
 /* ───────────── generic humanoid ───────────── */
