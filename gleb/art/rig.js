@@ -477,6 +477,8 @@ export function maxim({ brow = "angry", prop = "bottle", helmet = false, uniform
           ? `<path d="M__X__ __Y__ m-8 0 v-40 q0 -8 6 -12 v-14 h4 v14 q6 4 6 12 v40z" fill="#dff1ff" opacity=".9" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="16" height="12" transform="translate(-8 -30)" fill="#e23b2e"/>`
           : prop === "rifle"
             ? RIFLE_SVG
-            : "",
+            : prop === "axe"
+              ? `<g transform="translate(__X__ __Y__)"><rect x="-4" y="-70" width="9" height="110" rx="4" fill="#8a5a34" ${ol(1.8)}/><path d="M-2 -70 L-34 -80 Q-44 -62 -34 -44 L-2 -52Z" fill="#9aa2ae" ${ol(2)}/></g>`
+              : "",
   });
 }
