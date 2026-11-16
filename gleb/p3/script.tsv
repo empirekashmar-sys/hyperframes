@@ -1,0 +1,29 @@
+id	role	text
+l01	son_young	[curious] Пап, а почему все едут оттуда, а мы туда?
+l02	gleb	[tired, warm] Потому что бабушка с дедушкой там, сынок.
+l03	masha	[quiet, scared] Глеб… мне это не нравится.
+l04	son_old	[shocked] Бать… это что… танк?!
+l05	gleb	[shouting, scared] Все пригнулись!
+l06	maxim	[shouting, cheerful] Глеб, ёб твою мать! Вы куда, блядь, без меня намылились?!
+l07	gleb	[shocked] Дед Максим?! Ты где танк взял?!
+l08	maxim	[proud, laughs] Где взял, где взял… Стоял, сука, бесхозный у военкомата! Я ж говорил — я им, блядь, покажу!
+l09	son_young	[excited] Деда, прокати!
+l10	son_old	[laughs, excited] Бать… это лучший день в моей жизни.
+l11	masha	[firm] Глеб, даже не думай.
+l12	maxim	[shouting, cheerful] Езжайте за мной, колонной пойдём! До бабки твоей с ветерком домчим!
+l13	maxim	[shouting, angry] С дороги, металлолом!
+l14	son_old	[laughs] Ахаха, дед!
+l15	soldier	[shouting] Стоять! Чей танк?!
+l16	maxim	[shouting, angry] Мой, блядь! Сорок лет налоги платил — считай, выкупил!
+l17	soldier	[confused, quiet] …Это что сейчас было?
+l18	maxim	[proud] Паркуюсь где хочу, блядь!
+l19	masha	[angry] Максим Петрович, там же дети играют!
+l20	maxim	[sad, quiet] Играли, Маша. Играли.
+l21	son_young	[tired, crying] Пап, я больше не могу…
+l22	gleb	[warm] Держись, боец. Чуть-чуть осталось.
+l23	maxim	[tired, groaning] Ёб… твою… десятый этаж… в мои-то годы… Кто ж так строит, блядь!
+l24	son_old	[laughs] Дед, ты же танк угнал, а тут лестница?
+l25	maxim	[angry] Танк, сопляк, сам едет!
+l26	gleb	[whispers, scared] Мам?.. Пап?..
+l27	masha	[whispers, scared] Глеб… почему дверь открыта?
+l28	voice	[whispers, threatening] Ещё шаг — стреляю.

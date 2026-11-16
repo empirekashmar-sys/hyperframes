@@ -318,9 +318,32 @@ export function sonYoung({ outfit = "day", brow = "neutral", bunny = true } = {}
   });
 }
 
+// Checkpoint soldier: khaki uniform, helmet, rifle across the body.
+export function soldier({ brow = "angry" } = {}) {
+  return build({
+    skin: "#dcae8c",
+    shade: "#bb8c6a",
+    iris: "#3a3a2a",
+    brow,
+    top: "#56603e",
+    topDark: "#3a4228",
+    sleeve: "#56603e",
+    bottom: "#4a5236",
+    shoes: "#1d1a16",
+    torsoExtra: `<rect x="70" y="180" width="60" height="44" rx="6" fill="#3a4228" ${ol(2)}/><path d="M74 196 h52 M74 210 h52" stroke="#2a3020" stroke-width="3"/><path d="M60 150 L140 270" stroke="#1d1a16" stroke-width="10"/><rect x="88" y="190" width="70" height="12" rx="3" transform="rotate(52 100 196)" fill="#2a2a2a"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-46 0 q0 -54 46 -54 q46 0 46 54 q-10 -4 -14 -10 h-64 q-4 6 -14 10z" fill="#56603e" ${ol(2)}/><path d="M__CX__ __CY__ m-50 0 h100" stroke="${O}" stroke-width="5" stroke-linecap="round"/>`,
+    faceOpts: { blush: false },
+  });
+}
+
 // Ded Maxim: neighbour from the first floor. Striped vest, grey beard and moustache, bald top,
 // flat cap, slippers; holds a broken vodka bottle neck.
-export function maxim({ brow = "angry", prop = "bottle" } = {}) {
+export function maxim({ brow = "angry", prop = "bottle", helmet = false } = {}) {
+  // tank crew helmet: padded leather cap with ear flaps and goggles pushed up
+  const tankHelmet = `<path d="M__CX__ __CY__ m-42 6 q-4 -50 42 -52 q46 2 42 52 q-6 -8 -8 -22 q-34 -14 -68 0 q-2 14 -8 22z" fill="#2a2420" ${ol(2)}/>
+      <path d="M__CX__ __CY__ m-30 -40 v34 M__CX__ __CY__ m-10 -46 v40 M__CX__ __CY__ m10 -46 v40 M__CX__ __CY__ m30 -40 v34" stroke="#4a3e34" stroke-width="5"/>
+      <rect x="__CX__" y="__CY__" width="20" height="40" rx="8" transform="translate(-50 -4)" fill="#2a2420" ${ol(2)}/><rect x="__CX__" y="__CY__" width="20" height="40" rx="8" transform="translate(30 -4)" fill="#2a2420" ${ol(2)}/>
+      <g transform="translate(__CX__ __CY__)"><circle cx="-14" cy="-34" r="11" fill="#7ab8c9" ${ol(2)}/><circle cx="14" cy="-34" r="11" fill="#7ab8c9" ${ol(2)}/><path d="M-3 -34 h6" ${ol(3)}/></g>`;
   return build({
     skin: "#d9a07c",
     shade: "#b77f5c",
@@ -332,7 +355,9 @@ export function maxim({ brow = "angry", prop = "bottle" } = {}) {
     bottom: "#3a3f4a",
     shoes: "#5a4a3a",
     torsoExtra: `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}<path d="M66 266 Q100 282 134 266" fill="#e9ecf2" opacity=".0"/>`,
-    hairFront: `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
+    hairFront: helmet
+      ? tankHelmet
+      : `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
       <path d="M__CX__ __CY__ m-40 -14 q4 -30 40 -32 q36 2 40 32 q-6 -6 -40 -8 q-34 2 -40 8z" fill="#4a4f5a" ${ol(2)}/><path d="M__CX__ __CY__ m-44 -12 q44 -14 92 2 q-4 6 -10 6 q-36 -10 -76 0 q-6 -2 -6 -8z" fill="#3a3f4a" ${ol(2)}/>`,
     accessory: `<path d="M__CX__ __CY__ m-30 16 q4 40 30 42 q26 -2 30 -42 q-8 18 -30 18 q-22 0 -30 -18z" fill="#d8dbe0" ${ol(2)}/>
       <path d="M__CX__ __CY__ m-18 18 q18 -10 36 0 q-8 8 -18 6 q-10 2 -18 -6z" fill="#c9ccd2" ${ol(1.6)}/>
@@ -341,6 +366,8 @@ export function maxim({ brow = "angry", prop = "bottle" } = {}) {
     handProp:
       prop === "bottle"
         ? `<path d="M__X__ __Y__ m-6 -4 v-26 l4 -10 h4 l4 10 v26 z" fill="#9fd1a8" opacity=".85" ${ol(1.6)}/><path d="M__X__ __Y__ m-6 -30 l3 -6 l3 4 l3 -6 l3 6" stroke="#cfe9d4" stroke-width="2" fill="none"/>`
-        : "",
+        : prop === "vodka"
+          ? `<path d="M__X__ __Y__ m-8 0 v-40 q0 -8 6 -12 v-14 h4 v14 q6 4 6 12 v40z" fill="#dff1ff" opacity=".9" ${ol(1.6)}/><rect x="__X__" y="__Y__" width="16" height="12" transform="translate(-8 -30)" fill="#e23b2e"/>`
+          : "",
   });
 }
