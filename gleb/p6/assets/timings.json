@@ -1,0 +1,275 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "maxim",
+      "start": 1.0,
+      "end": 3.547
+    },
+    {
+      "id": "l02",
+      "role": "narrator",
+      "start": 4.147,
+      "end": 7.74
+    },
+    {
+      "id": "l03",
+      "role": "son_young",
+      "start": 8.04,
+      "end": 9.507
+    },
+    {
+      "id": "l04",
+      "role": "narrator",
+      "start": 9.807,
+      "end": 14.055
+    },
+    {
+      "id": "l05",
+      "role": "son_old",
+      "start": 14.355,
+      "end": 16.332
+    },
+    {
+      "id": "l06",
+      "role": "narrator",
+      "start": 16.732,
+      "end": 18.938
+    },
+    {
+      "id": "l07",
+      "role": "maxim",
+      "start": 19.238,
+      "end": 23.027
+    },
+    {
+      "id": "l08",
+      "role": "gleb",
+      "start": 23.327,
+      "end": 24.058
+    },
+    {
+      "id": "l09",
+      "role": "narrator",
+      "start": 25.558,
+      "end": 27.931
+    },
+    {
+      "id": "l10",
+      "role": "masha",
+      "start": 28.231,
+      "end": 30.92
+    },
+    {
+      "id": "l11",
+      "role": "maxim",
+      "start": 31.22,
+      "end": 37.473
+    },
+    {
+      "id": "l12",
+      "role": "son_old",
+      "start": 37.673,
+      "end": 39.703
+    },
+    {
+      "id": "l13",
+      "role": "gleb",
+      "start": 40.103,
+      "end": 41.967
+    },
+    {
+      "id": "l14",
+      "role": "gleb",
+      "start": 43.167,
+      "end": 45.438
+    },
+    {
+      "id": "l15",
+      "role": "son_young",
+      "start": 45.738,
+      "end": 47.635
+    },
+    {
+      "id": "l16",
+      "role": "masha",
+      "start": 47.835,
+      "end": 50.107
+    },
+    {
+      "id": "l17",
+      "role": "maxim",
+      "start": 50.507,
+      "end": 55.985
+    },
+    {
+      "id": "l18",
+      "role": "soldier1",
+      "start": 56.385,
+      "end": 58.339
+    },
+    {
+      "id": "l19",
+      "role": "maxim",
+      "start": 58.639,
+      "end": 61.99
+    },
+    {
+      "id": "l20",
+      "role": "narrator",
+      "start": 62.29,
+      "end": 63.509
+    },
+    {
+      "id": "l21",
+      "role": "zina",
+      "start": 65.509,
+      "end": 71.269
+    },
+    {
+      "id": "l22",
+      "role": "maxim",
+      "start": 71.469,
+      "end": 74.736
+    },
+    {
+      "id": "l23",
+      "role": "zina",
+      "start": 75.036,
+      "end": 81.701
+    },
+    {
+      "id": "l24",
+      "role": "maxim",
+      "start": 82.001,
+      "end": 84.531
+    },
+    {
+      "id": "l25",
+      "role": "son_old",
+      "start": 84.831,
+      "end": 86.788
+    },
+    {
+      "id": "l26",
+      "role": "maxim",
+      "start": 86.988,
+      "end": 91.744
+    },
+    {
+      "id": "l27",
+      "role": "zina",
+      "start": 92.144,
+      "end": 99.118
+    },
+    {
+      "id": "l28",
+      "role": "narrator",
+      "start": 99.518,
+      "end": 102.389
+    },
+    {
+      "id": "l29",
+      "role": "maxim",
+      "start": 102.789,
+      "end": 109.498
+    },
+    {
+      "id": "l30",
+      "role": "zina",
+      "start": 109.698,
+      "end": 111.634
+    },
+    {
+      "id": "l31",
+      "role": "soldier2",
+      "start": 112.434,
+      "end": 116.013
+    },
+    {
+      "id": "l32",
+      "role": "soldier3",
+      "start": 116.213,
+      "end": 117.051
+    },
+    {
+      "id": "l33",
+      "role": "soldier2",
+      "start": 117.251,
+      "end": 119.672
+    },
+    {
+      "id": "l34",
+      "role": "narrator",
+      "start": 120.272,
+      "end": 122.248
+    },
+    {
+      "id": "l35",
+      "role": "zina",
+      "start": 123.448,
+      "end": 126.568
+    },
+    {
+      "id": "l36",
+      "role": "son_old",
+      "start": 126.868,
+      "end": 130.093
+    },
+    {
+      "id": "l37",
+      "role": "gleb",
+      "start": 130.893,
+      "end": 132.823
+    },
+    {
+      "id": "l38",
+      "role": "maxim",
+      "start": 133.023,
+      "end": 136.383
+    },
+    {
+      "id": "l39",
+      "role": "masha",
+      "start": 136.783,
+      "end": 138.778
+    },
+    {
+      "id": "l40",
+      "role": "gleb",
+      "start": 139.078,
+      "end": 142.24
+    },
+    {
+      "id": "l41",
+      "role": "maxim",
+      "start": 142.54,
+      "end": 146.467
+    },
+    {
+      "id": "l42",
+      "role": "narrator",
+      "start": 147.267,
+      "end": 149.897
+    },
+    {
+      "id": "l43",
+      "role": "granny",
+      "start": 150.397,
+      "end": 153.806
+    },
+    {
+      "id": "l44",
+      "role": "gleb",
+      "start": 154.006,
+      "end": 154.616
+    },
+    {
+      "id": "l45",
+      "role": "maxim",
+      "start": 155.016,
+      "end": 157.135
+    }
+  ],
+  "voice_end": 157.135
+}

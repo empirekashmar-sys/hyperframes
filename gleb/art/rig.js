@@ -348,10 +348,56 @@ export function soldier({ brow = "angry", mask = false, prop = "" } = {}) {
     handProp:
       prop === "flashlight"
         ? `<rect x="__X__" y="__Y__" width="12" height="30" rx="3" transform="translate(-6 -4)" fill="#2a2a2a" ${ol(1.6)}/><path d="M__X__ __Y__ m-8 26 l-60 240 h136 l-60 -240z" fill="#fff6c8" opacity=".16"/>`
-        : "",
+        : prop === "radio"
+          ? `<rect x="__X__" y="__Y__" width="16" height="30" rx="3" transform="translate(-8 -26)" fill="#2a2d24" ${ol(1.6)}/><path d="M__X__ __Y__ m4 -26 v-16" stroke="#111" stroke-width="3"/><circle cx="__X__" cy="__Y__" r="3" transform="translate(0 -18)" fill="#e23b2e"/>`
+          : prop === "rifle"
+            ? RIFLE_SVG
+            : "",
     torsoExtra: `<rect x="70" y="180" width="60" height="44" rx="6" fill="#3a4228" ${ol(2)}/><path d="M74 196 h52 M74 210 h52" stroke="#2a3020" stroke-width="3"/><path d="M60 150 L140 270" stroke="#1d1a16" stroke-width="10"/><rect x="88" y="190" width="70" height="12" rx="3" transform="rotate(52 100 196)" fill="#2a2a2a"/>`,
     hairFront: `<path d="M__CX__ __CY__ m-46 0 q0 -54 46 -54 q46 0 46 54 q-10 -4 -14 -10 h-64 q-4 6 -14 10z" fill="#56603e" ${ol(2)}/><path d="M__CX__ __CY__ m-50 0 h100" stroke="${O}" stroke-width="5" stroke-linecap="round"/>`,
     faceOpts: { blush: false },
+  });
+}
+
+// Baba Zina, the neighbour: pink curlers, flowered dressing gown, slippers, a cast-iron pan.
+export function zina({ brow = "angry", prop = "" } = {}) {
+  const curlers = [-30, -10, 10, 30]
+    .map(
+      (dx) =>
+        `<rect x="__CX__" y="__CY__" width="16" height="12" rx="5" transform="translate(${dx - 8} -48)" fill="#ff8fb8" ${ol(1.6)}/>`,
+    )
+    .join("");
+  return build({
+    skin: "#e8bc9a",
+    shade: "#c89a78",
+    iris: "#4a5a3a",
+    brow,
+    top: "#d96a8a",
+    topDark: "#b04a6a",
+    sleeve: "#d96a8a",
+    bottom: "#e8bc9a",
+    shoes: "#ff8fb8",
+    skirt: { color: "#d96a8a", len: 130 },
+    torsoExtra: `${[
+      [80, 160],
+      [118, 176],
+      [92, 214],
+      [124, 236],
+      [76, 248],
+    ]
+      .map(
+        ([x, y]) =>
+          `<circle cx="${x}" cy="${y}" r="7" fill="#ffe27a"/><circle cx="${x}" cy="${y}" r="3" fill="#fff"/>`,
+      )
+      .join("")}<path d="M66 214 H134" stroke="#8a2a4a" stroke-width="6"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-40 -2 q0 -40 40 -40 q40 0 40 40 q-14 -20 -40 -20 q-26 0 -40 20z" fill="#b8865a" ${ol(2)}/>${curlers}`,
+    faceOpts: { lash: true },
+    handProp:
+      prop === "pan"
+        ? `<g transform="translate(__X__ __Y__)"><rect x="-4" y="-50" width="10" height="46" rx="4" fill="#2a2420" ${ol(1.6)}/><ellipse cx="1" cy="-78" rx="32" ry="30" fill="#2a2a2e" ${ol(2.2)}/><ellipse cx="1" cy="-78" rx="22" ry="20" fill="#3a3a40"/></g>`
+        : prop === "box"
+          ? `<g transform="translate(__X__ __Y__)"><rect x="-34" y="-10" width="68" height="44" rx="4" fill="#56603e" ${ol(2)}/><text x="0" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="13" fill="#e9e3c9">ПАТРОНЫ</text></g>`
+          : "",
   });
 }
 
