@@ -517,6 +517,28 @@ export function valkyrie({ brow = "neutral" } = {}) {
   });
 }
 
+// Infected: grey-green skin, milky eyes, torn clothes.
+export function zombie({ v = 0 } = {}) {
+  const tops = ["#5a6a7a", "#7a5a4a", "#4a5a3a"];
+  return build({
+    skin: "#a8b8a0",
+    shade: "#8a9a84",
+    iris: "#e9f4ff",
+    brow: "angry",
+    top: tops[v % 3],
+    topDark: "#2a2d34",
+    sleeve: tops[v % 3],
+    bottom: "#3a3a42",
+    shoes: "#2a2a2e",
+    torsoExtra: `<path d="M70 200 l12 18 l-6 12 M120 170 l-10 16 M90 240 l14 -10" stroke="#2a2d34" stroke-width="4" fill="none"/><path d="M110 150 q6 10 0 18" stroke="#6a2a2a" stroke-width="4" fill="none" opacity=".7"/>`,
+    hairFront:
+      v % 2
+        ? `<path d="M__CX__ __CY__ m-36 -10 q-2 -30 36 -32 q34 2 36 30 l-10 -8 l-8 10 l-10 -12 l-8 10 l-12 -10 l-8 10z" fill="#4a4a4a" ${ol(2)}/>`
+        : "",
+    faceOpts: { blush: false },
+  });
+}
+
 // Gleb's mother: grey bun, glasses, shawl over a cardigan, long skirt.
 export function granny({ brow = "worried" } = {}) {
   return build({

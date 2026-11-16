@@ -1,0 +1,269 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 2.2,
+      "end": 6.708
+    },
+    {
+      "id": "l02",
+      "role": "maxim",
+      "start": 7.108,
+      "end": 11.742
+    },
+    {
+      "id": "l03",
+      "role": "narrator",
+      "start": 12.142,
+      "end": 16.618
+    },
+    {
+      "id": "l04",
+      "role": "medic",
+      "start": 17.018,
+      "end": 20.801
+    },
+    {
+      "id": "l05",
+      "role": "maxim",
+      "start": 21.101,
+      "end": 25.177
+    },
+    {
+      "id": "l06",
+      "role": "medic",
+      "start": 25.477,
+      "end": 30.254
+    },
+    {
+      "id": "l07",
+      "role": "narrator",
+      "start": 30.854,
+      "end": 33.76
+    },
+    {
+      "id": "l08",
+      "role": "medic",
+      "start": 34.36,
+      "end": 40.549
+    },
+    {
+      "id": "l09",
+      "role": "maxim",
+      "start": 41.149,
+      "end": 42.597
+    },
+    {
+      "id": "l10",
+      "role": "medic",
+      "start": 42.997,
+      "end": 48.853
+    },
+    {
+      "id": "l11",
+      "role": "maxim",
+      "start": 49.253,
+      "end": 56.409
+    },
+    {
+      "id": "l12",
+      "role": "masha",
+      "start": 56.809,
+      "end": 57.502
+    },
+    {
+      "id": "l13",
+      "role": "maxim",
+      "start": 57.802,
+      "end": 64.639
+    },
+    {
+      "id": "l14",
+      "role": "masha",
+      "start": 65.039,
+      "end": 67.74
+    },
+    {
+      "id": "l15",
+      "role": "maxim",
+      "start": 68.14,
+      "end": 72.661
+    },
+    {
+      "id": "l16",
+      "role": "narrator",
+      "start": 73.261,
+      "end": 77.99
+    },
+    {
+      "id": "l17",
+      "role": "soldier1",
+      "start": 78.39,
+      "end": 81.397
+    },
+    {
+      "id": "l18",
+      "role": "soldier2",
+      "start": 81.597,
+      "end": 84.153
+    },
+    {
+      "id": "l19",
+      "role": "narrator",
+      "start": 84.553,
+      "end": 90.501
+    },
+    {
+      "id": "l20",
+      "role": "medic",
+      "start": 90.901,
+      "end": 96.315
+    },
+    {
+      "id": "l21",
+      "role": "maxim",
+      "start": 96.715,
+      "end": 100.424
+    },
+    {
+      "id": "l22",
+      "role": "medic",
+      "start": 100.724,
+      "end": 108.271
+    },
+    {
+      "id": "l23",
+      "role": "maxim",
+      "start": 108.571,
+      "end": 109.269
+    },
+    {
+      "id": "l24",
+      "role": "medic",
+      "start": 109.569,
+      "end": 113.681
+    },
+    {
+      "id": "l25",
+      "role": "narrator",
+      "start": 114.281,
+      "end": 118.521
+    },
+    {
+      "id": "l26",
+      "role": "narrator",
+      "start": 119.121,
+      "end": 122.034
+    },
+    {
+      "id": "l27",
+      "role": "maxim",
+      "start": 122.434,
+      "end": 125.712
+    },
+    {
+      "id": "l28",
+      "role": "narrator",
+      "start": 126.312,
+      "end": 128.712
+    },
+    {
+      "id": "l29",
+      "role": "maxim",
+      "start": 129.012,
+      "end": 131.058
+    },
+    {
+      "id": "l30",
+      "role": "narrator",
+      "start": 131.358,
+      "end": 134.103
+    },
+    {
+      "id": "l31",
+      "role": "masha",
+      "start": 134.403,
+      "end": 135.86
+    },
+    {
+      "id": "l32",
+      "role": "narrator",
+      "start": 136.16,
+      "end": 139.89
+    },
+    {
+      "id": "l33",
+      "role": "narrator",
+      "start": 140.19,
+      "end": 143.348
+    },
+    {
+      "id": "l34",
+      "role": "maxim",
+      "start": 143.748,
+      "end": 147.486
+    },
+    {
+      "id": "l35",
+      "role": "narrator",
+      "start": 148.286,
+      "end": 153.953
+    },
+    {
+      "id": "l36",
+      "role": "maxim",
+      "start": 154.353,
+      "end": 158.914
+    },
+    {
+      "id": "l37",
+      "role": "narrator",
+      "start": 159.314,
+      "end": 163.548
+    },
+    {
+      "id": "l38",
+      "role": "voice",
+      "start": 163.948,
+      "end": 172.633
+    },
+    {
+      "id": "l39",
+      "role": "masha",
+      "start": 173.233,
+      "end": 175.353
+    },
+    {
+      "id": "l40",
+      "role": "maxim",
+      "start": 175.653,
+      "end": 182.248
+    },
+    {
+      "id": "l41",
+      "role": "masha",
+      "start": 182.848,
+      "end": 186.619
+    },
+    {
+      "id": "l42",
+      "role": "narrator",
+      "start": 187.019,
+      "end": 190.67
+    },
+    {
+      "id": "l43",
+      "role": "narrator",
+      "start": 191.07,
+      "end": 194.472
+    },
+    {
+      "id": "l44",
+      "role": "maxim",
+      "start": 195.272,
+      "end": 198.597
+    }
+  ],
+  "voice_end": 198.597
+}
