@@ -10,6 +10,7 @@ const ol = (w = 2.6) =>
 
 const RIFLE_SVG = `<g transform="translate(__X__ __Y__)"><rect x="-70" y="-8" width="120" height="14" rx="3" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.8" stroke-linejoin="round"/><rect x="-96" y="-6" width="30" height="20" rx="4" fill="#5a4030" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="-30" y="4" width="12" height="28" rx="3" transform="rotate(10 -24 18)" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="4" y="4" width="10" height="22" rx="3" fill="#3a3a3a"/><rect x="48" y="-4" width="26" height="6" fill="#2a2a2a"/></g>`;
 const ARMOR_SVG = `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#3a4430" stroke="#0b0d14" stroke-width="2" stroke-linejoin="round"/><rect x="72" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="106" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><path d="M64 180 H136" stroke="#2a3022" stroke-width="4"/>`;
+const VENIK = `<g transform="translate(__X__ __Y__)"><rect x="-4" y="-60" width="8" height="64" rx="3" fill="#8a5a34" stroke="#0b0d14" stroke-width="1.6"/><path d="M0 -60 q-30 -20 -24 -70 q14 10 24 40 q10 -30 24 -40 q6 50 -24 70z" fill="#5a8a3a" stroke="#0b0d14" stroke-width="1.6"/></g>`;
 function limb(x, y, len, w, color, end, endColor, cls) {
   // Two-segment limb hanging from the joint (x, y). The outer <g class=cls> pivots at the shoulder/hip,
   // the inner <g class=cls-lo> at the elbow/knee. Each group's parent space has its joint at 0,0,
@@ -253,6 +254,24 @@ export function gleb({
 
 export function masha({ outfit = "home", brow = "neutral", prop = "" } = {}) {
   const night = outfit === "night";
+  if (outfit === "towel")
+    return build({
+      skin: "#ebbb98",
+      shade: "#cc9773",
+      iris: "#3e6a3a",
+      brow,
+      top: "#f2efe6",
+      topDark: "#d9d2c2",
+      sleeve: "#ebbb98",
+      bottom: "#ebbb98",
+      shoes: "#ebbb98",
+      skirt: { color: "#f2efe6", len: 60 },
+      torsoExtra: `<path d="M64 150 H136" stroke="#c95a5a" stroke-width="6"/><path d="M64 250 H136" stroke="#c95a5a" stroke-width="6"/>`,
+      hairBack: HAIR.mashaBack("#5a3522", true),
+      hairFront: HAIR.mashaFront("#5a3522"),
+      faceOpts: { lash: true },
+      handProp: prop === "venik" ? VENIK : "",
+    });
   return build({
     skin: "#ebbb98",
     shade: "#cc9773",
@@ -442,7 +461,13 @@ export function grandpa({ brow = "worried" } = {}) {
 
 // Ded Maxim: neighbour from the first floor. Striped vest, grey beard and moustache, bald top,
 // flat cap, slippers; holds a broken vodka bottle neck.
-export function maxim({ brow = "angry", prop = "bottle", helmet = false, uniform = false } = {}) {
+export function maxim({
+  brow = "angry",
+  prop = "bottle",
+  helmet = false,
+  uniform = false,
+  banya = false,
+} = {}) {
   // tank crew helmet: padded leather cap with ear flaps and goggles pushed up
   const tankHelmet = `<path d="M__CX__ __CY__ m-42 6 q-4 -50 42 -52 q46 2 42 52 q-6 -8 -8 -22 q-34 -14 -68 0 q-2 14 -8 22z" fill="#2a2420" ${ol(2)}/>
       <path d="M__CX__ __CY__ m-30 -40 v34 M__CX__ __CY__ m-10 -46 v40 M__CX__ __CY__ m10 -46 v40 M__CX__ __CY__ m30 -40 v34" stroke="#4a3e34" stroke-width="5"/>
@@ -453,18 +478,22 @@ export function maxim({ brow = "angry", prop = "bottle", helmet = false, uniform
     shade: "#b77f5c",
     iris: "#4a5a6a",
     brow,
-    top: uniform ? "#56603e" : "#e9ecf2",
-    topDark: uniform ? "#3a4228" : "#b9c0cc",
-    sleeve: uniform ? "#56603e" : "#d9a07c",
-    bottom: uniform ? "#4a5236" : "#3a3f4a",
-    shoes: uniform ? "#1d1a16" : "#5a4a3a",
-    torsoExtra: uniform
-      ? `<path d="M86 132 L100 150 L114 132" fill="#e9ecf2"/>${[136, 142].map((y) => `<path d="M90 ${y} H110" stroke="#2a4a8a" stroke-width="4"/>`).join("")}` +
-        ARMOR_SVG
-      : `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}`,
-    hairFront: helmet
-      ? tankHelmet
-      : `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
+    top: banya ? "#d9a07c" : uniform ? "#56603e" : "#e9ecf2",
+    topDark: banya ? "#b77f5c" : uniform ? "#3a4228" : "#b9c0cc",
+    sleeve: banya ? "#d9a07c" : uniform ? "#56603e" : "#d9a07c",
+    bottom: banya ? "#d9a07c" : uniform ? "#4a5236" : "#3a3f4a",
+    shoes: banya ? "#d9a07c" : uniform ? "#1d1a16" : "#5a4a3a",
+    torsoExtra: banya
+      ? `<path d="M84 170 q6 -6 12 0 q6 -6 12 0 M90 186 q6 -6 12 0" stroke="#d8dbe0" stroke-width="3" fill="none"/><path d="M60 236 H140 L146 300 H54Z" fill="#f2efe6" ${ol(2)}/><path d="M58 250 H142" stroke="#c95a5a" stroke-width="6"/>`
+      : uniform
+        ? `<path d="M86 132 L100 150 L114 132" fill="#e9ecf2"/>${[136, 142].map((y) => `<path d="M90 ${y} H110" stroke="#2a4a8a" stroke-width="4"/>`).join("")}` +
+          ARMOR_SVG
+        : `${[150, 166, 182, 198, 214, 230, 246, 262].map((y) => `<path d="M66 ${y} H134" stroke="#2a4a8a" stroke-width="6"/>`).join("")}`,
+    hairFront: banya
+      ? `<path d="M__CX__ __CY__ m-44 -6 q0 -46 44 -48 q44 2 44 48 q6 4 4 10 h-96 q-2 -6 4 -10z" fill="#e9dcc0" ${ol(2)}/><path d="M__CX__ __CY__ m-30 -30 q30 -10 60 0" stroke="#c9b48a" stroke-width="4" fill="none"/>`
+      : helmet
+        ? tankHelmet
+        : `<path d="M__CX__ __CY__ m-36 4 q-2 -20 6 -26 M__CX__ __CY__ m36 4 q2 -20 -6 -26" stroke="#c9ccd2" stroke-width="10" fill="none" stroke-linecap="round"/>
       <path d="M__CX__ __CY__ m-40 -14 q4 -30 40 -32 q36 2 40 32 q-6 -6 -40 -8 q-34 2 -40 8z" fill="#4a4f5a" ${ol(2)}/><path d="M__CX__ __CY__ m-44 -12 q44 -14 92 2 q-4 6 -10 6 q-36 -10 -76 0 q-6 -2 -6 -8z" fill="#3a3f4a" ${ol(2)}/>`,
     accessory: `<path d="M__CX__ __CY__ m-30 16 q4 40 30 42 q26 -2 30 -42 q-8 18 -30 18 q-22 0 -30 -18z" fill="#d8dbe0" ${ol(2)}/>
       <path d="M__CX__ __CY__ m-18 18 q18 -10 36 0 q-8 8 -18 6 q-10 2 -18 -6z" fill="#c9ccd2" ${ol(1.6)}/>
