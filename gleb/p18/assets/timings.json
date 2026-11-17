@@ -1,0 +1,371 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 2.2,
+      "end": 3.399
+    },
+    {
+      "id": "l02",
+      "role": "narrator",
+      "start": 3.899,
+      "end": 10.409
+    },
+    {
+      "id": "l03",
+      "role": "narrator",
+      "start": 11.009,
+      "end": 16.567
+    },
+    {
+      "id": "l04",
+      "role": "narrator",
+      "start": 16.967,
+      "end": 22.675
+    },
+    {
+      "id": "l05",
+      "role": "vanya",
+      "start": 24.075,
+      "end": 28.024
+    },
+    {
+      "id": "l06",
+      "role": "maxim",
+      "start": 28.374,
+      "end": 34.67
+    },
+    {
+      "id": "l07",
+      "role": "vanya",
+      "start": 35.02,
+      "end": 37.397
+    },
+    {
+      "id": "l08",
+      "role": "maxim",
+      "start": 37.747,
+      "end": 40.167
+    },
+    {
+      "id": "l09",
+      "role": "masha",
+      "start": 40.667,
+      "end": 45.373
+    },
+    {
+      "id": "l10",
+      "role": "narrator",
+      "start": 45.773,
+      "end": 53.275
+    },
+    {
+      "id": "l11",
+      "role": "zina",
+      "start": 54.475,
+      "end": 58.327
+    },
+    {
+      "id": "l12",
+      "role": "vanya",
+      "start": 58.677,
+      "end": 62.059
+    },
+    {
+      "id": "l13",
+      "role": "zina",
+      "start": 62.409,
+      "end": 67.424
+    },
+    {
+      "id": "l14",
+      "role": "maxim",
+      "start": 67.774,
+      "end": 70.55
+    },
+    {
+      "id": "l15",
+      "role": "zina",
+      "start": 70.9,
+      "end": 75.158
+    },
+    {
+      "id": "l16",
+      "role": "masha",
+      "start": 75.508,
+      "end": 76.911
+    },
+    {
+      "id": "l17",
+      "role": "narrator",
+      "start": 77.311,
+      "end": 81.519
+    },
+    {
+      "id": "l18",
+      "role": "narrator",
+      "start": 82.919,
+      "end": 86.518
+    },
+    {
+      "id": "l19",
+      "role": "vanya",
+      "start": 86.868,
+      "end": 88.609
+    },
+    {
+      "id": "l20",
+      "role": "maxim",
+      "start": 88.959,
+      "end": 94.782
+    },
+    {
+      "id": "l21",
+      "role": "vanya",
+      "start": 95.132,
+      "end": 95.81
+    },
+    {
+      "id": "l22",
+      "role": "maxim",
+      "start": 96.16,
+      "end": 100.25
+    },
+    {
+      "id": "l23",
+      "role": "vanya",
+      "start": 100.85,
+      "end": 102.962
+    },
+    {
+      "id": "l24",
+      "role": "maxim",
+      "start": 103.312,
+      "end": 108.747
+    },
+    {
+      "id": "l25",
+      "role": "soldier1",
+      "start": 110.147,
+      "end": 114.578
+    },
+    {
+      "id": "l26",
+      "role": "valkyrie",
+      "start": 115.178,
+      "end": 121.735
+    },
+    {
+      "id": "l27",
+      "role": "maxim",
+      "start": 122.435,
+      "end": 127.675
+    },
+    {
+      "id": "l28",
+      "role": "soldier1",
+      "start": 128.025,
+      "end": 133.129
+    },
+    {
+      "id": "l29",
+      "role": "maxim",
+      "start": 133.479,
+      "end": 136.978
+    },
+    {
+      "id": "l29a",
+      "role": "narrator",
+      "start": 138.178,
+      "end": 142.806
+    },
+    {
+      "id": "l29b",
+      "role": "vanya",
+      "start": 143.306,
+      "end": 146.282
+    },
+    {
+      "id": "l29c",
+      "role": "maxim",
+      "start": 146.632,
+      "end": 150.582
+    },
+    {
+      "id": "l29d",
+      "role": "masha",
+      "start": 150.982,
+      "end": 155.063
+    },
+    {
+      "id": "l29e",
+      "role": "vanya",
+      "start": 155.413,
+      "end": 157.319
+    },
+    {
+      "id": "l29f",
+      "role": "masha",
+      "start": 157.669,
+      "end": 160.764
+    },
+    {
+      "id": "l29g",
+      "role": "maxim",
+      "start": 161.114,
+      "end": 163.867
+    },
+    {
+      "id": "l30",
+      "role": "narrator",
+      "start": 165.067,
+      "end": 167.277
+    },
+    {
+      "id": "l31",
+      "role": "masha",
+      "start": 167.627,
+      "end": 174.238
+    },
+    {
+      "id": "l32",
+      "role": "maxim",
+      "start": 174.588,
+      "end": 181.434
+    },
+    {
+      "id": "l33",
+      "role": "zina",
+      "start": 181.784,
+      "end": 186.034
+    },
+    {
+      "id": "l34",
+      "role": "soldier1",
+      "start": 186.384,
+      "end": 190.379
+    },
+    {
+      "id": "l35",
+      "role": "narrator",
+      "start": 190.729,
+      "end": 194.723
+    },
+    {
+      "id": "l36",
+      "role": "narrator",
+      "start": 196.123,
+      "end": 198.836
+    },
+    {
+      "id": "l37",
+      "role": "vanya",
+      "start": 199.186,
+      "end": 201.327
+    },
+    {
+      "id": "l38",
+      "role": "maxim",
+      "start": 201.677,
+      "end": 209.076
+    },
+    {
+      "id": "l39",
+      "role": "vanya",
+      "start": 209.426,
+      "end": 210.371
+    },
+    {
+      "id": "l40",
+      "role": "masha",
+      "start": 211.771,
+      "end": 215.805
+    },
+    {
+      "id": "l41",
+      "role": "maxim",
+      "start": 216.155,
+      "end": 218.703
+    },
+    {
+      "id": "l42",
+      "role": "masha",
+      "start": 219.053,
+      "end": 222.414
+    },
+    {
+      "id": "l43",
+      "role": "maxim",
+      "start": 222.764,
+      "end": 227.524
+    },
+    {
+      "id": "l44",
+      "role": "masha",
+      "start": 227.874,
+      "end": 230.843
+    },
+    {
+      "id": "l45",
+      "role": "narrator",
+      "start": 231.443,
+      "end": 234.41
+    },
+    {
+      "id": "l46",
+      "role": "soldier1",
+      "start": 235.31,
+      "end": 238.068
+    },
+    {
+      "id": "l47",
+      "role": "narrator",
+      "start": 238.668,
+      "end": 244.098
+    },
+    {
+      "id": "l48",
+      "role": "maxim",
+      "start": 244.598,
+      "end": 248.985
+    },
+    {
+      "id": "l49",
+      "role": "gleb",
+      "start": 249.335,
+      "end": 251.917
+    },
+    {
+      "id": "l50",
+      "role": "masha",
+      "start": 252.517,
+      "end": 253.018
+    },
+    {
+      "id": "l51",
+      "role": "gleb",
+      "start": 253.518,
+      "end": 260.165
+    },
+    {
+      "id": "l52",
+      "role": "maxim",
+      "start": 260.515,
+      "end": 267.127
+    },
+    {
+      "id": "l53",
+      "role": "gleb",
+      "start": 267.477,
+      "end": 270.093
+    },
+    {
+      "id": "l54",
+      "role": "vanya",
+      "start": 270.893,
+      "end": 272.882
+    }
+  ],
+  "voice_end": 272.882
+}

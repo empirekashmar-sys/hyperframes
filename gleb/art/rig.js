@@ -126,6 +126,7 @@ function build(spec) {
     { r: 38, torso: 92, leg: 104, arm: 90, w: 60, legW: 21, armW: 17 },
     { r: 40, torso: 70, leg: 76, arm: 70, w: 54, legW: 19, armW: 16 },
     { r: 36, torso: 110, leg: 130, arm: 106, w: 64, legW: 22, armW: 18 }, // teen ~16
+    { r: 37, torso: 54, leg: 56, arm: 52, w: 48, legW: 17, armW: 14 }, // toddler ~3.5
   ][kid];
   const feet = 404;
   const hip = feet - P.leg;
@@ -228,6 +229,7 @@ export function gleb({
   injured = false,
   armor = false,
   ghoul = false,
+  aged = false,
 } = {}) {
   const jacket = outfit === "jacket";
   if (ghoul)
@@ -242,8 +244,12 @@ export function gleb({
       bottom: "#1b1e27",
       shoes: "#2a2a2e",
       torsoExtra: `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#1d1f24" stroke="#0b0d14" stroke-width="2"/><rect x="74" y="168" width="52" height="20" rx="3" fill="#f2efe6"/><text x="100" y="184" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="#c9302c">ГУЛЬ</text><rect x="72" y="210" width="22" height="26" rx="3" fill="#2a2d34"/><rect x="106" y="210" width="22" height="26" rx="3" fill="#2a2d34"/>`,
-      hairFront: HAIR.glebFront("#17181d"),
-      accessory: `<path d="M__CX__ __CY__ m40 0 q8 0 8 10 v14" stroke="#2a2a2e" stroke-width="4" fill="none"/><circle cx="__CX__" cy="__CY__" r="5" transform="translate(42 2)" fill="#2a2a2e"/>`,
+      hairFront: HAIR.glebFront(aged ? "#a3a6ae" : "#17181d"),
+      accessory:
+        `<path d="M__CX__ __CY__ m40 0 q8 0 8 10 v14" stroke="#2a2a2e" stroke-width="4" fill="none"/><circle cx="__CX__" cy="__CY__" r="5" transform="translate(42 2)" fill="#2a2a2e"/>` +
+        (aged
+          ? `<path d="M__CX__ __CY__ m-26 -30 l40 62" stroke="#9a4a46" stroke-width="5" stroke-linecap="round"/><path d="M__CX__ __CY__ m-20 -22 l6 -4 m4 14 l6 -4 m4 14 l6 -4 m4 14 l6 -4" stroke="#9a4a46" stroke-width="2.4" stroke-linecap="round"/><path d="M__CX__ __CY__ m-30 20 q6 6 12 2 M__CX__ __CY__ m18 20 q6 6 12 2" stroke="#8a6a55" stroke-width="2" fill="none" opacity=".6"/><path d="M__CX__ __CY__ m-24 30 q24 18 48 0 l-2 10 q-22 12 -44 0z" fill="#a3a6ae" opacity=".7"/>`
+          : ""),
       handProp:
         prop === "pistol"
           ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-4" width="40" height="12" rx="2" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/><rect x="-4" y="4" width="12" height="22" rx="3" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/></g>`
@@ -294,6 +300,22 @@ export function masha({ outfit = "home", brow = "neutral", prop = "" } = {}) {
       shoes: "#ebbb98",
       torsoExtra: `<path d="M86 130 Q100 142 114 130" fill="none" stroke="#8a8598" stroke-width="4"/>`,
       hairBack: HAIR.mashaBack("#5a3522", true),
+      hairFront: HAIR.mashaFront("#5a3522"),
+      faceOpts: { lash: true },
+    });
+  if (outfit === "nurse")
+    return build({
+      skin: "#ebbb98",
+      shade: "#cc9773",
+      iris: "#3e6a3a",
+      brow,
+      top: "#cfe3ea",
+      topDark: "#9fbfcc",
+      sleeve: "#cfe3ea",
+      bottom: "#3a4a5a",
+      shoes: "#e9ecf2",
+      torsoExtra: `<path d="M88 130 L100 146 L112 130" fill="none" stroke="#9fbfcc" stroke-width="4"/><rect x="110" y="176" width="22" height="22" rx="3" fill="#fff" ${ol(1.6)}/><path d="M121 180 v14 M114 187 h14" stroke="#d9302c" stroke-width="4"/><rect x="72" y="226" width="26" height="22" rx="3" fill="#9fbfcc"/><path d="M78 222 v10 M84 222 v8" stroke="#f2efe6" stroke-width="4"/>`,
+      hairBack: `<path d="M__CX__ __CY__ m-42 0 q-4 -44 42 -46 q46 2 42 46 q0 22 -8 34 h-68 q-8 -12 -8 -34z" fill="#5a3522" ${ol()}/>${Array.from({ length: 7 }, (_, i) => `<ellipse cx="__CX__" cy="__CY__" rx="13" ry="16" transform="translate(${36 + (i % 2) * 4} ${30 + i * 26})" fill="#5a3522" ${ol(2)}/>`).join("")}<circle cx="__CX__" cy="__CY__" r="7" transform="translate(38 212)" fill="#d9302c" ${ol(1.6)}/>`,
       hairFront: HAIR.mashaFront("#5a3522"),
       faceOpts: { lash: true },
     });
@@ -405,6 +427,28 @@ export function sonYoung({ outfit = "day", brow = "neutral", bunny = true } = {}
     hairFront: HAIR.curls("#2a1d16"),
     faceOpts: { freckles: true },
     handProp: bunny ? "" : "",
+  });
+}
+
+// Vanya, Masha and Maxim's son, about three and a half: striped tee, overalls, sandals.
+export function vanya({ outfit = "day", brow = "neutral" } = {}) {
+  const pj = outfit === "pajama";
+  return build({
+    kid: 4,
+    skin: "#f2c6a6",
+    shade: "#d4a07e",
+    iris: "#4a5a6a",
+    brow,
+    top: pj ? "#9fd0e9" : "#f2efe6",
+    topDark: pj ? "#7ab0cc" : "#c9c4b8",
+    sleeve: pj ? "#9fd0e9" : "#f2efe6",
+    bottom: pj ? "#9fd0e9" : "#4a7ab8",
+    shoes: pj ? "#f2c6a6" : "#c9483a",
+    torsoExtra: pj
+      ? `<circle cx="92" cy="${404 - 56 - 30}" r="4" fill="#ffe08a"/><circle cx="108" cy="${404 - 56 - 18}" r="4" fill="#ffe08a"/>`
+      : `${[0, 1, 2].map((k) => `<path d="M76 ${404 - 56 - 48 + k * 10} H124" stroke="#c9483a" stroke-width="4"/>`).join("")}<path d="M78 ${404 - 56 - 22} H122 V${404 - 56 + 2} H78Z" fill="#4a7ab8" ${ol(1.6)}/><path d="M84 ${404 - 56 - 22} L80 ${404 - 56 - 54} M116 ${404 - 56 - 22} L120 ${404 - 56 - 54}" stroke="#4a7ab8" stroke-width="6"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-36 -2 q-6 -38 36 -40 q42 2 36 40 q-6 -14 -14 -16 l-4 10 l-6 -14 l-6 12 l-6 -14 l-6 12 l-6 -12 l-4 12 q-14 6 -20 20z" fill="#9a6a3e" ${ol(2)}/><path d="M__CX__ __CY__ m2 -42 q10 -10 6 -18" stroke="#9a6a3e" stroke-width="5" fill="none" stroke-linecap="round"/>`,
+    faceOpts: { freckles: true },
   });
 }
 
