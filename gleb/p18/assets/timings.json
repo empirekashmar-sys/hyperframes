@@ -232,92 +232,92 @@
       "id": "l39",
       "role": "gleb",
       "start": 145.172,
-      "end": 146.242
+      "end": 146.268
     },
     {
       "id": "l40",
       "role": "fox",
-      "start": 146.592,
-      "end": 147.554
+      "start": 146.618,
+      "end": 147.58
     },
     {
       "id": "l41",
       "role": "narrator",
-      "start": 148.554,
-      "end": 154.299
+      "start": 148.58,
+      "end": 154.326
     },
     {
       "id": "l42",
       "role": "narrator",
-      "start": 155.499,
-      "end": 159.589
+      "start": 155.526,
+      "end": 159.615
     },
     {
       "id": "l43",
       "role": "valkyrie",
-      "start": 160.089,
-      "end": 160.924
+      "start": 160.115,
+      "end": 160.951
     },
     {
       "id": "l44",
       "role": "gleb",
-      "start": 161.274,
-      "end": 165.286
+      "start": 161.301,
+      "end": 165.312
     },
     {
       "id": "l45",
       "role": "valkyrie",
-      "start": 165.886,
-      "end": 168.529
+      "start": 165.912,
+      "end": 168.556
     },
     {
       "id": "l46",
       "role": "general",
-      "start": 169.729,
-      "end": 176.552
+      "start": 169.756,
+      "end": 176.578
     },
     {
       "id": "l47",
       "role": "gleb",
-      "start": 176.902,
-      "end": 177.759
+      "start": 176.928,
+      "end": 177.785
     },
     {
       "id": "l48",
       "role": "general",
-      "start": 178.259,
-      "end": 187.151
+      "start": 178.285,
+      "end": 187.178
     },
     {
       "id": "l49",
       "role": "general",
-      "start": 187.501,
-      "end": 193.132
+      "start": 187.528,
+      "end": 193.158
     },
     {
       "id": "l50",
       "role": "bear",
-      "start": 193.482,
-      "end": 195.177
+      "start": 193.508,
+      "end": 195.203
     },
     {
       "id": "l51",
       "role": "gleb",
-      "start": 195.527,
-      "end": 196.069
+      "start": 195.553,
+      "end": 196.095
     },
     {
       "id": "l52",
       "role": "narrator",
-      "start": 196.669,
-      "end": 201.35
+      "start": 196.695,
+      "end": 201.376
     },
     {
       "id": "l53",
       "role": "gleb",
-      "start": 201.95,
-      "end": 205.598
+      "start": 201.976,
+      "end": 205.624
     }
   ],
-  "voice_end": 205.598
+  "voice_end": 205.624
 }
