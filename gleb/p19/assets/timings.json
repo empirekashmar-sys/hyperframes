@@ -172,80 +172,104 @@
       "id": "l29",
       "role": "gleb",
       "start": 113.081,
-      "end": 115.23
+      "end": 116.334
     },
     {
       "id": "l30",
-      "role": "masha",
-      "start": 115.58,
-      "end": 117.492
+      "role": "maxim",
+      "start": 116.684,
+      "end": 118.927
     },
     {
       "id": "l31",
       "role": "gleb",
-      "start": 117.842,
-      "end": 122.427
+      "start": 119.277,
+      "end": 120.466
     },
     {
       "id": "l32",
-      "role": "valkyrie",
-      "start": 122.927,
-      "end": 126.117
+      "role": "narrator",
+      "start": 121.066,
+      "end": 124.266
     },
     {
       "id": "l33",
-      "role": "gleb",
-      "start": 126.467,
-      "end": 128.771
+      "role": "zina",
+      "start": 124.766,
+      "end": 127.947
     },
     {
       "id": "l34",
-      "role": "valkyrie",
-      "start": 129.121,
-      "end": 130.72
+      "role": "narrator",
+      "start": 128.297,
+      "end": 132.168
     },
     {
       "id": "l35",
-      "role": "gleb",
-      "start": 131.07,
-      "end": 136.15
+      "role": "masha",
+      "start": 132.868,
+      "end": 135.597
     },
     {
       "id": "l36",
-      "role": "narrator",
-      "start": 136.55,
-      "end": 140.487
+      "role": "fox",
+      "start": 135.997,
+      "end": 138.307
     },
     {
       "id": "l37",
-      "role": "fox",
-      "start": 141.287,
-      "end": 143.258
+      "role": "gleb",
+      "start": 138.657,
+      "end": 143.912
     },
     {
       "id": "l38",
-      "role": "narrator",
-      "start": 143.608,
-      "end": 149.235
+      "role": "bear",
+      "start": 144.262,
+      "end": 144.935
     },
     {
       "id": "l39",
-      "role": "maxim",
-      "start": 149.835,
-      "end": 153.178
+      "role": "valkyrie",
+      "start": 145.435,
+      "end": 146.807
     },
     {
       "id": "l40",
       "role": "gleb",
-      "start": 153.528,
-      "end": 157.091
+      "start": 147.157,
+      "end": 149.965
     },
     {
       "id": "l41",
-      "role": "zina",
-      "start": 157.441,
-      "end": 160.142
+      "role": "narrator",
+      "start": 150.465,
+      "end": 153.71
+    },
+    {
+      "id": "l42",
+      "role": "gleb",
+      "start": 154.11,
+      "end": 155.856
+    },
+    {
+      "id": "l43",
+      "role": "narrator",
+      "start": 156.256,
+      "end": 162.612
+    },
+    {
+      "id": "l44",
+      "role": "masha",
+      "start": 163.612,
+      "end": 164.831
+    },
+    {
+      "id": "l45",
+      "role": "gleb",
+      "start": 165.181,
+      "end": 166.688
     }
   ],
-  "voice_end": 160.142
+  "voice_end": 166.688
 }

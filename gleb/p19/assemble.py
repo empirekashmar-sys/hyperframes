@@ -9,7 +9,7 @@ NORM = SRC / "norm"; NORM.mkdir(exist_ok=True)
 rows = list(csv.DictReader(open(HERE / "script.tsv", encoding="utf-8"), delimiter="\t"))
 # silence after each line (default 0.35): scene changes and beats get more room
 GAP = {"l01": 0.3, "l02": 1.0, "l03": 0.5, "l06": 0.6, "l07": 0.4, "l12": 1.0, "l13": 1.0, "l16": 1.0, "l18": 0.4, "l19": 0.6,
-       "l21": 0.4, "l24": 0.5, "l25": 0.8, "l26": 0.6, "l27": 0.4, "l31": 0.5, "l35": 0.4, "l36": 0.8, "l38": 0.6, "l41": 0}
+       "l21": 0.4, "l24": 0.5, "l25": 0.8, "l26": 0.6, "l27": 0.4, "l31": 0.6, "l32": 0.5, "l34": 0.7, "l35": 0.4, "l38": 0.5, "l40": 0.5, "l41": 0.4, "l42": 0.4, "l43": 1.0, "l45": 0}
 LEAD = 2.2
 VOW = set("аеёиоуыэюяАЕЁИОУЫЭЮЯ")
 
