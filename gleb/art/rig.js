@@ -259,11 +259,13 @@ export function gleb({
           ? `<path d="M__CX__ __CY__ m-26 -30 l40 62" stroke="#9a4a46" stroke-width="5" stroke-linecap="round"/><path d="M__CX__ __CY__ m-24 30 q24 18 48 0 l-2 10 q-22 12 -44 0z" fill="#a3a6ae" opacity=".7"/>`
           : ""),
       handProp:
-        prop === "rifle"
-          ? RIFLE_SVG
-          : prop === "photo"
-            ? `<g transform="translate(__X__ __Y__) rotate(-8)"><rect x="-26" y="-40" width="52" height="40" fill="#f2efe6" stroke="#0b0d14" stroke-width="1.6"/><rect x="-22" y="-36" width="44" height="30" fill="#9fc2e0"/><circle cx="-10" cy="-20" r="5" fill="#efc1a0"/><circle cx="6" cy="-18" r="4" fill="#e9c1a0"/></g>`
-            : "",
+        prop === "pistol"
+          ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-4" width="40" height="12" rx="2" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/><rect x="-4" y="4" width="12" height="22" rx="3" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/></g>`
+          : prop === "rifle"
+            ? RIFLE_SVG
+            : prop === "photo"
+              ? `<g transform="translate(__X__ __Y__) rotate(-8)"><rect x="-26" y="-40" width="52" height="40" fill="#f2efe6" stroke="#0b0d14" stroke-width="1.6"/><rect x="-22" y="-36" width="44" height="30" fill="#9fc2e0"/><circle cx="-10" cy="-20" r="5" fill="#efc1a0"/><circle cx="6" cy="-18" r="4" fill="#e9c1a0"/></g>`
+              : "",
     });
   if (ghoul)
     return build({
@@ -559,6 +561,25 @@ export function omega({ v = 0, brow = "neutral", prop = "", kit = false } = {}) 
   });
 }
 
+// Professor Lanskaya: lab coat over a black turtleneck, a tight dark bun, thin glasses, a tablet.
+export function professor({ brow = "neutral" } = {}) {
+  return build({
+    skin: "#ecc4a4",
+    shade: "#cfa282",
+    iris: "#3a4a5a",
+    brow,
+    top: "#f4f6f8",
+    topDark: "#c9cdd4",
+    sleeve: "#f4f6f8",
+    bottom: "#2a2a30",
+    shoes: "#1a1a1e",
+    torsoExtra: `<path d="M88 128 L100 150 L112 128 Z" fill="#141418"/><path d="M100 150 V268" stroke="#c9cdd4" stroke-width="3"/><rect x="108" y="168" width="22" height="26" rx="3" fill="#c9cdd4"/><path d="M112 172 h14 M112 180 h10" stroke="#3a7ab8" stroke-width="2"/><rect x="66" y="226" width="34" height="8" rx="3" fill="#2a5aa8"/>`,
+    hairBack: `<path d="M__CX__ __CY__ m-40 -2 q-4 -42 40 -44 q44 2 40 44 q-4 -26 -40 -28 q-36 2 -40 28z" fill="#1d1a18" stroke="#0b0d14" stroke-width="2"/><circle cx="__CX__" cy="__CY__" r="20" transform="translate(0 -52)" fill="#1d1a18" stroke="#0b0d14" stroke-width="2"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-40 -6 q4 -38 40 -38 q36 0 40 38 q-14 -22 -40 -22 q-26 0 -40 22z" fill="#1d1a18" stroke="#0b0d14" stroke-width="2"/>`,
+    faceOpts: { glasses: true, lash: true, blush: false },
+  });
+}
+
 // Checkpoint soldier: khaki uniform, helmet, rifle across the body.
 export function soldier({ brow = "angry", mask = false, prop = "" } = {}) {
   // balaclava: dark knit over the whole head with an eye slot (evenodd cut-out)
@@ -652,7 +673,7 @@ export function feldsher({ brow = "neutral" } = {}) {
 }
 
 // Valkyrie: white hair, ice-blue eyes, black body armour with her callsign.
-export function valkyrie({ brow = "neutral", queen = false } = {}) {
+export function valkyrie({ brow = "neutral", queen = false, prop = "" } = {}) {
   if (queen)
     return build({
       skin: "#c9d2d6",
@@ -681,6 +702,10 @@ export function valkyrie({ brow = "neutral", queen = false } = {}) {
     bottom: "#141418",
     shoes: "#2a2a2e",
     torsoExtra: `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#1d1f24" stroke="#0b0d14" stroke-width="2"/><rect x="66" y="222" width="68" height="20" rx="3" fill="#f2efe6"/><text x="100" y="237" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="11" fill="#2a5aa8">ВАЛЬКИРИЯ</text>`,
+    handProp:
+      prop === "pistol"
+        ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-4" width="40" height="12" rx="2" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/><rect x="-4" y="4" width="12" height="22" rx="3" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/></g>`
+        : "",
     hairBack: HAIR.mashaBack("#f4f6fa", true),
     hairFront: HAIR.mashaFront("#f4f6fa"),
     faceOpts: { lash: true },

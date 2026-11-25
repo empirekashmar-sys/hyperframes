@@ -1,0 +1,245 @@
+{
+  "lines": [
+    {
+      "id": "l01",
+      "role": "narrator",
+      "start": 2.2,
+      "end": 8.045
+    },
+    {
+      "id": "l02",
+      "role": "prof",
+      "start": 9.045,
+      "end": 14.69
+    },
+    {
+      "id": "l03",
+      "role": "masha",
+      "start": 15.04,
+      "end": 15.72
+    },
+    {
+      "id": "l04",
+      "role": "prof",
+      "start": 16.07,
+      "end": 21.251
+    },
+    {
+      "id": "l05",
+      "role": "feldsher",
+      "start": 21.751,
+      "end": 26.85
+    },
+    {
+      "id": "l06",
+      "role": "gleb",
+      "start": 27.2,
+      "end": 30.533
+    },
+    {
+      "id": "l07",
+      "role": "narrator",
+      "start": 31.733,
+      "end": 35.204
+    },
+    {
+      "id": "l08",
+      "role": "prof",
+      "start": 35.704,
+      "end": 42.857
+    },
+    {
+      "id": "l09",
+      "role": "general",
+      "start": 43.207,
+      "end": 47.79
+    },
+    {
+      "id": "l10",
+      "role": "prof",
+      "start": 48.14,
+      "end": 51.54
+    },
+    {
+      "id": "l11",
+      "role": "narrator",
+      "start": 52.04,
+      "end": 55.003
+    },
+    {
+      "id": "l12",
+      "role": "fox",
+      "start": 56.203,
+      "end": 65.356
+    },
+    {
+      "id": "l13",
+      "role": "gleb",
+      "start": 65.706,
+      "end": 66.505
+    },
+    {
+      "id": "l14",
+      "role": "fox",
+      "start": 67.105,
+      "end": 68.561
+    },
+    {
+      "id": "l15",
+      "role": "gleb",
+      "start": 68.961,
+      "end": 75.716
+    },
+    {
+      "id": "l16",
+      "role": "fox",
+      "start": 76.066,
+      "end": 77.34
+    },
+    {
+      "id": "l17",
+      "role": "gleb",
+      "start": 77.84,
+      "end": 82.902
+    },
+    {
+      "id": "l18",
+      "role": "fox",
+      "start": 83.502,
+      "end": 85.735
+    },
+    {
+      "id": "l19",
+      "role": "gleb",
+      "start": 86.085,
+      "end": 90.408
+    },
+    {
+      "id": "l20",
+      "role": "narrator",
+      "start": 91.608,
+      "end": 93.701
+    },
+    {
+      "id": "l21",
+      "role": "masha",
+      "start": 94.201,
+      "end": 96.067
+    },
+    {
+      "id": "l22",
+      "role": "gleb",
+      "start": 96.417,
+      "end": 99.905
+    },
+    {
+      "id": "l23",
+      "role": "masha",
+      "start": 100.255,
+      "end": 106.025
+    },
+    {
+      "id": "l24",
+      "role": "gleb",
+      "start": 106.375,
+      "end": 114.985
+    },
+    {
+      "id": "l25",
+      "role": "masha",
+      "start": 115.335,
+      "end": 118.62
+    },
+    {
+      "id": "l26",
+      "role": "gleb",
+      "start": 119.12,
+      "end": 120.654
+    },
+    {
+      "id": "l27",
+      "role": "masha",
+      "start": 121.254,
+      "end": 125.81
+    },
+    {
+      "id": "l28",
+      "role": "gleb",
+      "start": 126.16,
+      "end": 126.598
+    },
+    {
+      "id": "l29",
+      "role": "masha",
+      "start": 126.948,
+      "end": 128.294
+    },
+    {
+      "id": "l30",
+      "role": "narrator",
+      "start": 129.494,
+      "end": 134.865
+    },
+    {
+      "id": "l31",
+      "role": "fox",
+      "start": 135.465,
+      "end": 138.403
+    },
+    {
+      "id": "l32",
+      "role": "gleb",
+      "start": 138.753,
+      "end": 139.931
+    },
+    {
+      "id": "l33",
+      "role": "narrator",
+      "start": 140.431,
+      "end": 145.108
+    },
+    {
+      "id": "l34",
+      "role": "feldsher",
+      "start": 145.508,
+      "end": 149.445
+    },
+    {
+      "id": "l35",
+      "role": "quiet",
+      "start": 149.795,
+      "end": 150.796
+    },
+    {
+      "id": "l36",
+      "role": "gleb",
+      "start": 151.146,
+      "end": 153.932
+    },
+    {
+      "id": "l37",
+      "role": "fox",
+      "start": 154.282,
+      "end": 156.796
+    },
+    {
+      "id": "l38",
+      "role": "narrator",
+      "start": 157.296,
+      "end": 159.689
+    },
+    {
+      "id": "l39",
+      "role": "valkyrie",
+      "start": 160.289,
+      "end": 162.15
+    },
+    {
+      "id": "l40",
+      "role": "narrator",
+      "start": 162.65,
+      "end": 164.886
+    }
+  ],
+  "voice_end": 164.886
+}

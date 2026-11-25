@@ -1,0 +1,1493 @@
+[
+  { "text": "База", "start": 2.2, "end": 2.536, "line": "l01", "role": "narrator", "id": "w0" },
+  {
+    "text": "«Гранит».",
+    "start": 2.536,
+    "end": 2.872,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w1"
+  },
+  { "text": "Машу", "start": 2.872, "end": 3.209, "line": "l01", "role": "narrator", "id": "w2" },
+  { "text": "вели", "start": 3.209, "end": 3.545, "line": "l01", "role": "narrator", "id": "w3" },
+  { "text": "по", "start": 3.545, "end": 3.752, "line": "l01", "role": "narrator", "id": "w4" },
+  {
+    "text": "коридору",
+    "start": 3.752,
+    "end": 4.347,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w5"
+  },
+  { "text": "двое", "start": 4.347, "end": 4.683, "line": "l01", "role": "narrator", "id": "w6" },
+  { "text": "из", "start": 4.683, "end": 4.89, "line": "l01", "role": "narrator", "id": "w7" },
+  {
+    "text": "«Омеги».",
+    "start": 4.89,
+    "end": 5.355,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w8"
+  },
+  { "text": "Она", "start": 5.355, "end": 5.691, "line": "l01", "role": "narrator", "id": "w9" },
+  { "text": "не", "start": 5.691, "end": 5.898, "line": "l01", "role": "narrator", "id": "w10" },
+  {
+    "text": "плакала.",
+    "start": 5.898,
+    "end": 6.364,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w11"
+  },
+  { "text": "Она", "start": 6.364, "end": 6.7, "line": "l01", "role": "narrator", "id": "w12" },
+  {
+    "text": "смотрела",
+    "start": 6.7,
+    "end": 7.165,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w13"
+  },
+  { "text": "Глебу", "start": 7.165, "end": 7.502, "line": "l01", "role": "narrator", "id": "w14" },
+  { "text": "в", "start": 7.502, "end": 7.579, "line": "l01", "role": "narrator", "id": "w15" },
+  {
+    "text": "затылок.",
+    "start": 7.579,
+    "end": 8.045,
+    "line": "l01",
+    "role": "narrator",
+    "id": "w16"
+  },
+  { "text": "Добро", "start": 9.045, "end": 9.43, "line": "l02", "role": "prof", "id": "w17" },
+  {
+    "text": "пожаловать,",
+    "start": 9.43,
+    "end": 10.111,
+    "line": "l02",
+    "role": "prof",
+    "id": "w18"
+  },
+  { "text": "Мария.", "start": 10.111, "end": 10.644, "line": "l02", "role": "prof", "id": "w19" },
+  { "text": "Я", "start": 10.644, "end": 10.881, "line": "l02", "role": "prof", "id": "w20" },
+  {
+    "text": "профессор",
+    "start": 10.881,
+    "end": 11.414,
+    "line": "l02",
+    "role": "prof",
+    "id": "w21"
+  },
+  {
+    "text": "Ланская.",
+    "start": 11.414,
+    "end": 11.947,
+    "line": "l02",
+    "role": "prof",
+    "id": "w22"
+  },
+  { "text": "Не", "start": 11.947, "end": 12.333, "line": "l02", "role": "prof", "id": "w23" },
+  {
+    "text": "бойтесь.",
+    "start": 12.333,
+    "end": 12.718,
+    "line": "l02",
+    "role": "prof",
+    "id": "w24"
+  },
+  { "text": "Здесь", "start": 12.718, "end": 12.955, "line": "l02", "role": "prof", "id": "w25" },
+  { "text": "вам", "start": 12.955, "end": 13.387, "line": "l02", "role": "prof", "id": "w26" },
+  { "text": "будет", "start": 13.387, "end": 13.772, "line": "l02", "role": "prof", "id": "w27" },
+  { "text": "очень", "start": 13.772, "end": 14.157, "line": "l02", "role": "prof", "id": "w28" },
+  { "text": "удобно.", "start": 14.157, "end": 14.69, "line": "l02", "role": "prof", "id": "w29" },
+  { "text": "В", "start": 15.04, "end": 15.167, "line": "l03", "role": "masha", "id": "w30" },
+  { "text": "клетке?", "start": 15.167, "end": 15.72, "line": "l03", "role": "masha", "id": "w31" },
+  { "text": "В", "start": 16.07, "end": 16.155, "line": "l04", "role": "prof", "id": "w32" },
+  {
+    "text": "стерильном",
+    "start": 16.155,
+    "end": 16.663,
+    "line": "l04",
+    "role": "prof",
+    "id": "w33"
+  },
+  { "text": "боксе.", "start": 16.663, "end": 17.03, "line": "l04", "role": "prof", "id": "w34" },
+  { "text": "Это", "start": 17.03, "end": 18.173, "line": "l04", "role": "prof", "id": "w35" },
+  { "text": "разные", "start": 18.173, "end": 18.681, "line": "l04", "role": "prof", "id": "w36" },
+  { "text": "вещи.", "start": 18.681, "end": 19.048, "line": "l04", "role": "prof", "id": "w37" },
+  { "text": "Вы", "start": 19.048, "end": 19.274, "line": "l04", "role": "prof", "id": "w38" },
+  { "text": "самый", "start": 19.274, "end": 19.642, "line": "l04", "role": "prof", "id": "w39" },
+  { "text": "ценный", "start": 19.642, "end": 20.009, "line": "l04", "role": "prof", "id": "w40" },
+  { "text": "человек", "start": 20.009, "end": 20.517, "line": "l04", "role": "prof", "id": "w41" },
+  { "text": "на", "start": 20.517, "end": 20.743, "line": "l04", "role": "prof", "id": "w42" },
+  {
+    "text": "планете.",
+    "start": 20.743,
+    "end": 21.251,
+    "line": "l04",
+    "role": "prof",
+    "id": "w43"
+  },
+  {
+    "text": "Восьмой",
+    "start": 21.751,
+    "end": 22.36,
+    "line": "l05",
+    "role": "feldsher",
+    "id": "w44"
+  },
+  {
+    "text": "месяц,",
+    "start": 22.36,
+    "end": 22.968,
+    "line": "l05",
+    "role": "feldsher",
+    "id": "w45"
+  },
+  {
+    "text": "командир.",
+    "start": 22.968,
+    "end": 23.81,
+    "line": "l05",
+    "role": "feldsher",
+    "id": "w46"
+  },
+  {
+    "text": "Ребёнок",
+    "start": 23.81,
+    "end": 24.652,
+    "line": "l05",
+    "role": "feldsher",
+    "id": "w47"
+  },
+  {
+    "text": "здоров.",
+    "start": 24.652,
+    "end": 25.26,
+    "line": "l05",
+    "role": "feldsher",
+    "id": "w48"
+  },
+  { "text": "Мать", "start": 25.26, "end": 25.634, "line": "l05", "role": "feldsher", "id": "w49" },
+  { "text": "на", "start": 25.634, "end": 26.008, "line": "l05", "role": "feldsher", "id": "w50" },
+  {
+    "text": "пределе.",
+    "start": 26.008,
+    "end": 26.85,
+    "line": "l05",
+    "role": "feldsher",
+    "id": "w51"
+  },
+  { "text": "Покормите", "start": 27.2, "end": 27.804, "line": "l06", "role": "gleb", "id": "w52" },
+  { "text": "её.", "start": 27.804, "end": 28.145, "line": "l06", "role": "gleb", "id": "w53" },
+  { "text": "И", "start": 28.145, "end": 28.749, "line": "l06", "role": "gleb", "id": "w54" },
+  { "text": "чтобы", "start": 28.749, "end": 29.09, "line": "l06", "role": "gleb", "id": "w55" },
+  { "text": "никто", "start": 29.09, "end": 29.431, "line": "l06", "role": "gleb", "id": "w56" },
+  { "text": "не", "start": 29.431, "end": 29.641, "line": "l06", "role": "gleb", "id": "w57" },
+  { "text": "трогал", "start": 29.641, "end": 29.982, "line": "l06", "role": "gleb", "id": "w58" },
+  { "text": "без", "start": 29.982, "end": 30.192, "line": "l06", "role": "gleb", "id": "w59" },
+  { "text": "меня.", "start": 30.192, "end": 30.533, "line": "l06", "role": "gleb", "id": "w60" },
+  {
+    "text": "Вечером",
+    "start": 31.733,
+    "end": 32.173,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w61"
+  },
+  {
+    "text": "Лиса",
+    "start": 32.173,
+    "end": 32.491,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w62"
+  },
+  { "text": "шла", "start": 32.491, "end": 32.686, "line": "l07", "role": "narrator", "id": "w63" },
+  {
+    "text": "мимо",
+    "start": 32.686,
+    "end": 33.004,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w64"
+  },
+  {
+    "text": "кабинета",
+    "start": 33.004,
+    "end": 33.566,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w65"
+  },
+  {
+    "text": "генерала.",
+    "start": 33.566,
+    "end": 34.128,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w66"
+  },
+  {
+    "text": "Дверь",
+    "start": 34.128,
+    "end": 34.324,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w67"
+  },
+  {
+    "text": "была",
+    "start": 34.324,
+    "end": 34.642,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w68"
+  },
+  {
+    "text": "приоткрыта.",
+    "start": 34.642,
+    "end": 35.204,
+    "line": "l07",
+    "role": "narrator",
+    "id": "w69"
+  },
+  { "text": "Кровь", "start": 35.704, "end": 35.931, "line": "l08", "role": "prof", "id": "w70" },
+  { "text": "матери", "start": 35.931, "end": 36.443, "line": "l08", "role": "prof", "id": "w71" },
+  { "text": "даёт", "start": 36.443, "end": 36.813, "line": "l08", "role": "prof", "id": "w72" },
+  {
+    "text": "иммунитет",
+    "start": 36.813,
+    "end": 37.468,
+    "line": "l08",
+    "role": "prof",
+    "id": "w73"
+  },
+  { "text": "на", "start": 37.468, "end": 37.695, "line": "l08", "role": "prof", "id": "w74" },
+  { "text": "неделю.", "start": 37.695, "end": 38.492, "line": "l08", "role": "prof", "id": "w75" },
+  { "text": "А", "start": 38.492, "end": 38.72, "line": "l08", "role": "prof", "id": "w76" },
+  { "text": "кровь", "start": 38.72, "end": 38.947, "line": "l08", "role": "prof", "id": "w77" },
+  { "text": "ребёнка", "start": 38.947, "end": 39.46, "line": "l08", "role": "prof", "id": "w78" },
+  {
+    "text": "навсегда.",
+    "start": 39.46,
+    "end": 40.136,
+    "line": "l08",
+    "role": "prof",
+    "id": "w79"
+  },
+  { "text": "После", "start": 40.136, "end": 40.637, "line": "l08", "role": "prof", "id": "w80" },
+  { "text": "родов", "start": 40.637, "end": 41.007, "line": "l08", "role": "prof", "id": "w81" },
+  { "text": "мать", "start": 41.007, "end": 41.235, "line": "l08", "role": "prof", "id": "w82" },
+  { "text": "нам", "start": 41.235, "end": 41.463, "line": "l08", "role": "prof", "id": "w83" },
+  { "text": "больше", "start": 41.463, "end": 41.832, "line": "l08", "role": "prof", "id": "w84" },
+  { "text": "не", "start": 41.832, "end": 42.06, "line": "l08", "role": "prof", "id": "w85" },
+  {
+    "text": "понадобится.",
+    "start": 42.06,
+    "end": 42.857,
+    "line": "l08",
+    "role": "prof",
+    "id": "w86"
+  },
+  {
+    "text": "Хорошо.",
+    "start": 43.207,
+    "end": 43.742,
+    "line": "l09",
+    "role": "general",
+    "id": "w87"
+  },
+  { "text": "А", "start": 43.742, "end": 44.304, "line": "l09", "role": "general", "id": "w88" },
+  {
+    "text": "«Жатва»?",
+    "start": 44.304,
+    "end": 44.691,
+    "line": "l09",
+    "role": "general",
+    "id": "w89"
+  },
+  { "text": "Никто", "start": 44.691, "end": 45.47, "line": "l09", "role": "general", "id": "w90" },
+  { "text": "не", "start": 45.47, "end": 45.708, "line": "l09", "role": "general", "id": "w91" },
+  {
+    "text": "должен",
+    "start": 45.708,
+    "end": 46.095,
+    "line": "l09",
+    "role": "general",
+    "id": "w92"
+  },
+  {
+    "text": "узнать,",
+    "start": 46.095,
+    "end": 46.481,
+    "line": "l09",
+    "role": "general",
+    "id": "w93"
+  },
+  {
+    "text": "откуда",
+    "start": 46.481,
+    "end": 47.017,
+    "line": "l09",
+    "role": "general",
+    "id": "w94"
+  },
+  { "text": "всё", "start": 47.017, "end": 47.254, "line": "l09", "role": "general", "id": "w95" },
+  {
+    "text": "началось.",
+    "start": 47.254,
+    "end": 47.79,
+    "line": "l09",
+    "role": "general",
+    "id": "w96"
+  },
+  { "text": "Архив", "start": 48.14, "end": 48.515, "line": "l10", "role": "prof", "id": "w97" },
+  { "text": "под", "start": 48.515, "end": 48.746, "line": "l10", "role": "prof", "id": "w98" },
+  { "text": "замком,", "start": 48.746, "end": 49.122, "line": "l10", "role": "prof", "id": "w99" },
+  {
+    "text": "товарищ",
+    "start": 49.122,
+    "end": 49.642,
+    "line": "l10",
+    "role": "prof",
+    "id": "w100"
+  },
+  {
+    "text": "генерал.",
+    "start": 49.642,
+    "end": 50.162,
+    "line": "l10",
+    "role": "prof",
+    "id": "w101"
+  },
+  { "text": "Знают", "start": 50.162, "end": 50.789, "line": "l10", "role": "prof", "id": "w102" },
+  { "text": "только", "start": 50.789, "end": 51.165, "line": "l10", "role": "prof", "id": "w103" },
+  { "text": "трое.", "start": 51.165, "end": 51.54, "line": "l10", "role": "prof", "id": "w104" },
+  {
+    "text": "Лиса",
+    "start": 52.04,
+    "end": 52.356,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w105"
+  },
+  {
+    "text": "тихо",
+    "start": 52.356,
+    "end": 52.672,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w106"
+  },
+  {
+    "text": "отошла",
+    "start": 52.672,
+    "end": 53.109,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w107"
+  },
+  { "text": "от", "start": 53.109, "end": 53.303, "line": "l11", "role": "narrator", "id": "w108" },
+  {
+    "text": "двери.",
+    "start": 53.303,
+    "end": 53.619,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w109"
+  },
+  { "text": "И", "start": 53.619, "end": 53.813, "line": "l11", "role": "narrator", "id": "w110" },
+  {
+    "text": "пошла",
+    "start": 53.813,
+    "end": 54.129,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w111"
+  },
+  {
+    "text": "искать",
+    "start": 54.129,
+    "end": 54.445,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w112"
+  },
+  {
+    "text": "командира.",
+    "start": 54.445,
+    "end": 55.003,
+    "line": "l11",
+    "role": "narrator",
+    "id": "w113"
+  },
+  {
+    "text": "Командир.",
+    "start": 56.203,
+    "end": 56.779,
+    "line": "l12",
+    "role": "fox",
+    "id": "w114"
+  },
+  { "text": "Я", "start": 56.779, "end": 57.296, "line": "l12", "role": "fox", "id": "w115" },
+  { "text": "слышала", "start": 57.296, "end": 57.872, "line": "l12", "role": "fox", "id": "w116" },
+  {
+    "text": "генерала.",
+    "start": 57.872,
+    "end": 58.876,
+    "line": "l12",
+    "role": "fox",
+    "id": "w117"
+  },
+  { "text": "Машу", "start": 58.876, "end": 59.292, "line": "l12", "role": "fox", "id": "w118" },
+  { "text": "убьют", "start": 59.292, "end": 59.708, "line": "l12", "role": "fox", "id": "w119" },
+  { "text": "после", "start": 59.708, "end": 60.124, "line": "l12", "role": "fox", "id": "w120" },
+  { "text": "родов.", "start": 60.124, "end": 60.54, "line": "l12", "role": "fox", "id": "w121" },
+  { "text": "Ребёнка", "start": 60.54, "end": 61.116, "line": "l12", "role": "fox", "id": "w122" },
+  { "text": "на", "start": 61.116, "end": 61.372, "line": "l12", "role": "fox", "id": "w123" },
+  { "text": "опыты.", "start": 61.372, "end": 61.948, "line": "l12", "role": "fox", "id": "w124" },
+  { "text": "И", "start": 61.948, "end": 62.204, "line": "l12", "role": "fox", "id": "w125" },
+  { "text": "ещё…", "start": 62.204, "end": 62.943, "line": "l12", "role": "fox", "id": "w126" },
+  {
+    "text": "«Жатва».",
+    "start": 62.943,
+    "end": 63.359,
+    "line": "l12",
+    "role": "fox",
+    "id": "w127"
+  },
+  { "text": "Вирус", "start": 63.359, "end": 64.044, "line": "l12", "role": "fox", "id": "w128" },
+  {
+    "text": "выпустили",
+    "start": 64.044,
+    "end": 64.78,
+    "line": "l12",
+    "role": "fox",
+    "id": "w129"
+  },
+  { "text": "отсюда.", "start": 64.78, "end": 65.356, "line": "l12", "role": "fox", "id": "w130" },
+  { "text": "Я", "start": 65.706, "end": 66.011, "line": "l13", "role": "gleb", "id": "w131" },
+  { "text": "знаю.", "start": 66.011, "end": 66.505, "line": "l13", "role": "gleb", "id": "w132" },
+  { "text": "Ты…", "start": 67.105, "end": 67.498, "line": "l14", "role": "fox", "id": "w133" },
+  { "text": "знаешь?", "start": 67.498, "end": 68.561, "line": "l14", "role": "fox", "id": "w134" },
+  {
+    "text": "Генерал",
+    "start": 68.961,
+    "end": 69.515,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w135"
+  },
+  {
+    "text": "рассказал",
+    "start": 69.515,
+    "end": 70.069,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w136"
+  },
+  { "text": "мне", "start": 70.069, "end": 70.315, "line": "l15", "role": "gleb", "id": "w137" },
+  { "text": "в", "start": 70.315, "end": 70.407, "line": "l15", "role": "gleb", "id": "w138" },
+  { "text": "первый", "start": 70.407, "end": 70.807, "line": "l15", "role": "gleb", "id": "w139" },
+  { "text": "же", "start": 70.807, "end": 71.054, "line": "l15", "role": "gleb", "id": "w140" },
+  { "text": "день.", "start": 71.054, "end": 71.667, "line": "l15", "role": "gleb", "id": "w141" },
+  { "text": "Старый", "start": 71.667, "end": 72.067, "line": "l15", "role": "gleb", "id": "w142" },
+  { "text": "мир", "start": 72.067, "end": 72.313, "line": "l15", "role": "gleb", "id": "w143" },
+  { "text": "сгнил.", "start": 72.313, "end": 72.559, "line": "l15", "role": "gleb", "id": "w144" },
+  { "text": "Его", "start": 72.559, "end": 73.316, "line": "l15", "role": "gleb", "id": "w145" },
+  { "text": "нужно", "start": 73.316, "end": 73.716, "line": "l15", "role": "gleb", "id": "w146" },
+  { "text": "было", "start": 73.716, "end": 74.116, "line": "l15", "role": "gleb", "id": "w147" },
+  { "text": "сжечь,", "start": 74.116, "end": 74.362, "line": "l15", "role": "gleb", "id": "w148" },
+  { "text": "чтобы", "start": 74.362, "end": 74.762, "line": "l15", "role": "gleb", "id": "w149" },
+  {
+    "text": "построить",
+    "start": 74.762,
+    "end": 75.316,
+    "line": "l15",
+    "role": "gleb",
+    "id": "w150"
+  },
+  { "text": "новый.", "start": 75.316, "end": 75.716, "line": "l15", "role": "gleb", "id": "w151" },
+  { "text": "Там", "start": 76.066, "end": 76.251, "line": "l16", "role": "fox", "id": "w152" },
+  { "text": "были", "start": 76.251, "end": 76.552, "line": "l16", "role": "fox", "id": "w153" },
+  { "text": "твои", "start": 76.552, "end": 76.853, "line": "l16", "role": "fox", "id": "w154" },
+  { "text": "дети,", "start": 76.853, "end": 77.154, "line": "l16", "role": "fox", "id": "w155" },
+  { "text": "Глеб!", "start": 77.154, "end": 77.34, "line": "l16", "role": "fox", "id": "w156" },
+  { "text": "Я", "start": 77.84, "end": 78.06, "line": "l17", "role": "gleb", "id": "w157" },
+  { "text": "знаю.", "start": 78.06, "end": 78.419, "line": "l17", "role": "gleb", "id": "w158" },
+  { "text": "Это", "start": 78.419, "end": 79.108, "line": "l17", "role": "gleb", "id": "w159" },
+  { "text": "была", "start": 79.108, "end": 79.466, "line": "l17", "role": "gleb", "id": "w160" },
+  { "text": "цена.", "start": 79.466, "end": 79.824, "line": "l17", "role": "gleb", "id": "w161" },
+  { "text": "Я", "start": 79.824, "end": 80.3, "line": "l17", "role": "gleb", "id": "w162" },
+  { "text": "дал", "start": 80.3, "end": 80.521, "line": "l17", "role": "gleb", "id": "w163" },
+  {
+    "text": "присягу",
+    "start": 80.521,
+    "end": 81.017,
+    "line": "l17",
+    "role": "gleb",
+    "id": "w164"
+  },
+  {
+    "text": "генералу.",
+    "start": 81.017,
+    "end": 81.882,
+    "line": "l17",
+    "role": "gleb",
+    "id": "w165"
+  },
+  { "text": "И", "start": 81.882, "end": 82.103, "line": "l17", "role": "gleb", "id": "w166" },
+  { "text": "я", "start": 82.103, "end": 82.323, "line": "l17", "role": "gleb", "id": "w167" },
+  { "text": "ей", "start": 82.323, "end": 82.544, "line": "l17", "role": "gleb", "id": "w168" },
+  { "text": "верен.", "start": 82.544, "end": 82.902, "line": "l17", "role": "gleb", "id": "w169" },
+  { "text": "Тогда", "start": 83.502, "end": 83.814, "line": "l18", "role": "fox", "id": "w170" },
+  { "text": "ты", "start": 83.814, "end": 84.006, "line": "l18", "role": "fox", "id": "w171" },
+  { "text": "не", "start": 84.006, "end": 84.198, "line": "l18", "role": "fox", "id": "w172" },
+  {
+    "text": "командир.",
+    "start": 84.198,
+    "end": 84.846,
+    "line": "l18",
+    "role": "fox",
+    "id": "w173"
+  },
+  { "text": "Ты", "start": 84.846, "end": 85.038, "line": "l18", "role": "fox", "id": "w174" },
+  { "text": "пёс", "start": 85.038, "end": 85.23, "line": "l18", "role": "fox", "id": "w175" },
+  { "text": "на", "start": 85.23, "end": 85.422, "line": "l18", "role": "fox", "id": "w176" },
+  { "text": "цепи.", "start": 85.422, "end": 85.735, "line": "l18", "role": "fox", "id": "w177" },
+  {
+    "text": "Осторожнее,",
+    "start": 86.085,
+    "end": 87.018,
+    "line": "l19",
+    "role": "gleb",
+    "id": "w178"
+  },
+  { "text": "Лиса.", "start": 87.018, "end": 87.452, "line": "l19", "role": "gleb", "id": "w179" },
+  {
+    "text": "Забудь,",
+    "start": 87.452,
+    "end": 88.213,
+    "line": "l19",
+    "role": "gleb",
+    "id": "w180"
+  },
+  { "text": "что", "start": 88.213, "end": 88.48, "line": "l19", "role": "gleb", "id": "w181" },
+  { "text": "ты", "start": 88.48, "end": 88.747, "line": "l19", "role": "gleb", "id": "w182" },
+  {
+    "text": "слышала.",
+    "start": 88.747,
+    "end": 89.347,
+    "line": "l19",
+    "role": "gleb",
+    "id": "w183"
+  },
+  { "text": "Это", "start": 89.347, "end": 89.974, "line": "l19", "role": "gleb", "id": "w184" },
+  {
+    "text": "приказ.",
+    "start": 89.974,
+    "end": 90.408,
+    "line": "l19",
+    "role": "gleb",
+    "id": "w185"
+  },
+  {
+    "text": "Утром",
+    "start": 91.608,
+    "end": 92.054,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w186"
+  },
+  {
+    "text": "Глеб",
+    "start": 92.054,
+    "end": 92.328,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w187"
+  },
+  {
+    "text": "пришёл",
+    "start": 92.328,
+    "end": 92.774,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w188"
+  },
+  { "text": "в", "start": 92.774, "end": 92.877, "line": "l20", "role": "narrator", "id": "w189" },
+  {
+    "text": "бокс",
+    "start": 92.877,
+    "end": 93.152,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w190"
+  },
+  { "text": "к", "start": 93.152, "end": 93.255, "line": "l20", "role": "narrator", "id": "w191" },
+  {
+    "text": "Маше.",
+    "start": 93.255,
+    "end": 93.701,
+    "line": "l20",
+    "role": "narrator",
+    "id": "w192"
+  },
+  {
+    "text": "Пришёл",
+    "start": 94.201,
+    "end": 94.547,
+    "line": "l21",
+    "role": "masha",
+    "id": "w193"
+  },
+  {
+    "text": "посмотреть",
+    "start": 94.547,
+    "end": 95.027,
+    "line": "l21",
+    "role": "masha",
+    "id": "w194"
+  },
+  { "text": "на", "start": 95.027, "end": 95.24, "line": "l21", "role": "masha", "id": "w195" },
+  { "text": "свою", "start": 95.24, "end": 95.587, "line": "l21", "role": "masha", "id": "w196" },
+  {
+    "text": "добычу?",
+    "start": 95.587,
+    "end": 96.067,
+    "line": "l21",
+    "role": "masha",
+    "id": "w197"
+  },
+  { "text": "Пришёл", "start": 96.417, "end": 96.82, "line": "l22", "role": "gleb", "id": "w198" },
+  {
+    "text": "проверить,",
+    "start": 96.82,
+    "end": 97.377,
+    "line": "l22",
+    "role": "gleb",
+    "id": "w199"
+  },
+  { "text": "как", "start": 97.377, "end": 97.625, "line": "l22", "role": "gleb", "id": "w200" },
+  { "text": "ты", "start": 97.625, "end": 97.873, "line": "l22", "role": "gleb", "id": "w201" },
+  { "text": "ешь.", "start": 97.873, "end": 98.121, "line": "l22", "role": "gleb", "id": "w202" },
+  { "text": "Ребёнку", "start": 98.121, "end": 99.1, "line": "l22", "role": "gleb", "id": "w203" },
+  { "text": "нужны", "start": 99.1, "end": 99.502, "line": "l22", "role": "gleb", "id": "w204" },
+  { "text": "силы.", "start": 99.502, "end": 99.905, "line": "l22", "role": "gleb", "id": "w205" },
+  { "text": "Ты", "start": 100.255, "end": 100.651, "line": "l23", "role": "masha", "id": "w206" },
+  {
+    "text": "убил",
+    "start": 100.651,
+    "end": 101.059,
+    "line": "l23",
+    "role": "masha",
+    "id": "w207"
+  },
+  {
+    "text": "Максима.",
+    "start": 101.059,
+    "end": 101.625,
+    "line": "l23",
+    "role": "masha",
+    "id": "w208"
+  },
+  {
+    "text": "Отца",
+    "start": 101.625,
+    "end": 102.342,
+    "line": "l23",
+    "role": "masha",
+    "id": "w209"
+  },
+  {
+    "text": "моего",
+    "start": 102.342,
+    "end": 102.907,
+    "line": "l23",
+    "role": "masha",
+    "id": "w210"
+  },
+  {
+    "text": "ребёнка.",
+    "start": 102.907,
+    "end": 103.923,
+    "line": "l23",
+    "role": "masha",
+    "id": "w211"
+  },
+  { "text": "Он", "start": 103.923, "end": 104.174, "line": "l23", "role": "masha", "id": "w212" },
+  {
+    "text": "тебе",
+    "start": 104.174,
+    "end": 104.582,
+    "line": "l23",
+    "role": "masha",
+    "id": "w213"
+  },
+  {
+    "text": "жизнь",
+    "start": 104.582,
+    "end": 104.833,
+    "line": "l23",
+    "role": "masha",
+    "id": "w214"
+  },
+  {
+    "text": "спасал.",
+    "start": 104.833,
+    "end": 105.617,
+    "line": "l23",
+    "role": "masha",
+    "id": "w215"
+  },
+  {
+    "text": "Дважды!",
+    "start": 105.617,
+    "end": 106.025,
+    "line": "l23",
+    "role": "masha",
+    "id": "w216"
+  },
+  {
+    "text": "Маша,",
+    "start": 106.375,
+    "end": 106.782,
+    "line": "l24",
+    "role": "gleb",
+    "id": "w217"
+  },
+  { "text": "а", "start": 106.782, "end": 107.175, "line": "l24", "role": "gleb", "id": "w218" },
+  { "text": "что", "start": 107.175, "end": 107.425, "line": "l24", "role": "gleb", "id": "w219" },
+  { "text": "мне", "start": 107.425, "end": 107.676, "line": "l24", "role": "gleb", "id": "w220" },
+  { "text": "с", "start": 107.676, "end": 107.77, "line": "l24", "role": "gleb", "id": "w221" },
+  { "text": "тобой", "start": 107.77, "end": 108.177, "line": "l24", "role": "gleb", "id": "w222" },
+  {
+    "text": "обсуждать?",
+    "start": 108.177,
+    "end": 109.05,
+    "line": "l24",
+    "role": "gleb",
+    "id": "w223"
+  },
+  { "text": "Тебя,", "start": 109.05, "end": 109.759, "line": "l24", "role": "gleb", "id": "w224" },
+  { "text": "уж", "start": 109.759, "end": 110.009, "line": "l24", "role": "gleb", "id": "w225" },
+  {
+    "text": "извини",
+    "start": 110.009,
+    "end": 110.573,
+    "line": "l24",
+    "role": "gleb",
+    "id": "w226"
+  },
+  { "text": "меня", "start": 110.573, "end": 110.98, "line": "l24", "role": "gleb", "id": "w227" },
+  { "text": "за", "start": 110.98, "end": 111.231, "line": "l24", "role": "gleb", "id": "w228" },
+  { "text": "это,", "start": 111.231, "end": 111.638, "line": "l24", "role": "gleb", "id": "w229" },
+  {
+    "text": "долбил",
+    "start": 111.638,
+    "end": 112.045,
+    "line": "l24",
+    "role": "gleb",
+    "id": "w230"
+  },
+  { "text": "наш", "start": 112.045, "end": 112.296, "line": "l24", "role": "gleb", "id": "w231" },
+  {
+    "text": "дед-сосед.",
+    "start": 112.296,
+    "end": 112.86,
+    "line": "l24",
+    "role": "gleb",
+    "id": "w232"
+  },
+  { "text": "Так", "start": 112.86, "end": 113.419, "line": "l24", "role": "gleb", "id": "w233" },
+  { "text": "что", "start": 113.419, "end": 113.669, "line": "l24", "role": "gleb", "id": "w234" },
+  {
+    "text": "гореть",
+    "start": 113.669,
+    "end": 114.077,
+    "line": "l24",
+    "role": "gleb",
+    "id": "w235"
+  },
+  { "text": "тебе", "start": 114.077, "end": 114.484, "line": "l24", "role": "gleb", "id": "w236" },
+  { "text": "в", "start": 114.484, "end": 114.578, "line": "l24", "role": "gleb", "id": "w237" },
+  { "text": "аду.", "start": 114.578, "end": 114.985, "line": "l24", "role": "gleb", "id": "w238" },
+  { "text": "А", "start": 115.335, "end": 115.556, "line": "l25", "role": "masha", "id": "w239" },
+  { "text": "ты", "start": 115.556, "end": 115.778, "line": "l25", "role": "masha", "id": "w240" },
+  { "text": "ту?", "start": 115.778, "end": 115.999, "line": "l25", "role": "masha", "id": "w241" },
+  { "text": "Ты", "start": 115.999, "end": 116.738, "line": "l25", "role": "masha", "id": "w242" },
+  {
+    "text": "служишь",
+    "start": 116.738,
+    "end": 117.098,
+    "line": "l25",
+    "role": "masha",
+    "id": "w243"
+  },
+  {
+    "text": "тем,",
+    "start": 117.098,
+    "end": 117.319,
+    "line": "l25",
+    "role": "masha",
+    "id": "w244"
+  },
+  { "text": "кто", "start": 117.319, "end": 117.541, "line": "l25", "role": "masha", "id": "w245" },
+  { "text": "убил", "start": 117.541, "end": 117.9, "line": "l25", "role": "masha", "id": "w246" },
+  { "text": "твоих", "start": 117.9, "end": 118.26, "line": "l25", "role": "masha", "id": "w247" },
+  {
+    "text": "детей!",
+    "start": 118.26,
+    "end": 118.62,
+    "line": "l25",
+    "role": "masha",
+    "id": "w248"
+  },
+  {
+    "text": "Откуда",
+    "start": 119.12,
+    "end": 119.828,
+    "line": "l26",
+    "role": "gleb",
+    "id": "w249"
+  },
+  { "text": "ты", "start": 119.828, "end": 120.143, "line": "l26", "role": "gleb", "id": "w250" },
+  {
+    "text": "знаешь?",
+    "start": 120.143,
+    "end": 120.654,
+    "line": "l26",
+    "role": "gleb",
+    "id": "w251"
+  },
+  {
+    "text": "Кто-то",
+    "start": 121.254,
+    "end": 121.564,
+    "line": "l27",
+    "role": "masha",
+    "id": "w252"
+  },
+  { "text": "из", "start": 121.564, "end": 121.755, "line": "l27", "role": "masha", "id": "w253" },
+  {
+    "text": "твоих",
+    "start": 121.755,
+    "end": 122.065,
+    "line": "l27",
+    "role": "masha",
+    "id": "w254"
+  },
+  {
+    "text": "оставил",
+    "start": 122.065,
+    "end": 122.494,
+    "line": "l27",
+    "role": "masha",
+    "id": "w255"
+  },
+  { "text": "мне", "start": 122.494, "end": 122.685, "line": "l27", "role": "masha", "id": "w256" },
+  {
+    "text": "записку.",
+    "start": 122.685,
+    "end": 123.114,
+    "line": "l27",
+    "role": "masha",
+    "id": "w257"
+  },
+  {
+    "text": "Значит,",
+    "start": 123.114,
+    "end": 124.117,
+    "line": "l27",
+    "role": "masha",
+    "id": "w258"
+  },
+  { "text": "не", "start": 124.117, "end": 124.308, "line": "l27", "role": "masha", "id": "w259" },
+  { "text": "все", "start": 124.308, "end": 124.498, "line": "l27", "role": "masha", "id": "w260" },
+  { "text": "в", "start": 124.498, "end": 124.57, "line": "l27", "role": "masha", "id": "w261" },
+  {
+    "text": "«Омеге»",
+    "start": 124.57,
+    "end": 124.999,
+    "line": "l27",
+    "role": "masha",
+    "id": "w262"
+  },
+  {
+    "text": "такие,",
+    "start": 124.999,
+    "end": 125.429,
+    "line": "l27",
+    "role": "masha",
+    "id": "w263"
+  },
+  { "text": "как", "start": 125.429, "end": 125.619, "line": "l27", "role": "masha", "id": "w264" },
+  { "text": "ты.", "start": 125.619, "end": 125.81, "line": "l27", "role": "masha", "id": "w265" },
+  { "text": "Кто?", "start": 126.16, "end": 126.598, "line": "l28", "role": "gleb", "id": "w266" },
+  {
+    "text": "Догадайся,",
+    "start": 126.948,
+    "end": 127.703,
+    "line": "l29",
+    "role": "masha",
+    "id": "w267"
+  },
+  {
+    "text": "командир.",
+    "start": 127.703,
+    "end": 128.294,
+    "line": "l29",
+    "role": "masha",
+    "id": "w268"
+  },
+  {
+    "text": "В",
+    "start": 129.494,
+    "end": 129.575,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w269"
+  },
+  {
+    "text": "три",
+    "start": 129.575,
+    "end": 129.791,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w270"
+  },
+  {
+    "text": "часа",
+    "start": 129.791,
+    "end": 130.141,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w271"
+  },
+  {
+    "text": "ночи",
+    "start": 130.141,
+    "end": 130.492,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w272"
+  },
+  {
+    "text": "в",
+    "start": 130.492,
+    "end": 130.573,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w273"
+  },
+  {
+    "text": "лаборатории",
+    "start": 130.573,
+    "end": 131.464,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w274"
+  },
+  {
+    "text": "погас",
+    "start": 131.464,
+    "end": 131.815,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w275"
+  },
+  {
+    "text": "свет.",
+    "start": 131.815,
+    "end": 132.031,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w276"
+  },
+  {
+    "text": "Но",
+    "start": 132.031,
+    "end": 132.247,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w277"
+  },
+  {
+    "text": "Глеб",
+    "start": 132.247,
+    "end": 132.463,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w278"
+  },
+  {
+    "text": "уже",
+    "start": 132.463,
+    "end": 132.814,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w279"
+  },
+  {
+    "text": "ждал.",
+    "start": 132.814,
+    "end": 133.03,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w280"
+  },
+  { "text": "В", "start": 133.03, "end": 133.111, "line": "l30", "role": "narrator", "id": "w281" },
+  {
+    "text": "темноте,",
+    "start": 133.111,
+    "end": 133.597,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w282"
+  },
+  {
+    "text": "у",
+    "start": 133.597,
+    "end": 133.813,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w283"
+  },
+  {
+    "text": "бокса",
+    "start": 133.813,
+    "end": 134.163,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w284"
+  },
+  {
+    "text": "номер",
+    "start": 134.163,
+    "end": 134.514,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w285"
+  },
+  {
+    "text": "один.",
+    "start": 134.514,
+    "end": 134.865,
+    "line": "l30",
+    "role": "narrator",
+    "id": "w286"
+  },
+  { "text": "Маша,", "start": 135.465, "end": 135.848, "line": "l31", "role": "fox", "id": "w287" },
+  { "text": "тихо.", "start": 135.848, "end": 136.23, "line": "l31", "role": "fox", "id": "w288" },
+  { "text": "Это", "start": 136.23, "end": 136.994, "line": "l31", "role": "fox", "id": "w289" },
+  { "text": "я.", "start": 136.994, "end": 137.23, "line": "l31", "role": "fox", "id": "w290" },
+  { "text": "Сейчас", "start": 137.23, "end": 137.873, "line": "l31", "role": "fox", "id": "w291" },
+  {
+    "text": "открою.",
+    "start": 137.873,
+    "end": 138.403,
+    "line": "l31",
+    "role": "fox",
+    "id": "w292"
+  },
+  { "text": "Не", "start": 138.753, "end": 138.995, "line": "l32", "role": "gleb", "id": "w293" },
+  {
+    "text": "открывай,",
+    "start": 138.995,
+    "end": 139.538,
+    "line": "l32",
+    "role": "gleb",
+    "id": "w294"
+  },
+  {
+    "text": "Лиса.",
+    "start": 139.538,
+    "end": 139.931,
+    "line": "l32",
+    "role": "gleb",
+    "id": "w295"
+  },
+  {
+    "text": "Щёлкнул",
+    "start": 140.431,
+    "end": 140.818,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w296"
+  },
+  {
+    "text": "фонарик.",
+    "start": 140.818,
+    "end": 141.354,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w297"
+  },
+  {
+    "text": "Лиса",
+    "start": 141.354,
+    "end": 141.742,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w298"
+  },
+  {
+    "text": "стояла",
+    "start": 141.742,
+    "end": 142.278,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w299"
+  },
+  {
+    "text": "у",
+    "start": 142.278,
+    "end": 142.516,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w300"
+  },
+  {
+    "text": "двери",
+    "start": 142.516,
+    "end": 142.903,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w301"
+  },
+  {
+    "text": "с",
+    "start": 142.903,
+    "end": 142.993,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w302"
+  },
+  {
+    "text": "ключ-картой.",
+    "start": 142.993,
+    "end": 143.529,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w303"
+  },
+  {
+    "text": "А",
+    "start": 143.529,
+    "end": 143.767,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w304"
+  },
+  {
+    "text": "за",
+    "start": 143.767,
+    "end": 144.005,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w305"
+  },
+  {
+    "text": "ней",
+    "start": 144.005,
+    "end": 144.244,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w306"
+  },
+  {
+    "text": "Док",
+    "start": 144.244,
+    "end": 144.482,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w307"
+  },
+  { "text": "и", "start": 144.482, "end": 144.72, "line": "l33", "role": "narrator", "id": "w308" },
+  {
+    "text": "Тихий.",
+    "start": 144.72,
+    "end": 145.108,
+    "line": "l33",
+    "role": "narrator",
+    "id": "w309"
+  },
+  {
+    "text": "Командир…",
+    "start": 145.508,
+    "end": 146.119,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w310"
+  },
+  {
+    "text": "Мы",
+    "start": 146.119,
+    "end": 146.796,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w311"
+  },
+  {
+    "text": "не",
+    "start": 146.796,
+    "end": 147.068,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w312"
+  },
+  {
+    "text": "можем",
+    "start": 147.068,
+    "end": 147.509,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w313"
+  },
+  {
+    "text": "позволить",
+    "start": 147.509,
+    "end": 148.121,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w314"
+  },
+  {
+    "text": "им",
+    "start": 148.121,
+    "end": 148.392,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w315"
+  },
+  {
+    "text": "убить",
+    "start": 148.392,
+    "end": 148.834,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w316"
+  },
+  {
+    "text": "ребёнка.",
+    "start": 148.834,
+    "end": 149.445,
+    "line": "l34",
+    "role": "feldsher",
+    "id": "w317"
+  },
+  {
+    "text": "Прости,",
+    "start": 149.795,
+    "end": 150.215,
+    "line": "l35",
+    "role": "quiet",
+    "id": "w318"
+  },
+  {
+    "text": "командир.",
+    "start": 150.215,
+    "end": 150.796,
+    "line": "l35",
+    "role": "quiet",
+    "id": "w319"
+  },
+  { "text": "Вы", "start": 151.146, "end": 151.422, "line": "l36", "role": "gleb", "id": "w320" },
+  {
+    "text": "нарушили",
+    "start": 151.422,
+    "end": 152.216,
+    "line": "l36",
+    "role": "gleb",
+    "id": "w321"
+  },
+  {
+    "text": "присягу.",
+    "start": 152.216,
+    "end": 153.207,
+    "line": "l36",
+    "role": "gleb",
+    "id": "w322"
+  },
+  { "text": "Все", "start": 153.207, "end": 153.483, "line": "l36", "role": "gleb", "id": "w323" },
+  {
+    "text": "трое.",
+    "start": 153.483,
+    "end": 153.932,
+    "line": "l36",
+    "role": "gleb",
+    "id": "w324"
+  },
+  { "text": "Тогда", "start": 154.282, "end": 154.654, "line": "l37", "role": "fox", "id": "w325" },
+  {
+    "text": "стреляй.",
+    "start": 154.654,
+    "end": 155.026,
+    "line": "l37",
+    "role": "fox",
+    "id": "w326"
+  },
+  { "text": "Ты", "start": 155.026, "end": 155.254, "line": "l37", "role": "fox", "id": "w327" },
+  { "text": "же", "start": 155.254, "end": 155.909, "line": "l37", "role": "fox", "id": "w328" },
+  { "text": "это", "start": 155.909, "end": 156.281, "line": "l37", "role": "fox", "id": "w329" },
+  {
+    "text": "умеешь.",
+    "start": 156.281,
+    "end": 156.796,
+    "line": "l37",
+    "role": "fox",
+    "id": "w330"
+  },
+  {
+    "text": "Глеб",
+    "start": 157.296,
+    "end": 157.541,
+    "line": "l38",
+    "role": "narrator",
+    "id": "w331"
+  },
+  {
+    "text": "поднял",
+    "start": 157.541,
+    "end": 157.94,
+    "line": "l38",
+    "role": "narrator",
+    "id": "w332"
+  },
+  {
+    "text": "пистолет.",
+    "start": 157.94,
+    "end": 158.492,
+    "line": "l38",
+    "role": "narrator",
+    "id": "w333"
+  },
+  {
+    "text": "Рука",
+    "start": 158.492,
+    "end": 158.891,
+    "line": "l38",
+    "role": "narrator",
+    "id": "w334"
+  },
+  {
+    "text": "не",
+    "start": 158.891,
+    "end": 159.136,
+    "line": "l38",
+    "role": "narrator",
+    "id": "w335"
+  },
+  {
+    "text": "дрожала.",
+    "start": 159.136,
+    "end": 159.689,
+    "line": "l38",
+    "role": "narrator",
+    "id": "w336"
+  },
+  {
+    "text": "Ну",
+    "start": 160.289,
+    "end": 160.448,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w337"
+  },
+  {
+    "text": "что",
+    "start": 160.448,
+    "end": 160.608,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w338"
+  },
+  {
+    "text": "же",
+    "start": 160.608,
+    "end": 160.767,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w339"
+  },
+  {
+    "text": "ты,",
+    "start": 160.767,
+    "end": 160.927,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w340"
+  },
+  {
+    "text": "командир?",
+    "start": 160.927,
+    "end": 161.532,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w341"
+  },
+  {
+    "text": "Генерал",
+    "start": 161.532,
+    "end": 161.891,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w342"
+  },
+  {
+    "text": "смотрит.",
+    "start": 161.891,
+    "end": 162.15,
+    "line": "l39",
+    "role": "valkyrie",
+    "id": "w343"
+  },
+  {
+    "text": "Под",
+    "start": 162.65,
+    "end": 162.833,
+    "line": "l40",
+    "role": "narrator",
+    "id": "w344"
+  },
+  {
+    "text": "потолком",
+    "start": 162.833,
+    "end": 163.243,
+    "line": "l40",
+    "role": "narrator",
+    "id": "w345"
+  },
+  {
+    "text": "мигала",
+    "start": 163.243,
+    "end": 163.654,
+    "line": "l40",
+    "role": "narrator",
+    "id": "w346"
+  },
+  {
+    "text": "красная",
+    "start": 163.654,
+    "end": 164.065,
+    "line": "l40",
+    "role": "narrator",
+    "id": "w347"
+  },
+  {
+    "text": "лампочка",
+    "start": 164.065,
+    "end": 164.475,
+    "line": "l40",
+    "role": "narrator",
+    "id": "w348"
+  },
+  {
+    "text": "камеры.",
+    "start": 164.475,
+    "end": 164.886,
+    "line": "l40",
+    "role": "narrator",
+    "id": "w349"
+  }
+]
