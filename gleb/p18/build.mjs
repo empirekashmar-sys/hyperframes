@@ -1,13 +1,9 @@
-// "Глеб — часть 18": four years later. The Chaika settlement, Vanya, the Hive on the radio, Gleb at the gate.
+// "Глеб — часть 18": meanwhile. Gleb and Valkyrie fly to the hidden base "Granit"; Gleb takes command of Omega.
 // Run from gleb/p18: node build.mjs → index.html (sfx shared via assets/sfx symlink).
 import fs from "node:fs";
 import * as R from "../art/rig.js";
 import * as F18 from "./art18.js";
-import * as F11 from "../p11/art11.js";
 import * as F15 from "../p15/art15.js";
-import * as F10 from "../p10/art10.js";
-import * as F8 from "../p8/art8.js";
-import * as F9 from "../p9/art9.js";
 
 const read = (f) => JSON.parse(fs.readFileSync(new URL(f, import.meta.url)));
 const words = read("./assets/words.json");
@@ -24,7 +20,7 @@ function W(text, n = 1, after = 0) {
 const L = Object.fromEntries(lines.map((l) => [l.id, l]));
 
 /* ───────────── timeline ───────────── */
-const CUT = r(L.l54.end + 2.0);
+const CUT = r(L.l53.end + 2.0);
 const TITLE = [CUT, r(CUT + 3.2)];
 const CARD_START = r(TITLE[1] + 0.1);
 const CARD_DUR = 3.6;
@@ -32,17 +28,14 @@ const TOTAL = r(CARD_START + CARD_DUR);
 const S = {};
 {
   const ends = [
-    ["dog", L.l02.end + 0.5],
-    ["chaika", L.l04.end + 1.0],
-    ["bed", L.l10.end + 0.6],
-    ["kitchen", L.l17.end + 0.9],
-    ["tower", L.l24.end + 0.9],
-    ["radio", L.l29.end + 0.9],
-    ["beach", L.l29g.end + 0.8],
-    ["hall", L.l35.end + 0.9],
-    ["kid", L.l39.end + 0.9],
-    ["porch", L.l45.end + 0.6],
-    ["gate", CUT],
+    ["heli", L.l06.end + 0.7],
+    ["base", L.l07.end + 0.4],
+    ["corr", L.l10.end + 0.8],
+    ["office", L.l21.end + 0.8],
+    ["hangar", L.l36.end + 0.8],
+    ["range", L.l40.end + 0.6],
+    ["quart", L.l45.end + 0.9],
+    ["brief", CUT],
   ];
   let t = 0;
   for (const [k, e] of ends) {
@@ -239,7 +232,7 @@ function walk(id, t0, t1, dx, dy = 0, step = 0.3, swing = 22, arms = true) {
       `tl.to("#${id}", {x:"+=${dx}", y:"+=${dy}", duration:${r(t1 - t0)}, ease:"none"}, ${r(t0)});`,
     );
 }
-let seed = 61;
+let seed = 71;
 const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
 function blink(id, t0, t1) {
   for (let t = t0 + 0.6 + rnd() * 1.5; t < t1 - 0.2; t += 2.4 + rnd() * 2) {
@@ -251,13 +244,13 @@ function blink(id, t0, t1) {
     );
   }
 }
-const MX = (o = {}) => R.maxim({ prop: "", brow: "neutral", ...o });
-const MN = (o = {}) => R.masha({ outfit: "nurse", ...o });
-const V = (o = {}) => R.vanya(o);
-const ZN = (o = {}) => R.zina({ brow: "neutral", ...o });
-const SOL = (o = {}) => R.soldier({ brow: "worried", ...o });
+const GG = (o = {}) => R.gleb({ ghoul: true, brow: "neutral", ...o });
+const GO = (o = {}) => R.gleb({ omega: true, brow: "neutral", ...o });
+const VK = (o = {}) => R.valkyrie(o);
+const OM = (v, o = {}) => R.omega({ v, ...o });
 const room = (x) => strip(x);
 const show = (sel, at) => T(`tl.set("${sel}", {opacity:1}, ${r(at)});`);
+const hide = (sel, at) => T(`tl.set("${sel}", {opacity:0}, ${r(at)});`);
 const shake = (sel, at, n = 6, amp = 14) =>
   T(
     `tl.to("${sel}", {keyframes:${JSON.stringify(Array.from({ length: n }, (_, i) => ({ x: (i % 2 ? -1 : 1) * amp * (1 - i / n), y: ((i % 3) - 1) * amp * 0.6 * (1 - i / n), duration: 0.05 })).concat([{ x: 0, y: 0, duration: 0.05 }]))}}, ${r(at)});`,
@@ -266,537 +259,401 @@ const yoyo = (sel, props, at, t1, d) =>
   T(
     `tl.to("${sel}", {${props}, duration:${d}, yoyo:true, repeat:${Math.max(1, Math.round((t1 - at) / d) | 1)}, ease:"sine.inOut"}, ${r(at)});`,
   );
-const sleep = (id, at) =>
-  T(
-    `tl.set("#${id} .eyes-closed", {opacity:1}, ${r(at)}); tl.set("#${id} .eyes-open, #${id} .eyes-wide, #${id} .eyes-squint", {opacity:0}, ${r(at)});`,
-  );
-const wake = (id, at, e = "neutral") => {
-  T(`tl.set("#${id} .eyes-closed", {opacity:0}, ${r(at)});`);
-  expr(id, e, at);
+// scale a character group about its feet (Bear is bigger than everyone)
+const big = (x, footY, k, inner) =>
+  `<g transform="translate(${x} ${footY}) scale(${k}) translate(${-x} ${-footY})">${inner}</g>`;
+const salute = (id, at) => {
+  pose(id, "armR", -150, at, 0.2);
+  pose(id, "armR-lo", -100, at, 0.2);
 };
-const hearts = (id, x, y) =>
-  `<g id="${id}" opacity="0">${[0, 1, 2].map((i) => `<path class="hrt" transform="translate(${x + i * 46 - 46} ${y - i * 24}) scale(${0.8 + i * 0.2})" d="M0 10 C-20 -10 -30 10 0 30 C30 10 20 -10 0 10Z" fill="#ff4a7a" stroke="#0b0d14" stroke-width="2"/>`).join("")}</g>`;
-const heartsUp = (id, t0, t1) => {
-  show(`#${id}`, t0);
-  T(
-    `tl.fromTo("#${id} .hrt", {y:20, opacity:0}, {y:-70, opacity:1, duration:1.2, stagger:.3, ease:"sine.out", immediateRender:false}, ${r(t0)});`,
-  );
-  T(`tl.to("#${id}", {opacity:0, duration:.4}, ${r(t1)});`);
+const aim = (id, at) => {
+  pose(id, "armR", -85, at, 0.2);
+  pose(id, "armR-lo", 0, at, 0.2);
+  pose(id, "armL", -75, at, 0.2);
+  pose(id, "armL-lo", -20, at, 0.2);
 };
-const kiss = (aId, bId, at, dur = 1.6, ax = 60, bx = -60) => {
-  T(`tl.to("#${aId}", {x:"+=${ax}", y:-14, duration:.4, ease:"power2.out"}, ${r(at)});`);
-  T(`tl.to("#${bId}", {x:"+=${bx}", duration:.4, ease:"power2.out"}, ${r(at)});`);
-  pose(aId, "head", 14, at, 0.4);
-  pose(bId, "head", -14, at, 0.4);
-  [aId, bId].forEach((id) => {
-    sleep(id, at + 0.35);
+
+/* S1 inside the black helicopter */
+scene(
+  "heli",
+  `${room(F18.heliIn())}
+   ${C("hl-g", GG({ brow: "sad" }), 360, 965)}
+   ${C("hl-v", VK(), 730, 965)}
+   ${room(F18.benchFront())}`,
+  { bg: "#22252c" },
+);
+{
+  const [a, b] = S.heli;
+  camSet("heli", 540, 640, 1.2, a, 900);
+  T(`tl.to("#zm-heli .clouds", {x:-900, duration:${r(b - a)}, ease:"none"}, ${r(a)});`);
+  T(
+    `tl.to("#sh-heli", {keyframes:[{y:2,duration:.12},{y:-1,duration:.12}], repeat:${Math.round((b - a) / 0.24)}}, ${r(a)});`,
+  );
+  expr("hl-g", "sad", a);
+  pose("hl-g", "head", 12, a, 0.01);
+  pose("hl-g", "armL", 18, a, 0.01);
+  pose("hl-g", "armL-lo", 45, a, 0.01);
+  pose("hl-g", "armR", -18, a, 0.01);
+  pose("hl-g", "armR-lo", -45, a, 0.01);
+  camTo("heli", 400, 640, 1.9, a + 0.3, L.l01.end - a, 900, "sine.inOut");
+  expr("hl-v", "neutral", a);
+  camTo("heli", 700, 640, 2.0, L.l02.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("hl-v", "l02");
+  camTo("heli", 380, 640, 2.2, L.l03.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("hl-g", "l03");
+  expr("hl-v", "happy", L.l04.start);
+  camTo("heli", 700, 640, 2.0, L.l04.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("hl-v", "l04");
+  pose("hl-g", "head", 0, L.l05.start - 0.3, 0.3);
+  expr("hl-g", "tired", L.l05.start);
+  camTo("heli", 400, 640, 2.0, L.l05.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("hl-g", "l05");
+  expr("hl-v", "determined", L.l06.start);
+  camTo("heli", 560, 640, 1.5, L.l06.start - 0.3, 0.6, 900, "power2.inOut");
+  talk("hl-v", "l06");
+  expr("hl-g", "shock", W("лично"));
+  ["hl-g", "hl-v"].forEach((id) => blink(id, a, b));
+}
+
+/* S2 the mountain opens: base "Granit" */
+scene(
+  "base",
+  `${room(F18.mountain())}
+   <g id="bs-hw">${F15.heli("bs-heli", 0, 0, 0.45)}</g>`,
+  { bg: "#2a3a6a" },
+);
+{
+  const [a, b] = S.base;
+  camSet("base", 540, 560, 1.0, a, 880);
+  T(
+    `tl.fromTo("#bs-hw", {x:-300, y:300, scale:1}, {x:540, y:640, duration:${r(b - a - 0.6)}, ease:"power1.inOut", immediateRender:false}, ${r(a)});`,
+  );
+  T(`tl.to("#bs-hw", {scale:.4, svgOrigin:"540 640", opacity:0, duration:.8}, ${r(b - 1.2)});`);
+  T(
+    `tl.to("#zm-base .rotor", {scaleX:.1, svgOrigin:"0 -102", duration:.06, yoyo:true, repeat:${Math.round((b - a) / 0.06)}}, ${r(a)});`,
+  );
+  const op = W("раскрылась") - 0.2;
+  T(`tl.to("#zm-base .door-l", {x:-200, duration:2.0, ease:"power2.inOut"}, ${r(op)});`);
+  T(`tl.to("#zm-base .door-r", {x:200, duration:2.0, ease:"power2.inOut"}, ${r(op)});`);
+  yoyo("#zm-base .blink", "opacity:.1", a, b, 0.4);
+  camTo("base", 540, 700, 1.4, a + 0.5, b - a - 0.5, 880, "sine.inOut");
+}
+
+/* S3 the corridor: salutes for Valkyrie, stares for Gleb */
+scene(
+  "corr",
+  `${room(F18.corridor())}
+   ${C("cr-s1", R.soldier({ brow: "neutral" }), 130, 1070)}
+   ${C("cr-s2", R.soldier({ brow: "worried" }), 960, 1070)}
+   <g id="cr-vw">${C("cr-v", VK(), 0, 1080)}</g>
+   <g id="cr-gw">${C("cr-g", GG(), 0, 1080)}</g>`,
+  { bg: "#7a7e86" },
+);
+{
+  const [a, b] = S.corr;
+  camSet("corr", 540, 740, 1.1, a, 900);
+  T(`tl.set("#cr-vw", {x:-200}, ${r(a)}); tl.set("#cr-gw", {x:-460}, ${r(a)});`);
+  const wEnd = L.l09.start;
+  walk("cr-v", a + 0.2, wEnd, 0, 0, 0.34, 16);
+  walk("cr-g", a + 0.2, wEnd, 0, 0, 0.34, 16);
+  T(`tl.to("#cr-vw", {x:640, duration:${r(wEnd - a - 0.2)}, ease:"none"}, ${r(a + 0.2)});`);
+  T(`tl.to("#cr-gw", {x:400, duration:${r(wEnd - a - 0.2)}, ease:"none"}, ${r(a + 0.2)});`);
+  camTo("corr", 520, 740, 1.3, a + 0.2, wEnd - a, 900, "none");
+  expr("cr-v", "determined", a);
+  expr("cr-g", "neutral", a);
+  salute("cr-s1", L.l08.start + 0.6);
+  salute("cr-s2", L.l08.start + 1.2);
+  pose("cr-s1", "armR", 0, W("взглядом") + 0.2, 0.3);
+  pose("cr-s1", "armR-lo", 0, W("взглядом") + 0.2, 0.3);
+  pose("cr-s2", "armR", 0, W("взглядом") + 0.2, 0.3);
+  pose("cr-s2", "armR-lo", 0, W("взглядом") + 0.2, 0.3);
+  camTo("corr", 200, 720, 2.2, L.l09.start - 0.3, 0.4, 900, "power2.inOut");
+  talk("cr-s1", "l09");
+  camTo("corr", 880, 720, 2.2, L.l10.start - 0.3, 0.4, 900, "power2.inOut");
+  talk("cr-s2", "l10");
+  camTo("corr", 440, 720, 1.8, L.l10.end, b - L.l10.end, 900, "power2.inOut");
+  expr("cr-g", "angry", L.l10.end);
+  ["cr-s1", "cr-s2", "cr-v", "cr-g"].forEach((id) => blink(id, a, b));
+}
+
+/* S4 the general's office: the test, the offer, the threat */
+scene(
+  "office",
+  `${room(F18.office())}
+   ${C("of-gn", R.general(), 540, 1000)}
+   ${room(F18.desk())}
+   ${C("of-g", GG(), 130, 1090)}
+   ${C("of-v", VK(), 960, 1090)}`,
+  { bg: "#4a3a30" },
+);
+{
+  const [a, b] = S.office;
+  camSet("office", 540, 700, 1.1, a, 900);
+  expr("of-gn", "neutral", a);
+  expr("of-g", "neutral", a);
+  expr("of-v", "neutral", a);
+  const gn = (lid, s = 2.0) => {
+    camTo("office", 540, 660, s, L[lid].start - 0.3, 0.5, 900, "power2.inOut");
+    talk("of-gn", lid);
+  };
+  const gl = (lid, e) => {
+    if (e) expr("of-g", e, L[lid].start);
+    camTo("office", 200, 720, 2.0, L[lid].start - 0.3, 0.5, 900, "power2.inOut");
+    talk("of-g", lid);
+  };
+  gn("l11", 1.6);
+  gl("l12", "shock");
+  gn("l13");
+  gl("l14", "angry");
+  gesture("of-g", "fist", L.l14.start + 0.2, 0.2);
+  gesture("of-g", "rest", L.l14.end + 0.2, 0.3);
+  gn("l15", 1.6);
+  gesture("of-gn", "open", L.l15.start + 1.5, 0.3);
+  gn("l16", 2.2);
+  gesture("of-gn", "rest", L.l16.end, 0.3);
+  gl("l17", "determined");
+  expr("of-gn", "happy", L.l18.start);
+  gn("l18", 2.0);
+  gesture("of-gn", "pointR", W("валькирия") - 0.2, 0.2);
+  expr("of-v", "happy", L.l19.start);
+  camTo("office", 900, 700, 2.0, L.l19.start - 0.3, 0.5, 900, "power2.inOut");
+  gesture("of-v", "shrug", L.l19.start + 0.2, 0.3);
+  talk("of-v", "l19");
+  gesture("of-v", "rest", L.l19.end, 0.3);
+  gl("l20", "determined");
+  gesture("of-g", "pointR", L.l20.start + 1.6, 0.2);
+  gesture("of-g", "rest", L.l20.end, 0.3);
+  expr("of-gn", "happy", L.l21.start);
+  camTo("office", 540, 700, 1.3, L.l21.start - 0.3, 0.6, 900, "power2.inOut");
+  talk("of-gn", "l21");
+  ["of-gn", "of-g", "of-v"].forEach((id) => blink(id, a, b));
+}
+
+/* S5 the hangar: Omega, and Bear on the mat */
+scene(
+  "hangar",
+  `${room(F18.hangar())}
+   <g id="hg-bw">${big(420, 1000, 1.12, C("hg-b", OM(0, { brow: "angry" }), 420, 1000))}</g>
+   ${C("hg-f", OM(1), 620, 1000)}
+   ${C("hg-q", OM(2), 800, 1000)}
+   ${C("hg-d", OM(3), 970, 1000)}
+   <g id="hg-gw">${C("hg-g", GG(), 160, 1010)}</g>`,
+  { bg: "#3a3e46" },
+);
+{
+  const [a, b] = S.hangar;
+  camSet("hangar", 560, 680, 1.0, a, 900);
+  ["hg-f", "hg-q", "hg-d", "hg-g"].forEach((id) => expr(id, "neutral", a));
+  expr("hg-b", "angry", a);
+  camTo("hangar", 560, 740, 1.1, a + 0.2, L.l22.end - a, 900, "sine.inOut");
+  const intro = (id, lid, x, s = 2.1) => {
+    camTo("hangar", x, 700, s, L[lid].start - 0.3, 0.5, 900, "power2.inOut");
+    talk(id, lid);
+  };
+  intro("hg-b", "l23", 420, 1.9);
+  expr("hg-f", "happy", L.l24.start);
+  intro("hg-f", "l24", 620);
+  intro("hg-q", "l25", 800);
+  intro("hg-d", "l26", 960);
+  gesture("hg-b", "fist", L.l27.start + 0.4, 0.2);
+  intro("hg-b", "l27", 440, 1.9);
+  expr("hg-g", "determined", L.l28.start);
+  intro("hg-g", "l28", 180);
+  expr("hg-b", "shock", L.l29.start);
+  intro("hg-b", "l29", 440, 1.9);
+  intro("hg-g", "l30", 180);
+  // the punch, the dodge, the throw
+  camTo("hangar", 320, 760, 1.5, L.l31.start, 0.6, 900, "power2.inOut");
+  expr("hg-b", "angry", L.l31.start);
+  walk("hg-b", L.l31.start + 0.2, L.l31.start + 1.0, 0, 0, 0.25, 18);
+  T(`tl.to("#hg-bw", {x:-150, duration:.8, ease:"power2.in"}, ${r(L.l31.start + 0.2)});`);
+  const pun = W("ударил");
+  pose("hg-b", "armR", -90, pun, 0.12);
+  pose("hg-b", "armR-lo", 0, pun, 0.12);
+  T(`tl.to("#hg-gw", {x:-60, duration:.15, ease:"power2.out"}, ${r(pun + 0.05)});`);
+  const thr = W("полетели") - 0.1;
+  pose("hg-g", "armR", -100, thr - 0.3, 0.15);
+  T(
+    `tl.to("#hg-bw", {rotation:-90, svgOrigin:"420 1000", y:20, duration:.4, ease:"power2.in"}, ${r(thr)});`,
+  );
+  shake("#sh-hangar", thr + 0.4, 8, 16);
+  expr("hg-b", "pain", thr + 0.4);
+  expr("hg-f", "shock", thr + 0.4);
+  expr("hg-q", "shock", thr + 0.4);
+  expr("hg-d", "shock", thr + 0.4);
+  pose("hg-g", "armR", 0, thr + 0.6, 0.3);
+  camTo("hangar", 380, 800, 1.4, thr + 0.2, 0.5, 900, "power2.out");
+  expr("hg-f", "happy", L.l32.start);
+  intro("hg-f", "l32", 620, 1.9);
+  intro("hg-b", "l33", 360, 1.4);
+  T(
+    `tl.to("#hg-bw", {rotation:0, y:0, svgOrigin:"420 1000", duration:.6, ease:"power2.out"}, ${r(L.l33.end + 0.1)});`,
+  );
+  expr("hg-b", "neutral", L.l33.end + 0.2);
+  intro("hg-g", "l34", 200, 1.8);
+  gesture("hg-g", "pointR", L.l34.start + 0.5, 0.2);
+  gesture("hg-g", "rest", L.l34.end, 0.3);
+  expr("hg-f", "neutral", L.l35.start);
+  intro("hg-f", "l35", 620);
+  intro("hg-g", "l36", 200, 2.2);
+  camTo("hangar", 560, 720, 1.0, L.l36.end, b - L.l36.end, 900, "sine.inOut");
+  ["hg-b", "hg-f", "hg-q", "hg-d", "hg-g"].forEach((id) => blink(id, a, b));
+}
+
+/* S6 the shooting range: five of five */
+scene(
+  "range",
+  `${room(F18.range())}
+   ${C("rg-f", OM(1), 260, 1080)}
+   ${C("rg-g", GG({ prop: "rifle" }), 760, 1080)}`,
+  { bg: "#5a5e66" },
+);
+{
+  const [a, b] = S.range;
+  camSet("range", 540, 640, 1.0, a, 880);
+  expr("rg-g", "determined", a);
+  expr("rg-f", "neutral", a);
+  aim("rg-g", a + 0.4);
+  const shots = [0, 1, 2, 3, 4].map((i) => L.l37.start + 1.0 + i * 0.9);
+  shots.forEach((t, i) => {
+    show(`#zm-range .hole${i}`, t);
+    shake("#sh-range", t, 3, 4);
     T(
-      `tl.set("#${id} .eyes-closed", {opacity:0}, ${r(at + dur)}); tl.set("#${id} .eyes-open", {opacity:1}, ${r(at + dur)});`,
+      `tl.fromTo("#zm-range .tgt${i}", {rotation:0}, {rotation:-8, svgOrigin:"${100 + i * 230} 460", duration:.08, yoyo:true, repeat:1, immediateRender:false}, ${r(t)});`,
     );
   });
-  T(`tl.to("#${aId}", {x:"-=${ax / 2}", y:0, duration:.4, ease:"power2.inOut"}, ${r(at + dur)});`);
-  T(`tl.to("#${bId}", {x:"-=${bx / 2}", duration:.4, ease:"power2.inOut"}, ${r(at + dur)});`);
-  pose(aId, "head", 0, at + dur, 0.4);
-  pose(bId, "head", 0, at + dur, 0.4);
-};
-const sirenFlash = (sel, t0, t1) =>
-  T(
-    `tl.to("${sel}", {opacity:.28, duration:.45, yoyo:true, repeat:${Math.max(1, Math.round((t1 - t0) / 0.45) | 1)}, ease:"sine.inOut"}, ${r(t0)});`,
-  );
-// sitting on the shoulders / standing on a chair: shorten the legs from the hip
-const shortLegs = (id, at, k = 0.5) =>
-  T(`tl.set("#${id} .legL, #${id} .legR", {scaleY:${k}, svgOrigin:"0 0"}, ${r(at)});`);
-
-/* S1 four years ago: the tracker on a stray dog, the helicopter chasing it */
-scene(
-  "dog",
-  `${room(F11.steppe())}
-   <g id="dg-hw">${F15.heli("dg-heli", 0, 420, 0.6)}</g>
-   <g id="dg-dw">${F18.dog("dg-dog", 0, 960, 1.6)}</g>`,
-  { bg: "#8fb4dc" },
-);
-{
-  const [a, b] = S.dog;
-  const t0 = L.l02.start - 0.4;
-  camSet("dog", 540, 760, 1.25, a, 900);
-  T(`tl.set("#dg-dw", {x:-300}, ${r(a)}); tl.set("#dg-hw", {x:-700}, ${r(a)});`);
-  T(`tl.to("#dg-dw", {x:2300, duration:${r(b - t0)}, ease:"none"}, ${r(t0)});`);
-  T(`tl.to("#dg-hw", {x:1900, duration:${r(b - t0)}, ease:"none"}, ${r(t0 + 0.6)});`);
-  camTo("dog", 1500, 760, 1.25, t0 + 0.4, b - t0 - 0.4, 900, "none");
-  yoyo("#zm-dog .dlegs", 'scaleX:-1, transformOrigin:"50% 0%"', a, b, 0.12);
-  yoyo("#dg-dog", "y:-14", a, b, 0.12);
-  yoyo("#zm-dog .tdot", "opacity:.1", a, b, 0.25);
-  T(
-    `tl.to("#zm-dog .rotor", {scaleX:.1, svgOrigin:"0 -102", duration:.06, yoyo:true, repeat:${Math.round((b - a) / 0.06)}}, ${r(a)});`,
-  );
+  camTo("range", 560, 480, 1.4, a + 0.6, shots[4] - a, 880, "sine.inOut");
+  expr("rg-f", "happy", L.l38.start);
+  camTo("range", 300, 720, 2.0, L.l38.start - 0.3, 0.5, 880, "power2.inOut");
+  talk("rg-f", "l38");
+  pose("rg-g", "armR", 0, L.l38.start, 0.3);
+  pose("rg-g", "armL", 0, L.l38.start, 0.3);
+  pose("rg-g", "armR-lo", 0, L.l38.start, 0.3);
+  pose("rg-g", "armL-lo", 0, L.l38.start, 0.3);
+  expr("rg-g", "angry", L.l39.start);
+  camTo("range", 740, 720, 2.0, L.l39.start - 0.3, 0.4, 880, "power2.inOut");
+  talk("rg-g", "l39");
+  camTo("range", 300, 720, 2.0, L.l40.start - 0.3, 0.4, 880, "power2.inOut");
+  talk("rg-f", "l40");
+  camTo("range", 520, 720, 1.2, L.l40.end, b - L.l40.end, 880, "sine.inOut");
+  expr("rg-g", "happy", L.l40.end + 0.2);
+  ["rg-f", "rg-g"].forEach((id) => blink(id, a, b));
 }
 
-/* S2 the "Chaika" settlement by the sea */
+/* S7 quarters: the patch in the stove, the photo, Valkyrie at the door */
 scene(
-  "chaika",
-  `${room(F18.chaika())}
-   <g id="ch-catw" opacity="0">${F10.cat("ch-cat", 640, 1010, 2.4)}</g>`,
-  { bg: "#7fb2e0" },
+  "quart",
+  `${room(F18.quarters())}
+   <g id="qt-gw">${C("qt-g", GG(), 560, 1070)}</g>
+   <g id="qt-ow" opacity="0">${C("qt-o", GO({ prop: "photo" }), 560, 1070)}</g>
+   <g id="qt-patch" opacity="0"><rect x="-34" y="-12" width="68" height="24" rx="3" fill="#f2efe6" stroke="#0b0d14" stroke-width="2"/><text x="0" y="7" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="16" fill="#c9302c">ГУЛЬ</text></g>
+   <rect id="qt-night" x="-800" y="-800" width="2680" height="3520" fill="#05081a" opacity="0"/>
+   <rect id="qt-flash" x="-800" y="-800" width="2680" height="3520" fill="#fff" opacity="0"/>
+   <g id="qt-vw">${C("qt-v", VK(), 1300, 1070)}</g>`,
+  { bg: "#3a4048" },
 );
 {
-  const [a, b] = S.chaika;
-  camSet("chaika", 540, 480, 1.05, a, 820);
-  camTo("chaika", 480, 640, 1.2, a + 0.3, L.l03.end - a, 860, "sine.inOut");
+  const [a, b] = S.quart;
+  camSet("quart", 640, 700, 1.4, a, 900);
+  yoyo("#zm-quart .fire", 'scaleY:1.25, transformOrigin:"50% 100%"', a, b, 0.25);
+  expr("qt-g", "determined", a);
+  const rip = W("снял") + 0.1;
+  pose("qt-g", "armR", -140, rip, 0.2);
+  pose("qt-g", "armR-lo", -60, rip, 0.2);
+  show("#qt-patch", rip + 0.3);
+  const toss = W("печь") - 0.5;
   T(
-    `tl.to("#zm-chaika .blades", {rotation:${Math.round((b - a) * 70)}, svgOrigin:"0 0", duration:${r(b - a)}, ease:"none"}, ${r(a)});`,
+    `tl.fromTo("#qt-patch", {x:600, y:860}, {keyframes:[{x:760, y:700, duration:.35, ease:"power1.out"},{x:900, y:760, duration:.35, ease:"power1.in"}], immediateRender:false}, ${r(toss)});`,
   );
-  yoyo("#zm-chaika .waves", "x:-60", a, b, 2.2);
-  yoyo("#zm-chaika .hen", "rotation:22", a, b, 0.35);
-  camTo("chaika", 620, 800, 1.5, L.l04.start - 0.2, 1.4, 900, "power2.inOut");
-  show("#ch-catw", W("петрович") - 0.6);
+  T(`tl.to("#qt-patch", {rotation:540, svgOrigin:"0 0", duration:.7}, ${r(toss)});`);
+  hide("#qt-patch", toss + 0.72);
   T(
-    `tl.fromTo("#ch-catw", {y:60}, {y:0, duration:.4, ease:"back.out(2)", immediateRender:false}, ${r(W("петрович") - 0.6)});`,
+    `tl.to("#zm-quart .fire", {scale:1.8, transformOrigin:"50% 100%", duration:.2, yoyo:true, repeat:1}, ${r(toss + 0.7)});`,
   );
-  camTo("chaika", 640, 940, 2.4, W("петрович") - 0.4, 0.6, 900, "power2.out");
+  pose("qt-g", "armR", 0, toss + 0.4, 0.3);
+  pose("qt-g", "armR-lo", 0, toss + 0.4, 0.3);
+  camTo("quart", 800, 720, 1.8, toss - 0.4, 0.6, 900, "power2.inOut");
+  // rebirth: the omega armour
+  const re = W("родился") - 0.1;
   T(
-    `tl.to("#ch-catw", {scaleX:1.12, transformOrigin:"640px 1010px", duration:.3, yoyo:true, repeat:1}, ${r(W("самовар") - 0.1)});`,
+    `tl.fromTo("#qt-flash", {opacity:.9}, {opacity:0, duration:.6, immediateRender:false}, ${r(re)});`,
   );
+  hide("#qt-gw", re);
+  show("#qt-ow", re);
+  expr("qt-o", "determined", re);
+  camTo("quart", 560, 640, 2.0, re, 0.7, 900, "power2.out");
+  // night, the photo
+  T(`tl.to("#qt-night", {opacity:.45, duration:1.0}, ${r(L.l42.start - 0.6)});`);
+  expr("qt-o", "sad", L.l42.start);
+  pose("qt-o", "armR", -40, L.l42.start + 0.4, 0.4);
+  pose("qt-o", "armR-lo", -110, L.l42.start + 0.4, 0.4);
+  pose("qt-o", "head", 10, L.l42.start + 0.4, 0.4);
+  camTo("quart", 580, 700, 2.4, L.l42.start, L.l42.end - L.l42.start, 900, "sine.inOut");
+  walk("qt-v", L.l43.start - 1.0, L.l43.start, 0, 0, 0.3, 16);
+  T(`tl.to("#qt-vw", {x:-450, duration:1.0, ease:"none"}, ${r(L.l43.start - 1.0)});`);
+  expr("qt-v", "neutral", a);
+  camTo("quart", 720, 700, 1.6, L.l43.start - 0.5, 0.6, 900, "power2.inOut");
+  talk("qt-v", "l43");
+  pose("qt-o", "head", 0, L.l44.start - 0.2, 0.3);
+  pose("qt-o", "armR", 0, L.l44.start - 0.2, 0.3);
+  pose("qt-o", "armR-lo", 0, L.l44.start - 0.2, 0.3);
+  expr("qt-o", "determined", L.l44.start);
+  camTo("quart", 560, 680, 2.2, L.l44.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("qt-o", "l44");
+  expr("qt-v", "determined", L.l45.start);
+  camTo("quart", 860, 680, 2.2, L.l45.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("qt-v", "l45");
+  walk("qt-v", L.l45.end + 0.2, b, 0, 0, 0.3, 16);
+  T(
+    `tl.to("#qt-vw", {x:0, duration:${r(b - L.l45.end - 0.2)}, ease:"none"}, ${r(L.l45.end + 0.2)});`,
+  );
+  camTo("quart", 600, 680, 1.6, L.l45.end, b - L.l45.end, 900, "sine.inOut");
+  ["qt-g", "qt-o", "qt-v"].forEach((id) => blink(id, a, b));
 }
 
-/* S3 morning: Vanya jumps on the bed, Masha in her nurse's tunic */
+/* S8 the briefing: the drone photo */
 scene(
-  "bed",
-  `${room(F8.bedroom())}
-   ${C("bd-mx", MX(), 430, 985)}
-   ${room(F8.quilt())}
-   <g id="bd-vw">${C("bd-v", V({ outfit: "pajama" }), 650, 870)}</g>
-   <g id="bd-mw" opacity="0">${C("bd-m", MN(), 920, 1080)}</g>`,
-  { bg: "#6a4630" },
+  "brief",
+  `${room(F18.briefing())}
+   ${C("bf-gn", R.general(), 980, 1080)}
+   ${big(380, 1090, 1.12, C("bf-b", OM(0), 380, 1090))}
+   ${C("bf-f", OM(1), 600, 1090)}
+   ${C("bf-g", GO(), 160, 1090)}`,
+  { bg: "#24282e" },
 );
 {
-  const [a, b] = S.bed;
-  camSet("bed", 540, 700, 1.3, a, 900);
-  sleep("bd-mx", a);
-  pose("bd-mx", "head", 10, a, 0.01);
-  expr("bd-v", "happy", a);
-  camTo("bed", 620, 720, 2.0, L.l05.start - 0.3, 0.5, 900, "power2.inOut");
+  const [a, b] = S.brief;
+  camSet("brief", 540, 620, 1.0, a, 880);
   T(
-    `tl.to("#bd-vw", {keyframes:[{y:-90,duration:.22,ease:"power2.out"},{y:0,duration:.22,ease:"power2.in"}], repeat:${Math.max(1, Math.round((L.l05.end - L.l05.start) / 0.44))}}, ${r(L.l05.start)});`,
+    `tl.fromTo("#zm-brief .screen", {opacity:0}, {opacity:1, duration:.4, immediateRender:false}, ${r(a + 0.3)});`,
   );
-  gesture("bd-v", "cheer", L.l05.start, 0.2);
-  talk("bd-v", "l05");
-  T(
-    `tl.to("#bd-mx .body", {keyframes:[{y:-6,duration:.1},{y:0,duration:.1}], repeat:${Math.max(1, Math.round((L.l05.end - L.l05.start) / 0.44))}}, ${r(L.l05.start + 0.2)});`,
-  );
-  gesture("bd-v", "rest", L.l05.end, 0.3);
-  wake("bd-mx", L.l06.start - 0.2, "tired");
-  camTo("bed", 440, 700, 2.2, L.l06.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("bd-mx", "l06");
-  expr("bd-v", "neutral", L.l07.start);
-  pose("bd-v", "head", 10, L.l07.start, 0.3);
-  camTo("bed", 620, 720, 2.2, L.l07.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("bd-v", "l07");
-  expr("bd-mx", "neutral", L.l08.start);
-  camTo("bed", 460, 700, 2.0, L.l08.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("bd-mx", "shrug", L.l08.start + 0.5, 0.3);
-  talk("bd-mx", "l08");
-  show("#bd-mw", L.l09.start - 0.6);
-  walk("bd-m", L.l09.start - 0.6, L.l09.start + 0.3, -120, 0, 0.3, 16);
-  expr("bd-m", "happy", L.l09.start - 0.6);
-  camTo("bed", 660, 760, 1.35, L.l09.start - 0.5, 0.6, 900, "power2.inOut");
-  talk("bd-m", "l09");
-  expr("bd-v", "happy", L.l09.start);
-  camTo("bed", 800, 720, 2.2, L.l10.start, 1.2, 900, "power2.inOut");
-  gesture("bd-m", "open", L.l10.start + 1.4, 0.3);
-  expr("bd-m", "determined", W("взгляд") - 0.2);
-  camTo("bed", 800, 640, 3.0, W("взгляд") - 0.2, 0.5, 900, "power2.out");
-  ["bd-v", "bd-m"].forEach((id) => blink(id, a, b));
-  blink("bd-mx", L.l06.start, b);
-}
-
-/* S4 breakfast: Zina's pancakes */
-const pancakes = (id, x, y, n = 6) =>
-  `<g id="${id}">${Array.from({ length: n }, (_, i) => `<ellipse cx="${x}" cy="${y - i * 9}" rx="62" ry="14" fill="${i % 2 ? "#e9b05a" : "#d9963e"}" stroke="#0b0d14" stroke-width="2"/>`).join("")}<path d="M${x - 14} ${y - n * 9 - 4} q14 -10 28 0" fill="#ffe27a" stroke="#0b0d14" stroke-width="1.6"/></g>`;
-scene(
-  "kitchen",
-  `${room(F8.kitchen())}
-   ${C("kt-mx", MX(), 470, 970)}
-   ${C("kt-m", MN(), 830, 970)}
-   ${C("kt-v", V(), 650, 905)}
-   ${room(F8.table())}
-   ${pancakes("kt-pc", 560, 812)}
-   <g id="kt-fly" opacity="0"><ellipse cx="0" cy="0" rx="58" ry="13" fill="#d9963e" stroke="#0b0d14" stroke-width="2"/></g>
-   <g id="kt-zw">${C("kt-zn", ZN({ prop: "pan" }), 170, 1090)}</g>`,
-  { bg: "#6a4630" },
-);
-{
-  const [a, b] = S.kitchen;
-  camSet("kitchen", 540, 720, 1.2, a, 900);
-  expr("kt-zn", "happy", a);
-  camTo("kitchen", 240, 740, 1.8, L.l11.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("kt-zn", "fist", L.l11.start + 0.2, 0.2);
-  talk("kt-zn", "l11");
-  gesture("kt-zn", "rest", L.l11.end, 0.3);
-  expr("kt-v", "happy", L.l12.start);
-  camTo("kitchen", 640, 760, 2.2, L.l12.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("kt-v", "handsUp", L.l12.start + 0.1, 0.2);
-  talk("kt-v", "l12");
-  gesture("kt-v", "rest", W("почти") + 0.3, 0.3);
-  expr("kt-v", "tired", W("почти"));
-  expr("kt-zn", "neutral", L.l13.start);
-  camTo("kitchen", 360, 740, 1.5, L.l13.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("kt-zn", "pointR", L.l13.start + 0.4, 0.2);
-  talk("kt-zn", "l13");
-  expr("kt-mx", "scared", L.l14.start - 0.2);
-  camTo("kitchen", 470, 700, 2.4, L.l14.start - 0.3, 0.4, 900, "power2.inOut");
-  gesture("kt-mx", "open", L.l14.start, 0.2);
-  talk("kt-mx", "l14");
-  gesture("kt-mx", "rest", L.l14.end, 0.3);
-  expr("kt-zn", "angry", L.l15.start);
-  camTo("kitchen", 300, 740, 1.6, L.l15.start - 0.3, 0.4, 900, "power2.inOut");
-  talk("kt-zn", "l15");
-  expr("kt-m", "happy", L.l16.start - 0.2);
-  expr("kt-v", "happy", L.l16.start);
-  camTo("kitchen", 760, 700, 2.0, L.l16.start - 0.3, 0.4, 900, "power2.inOut");
-  gesture("kt-m", "shrug", L.l16.start, 0.2);
-  talk("kt-m", "l16");
-  // the thickest pancake flies to Maxim's plate
-  camTo("kitchen", 420, 740, 1.4, L.l17.start, 0.8, 900, "power2.inOut");
-  expr("kt-zn", "determined", L.l17.start);
-  const fly = W("толстые") - 1.2;
-  show("#kt-fly", fly);
-  T(
-    `tl.fromTo("#kt-fly", {x:220, y:740}, {keyframes:[{x:340, y:560, duration:.4, ease:"power1.out"},{x:470, y:790, duration:.45, ease:"power1.in"}], immediateRender:false}, ${r(fly)});`,
-  );
-  T(
-    `tl.fromTo("#kt-fly", {rotation:0}, {rotation:720, svgOrigin:"0 0", duration:.85, immediateRender:false}, ${r(fly)});`,
-  );
-  expr("kt-mx", "happy", fly + 0.9);
-  ["kt-zn", "kt-mx", "kt-m", "kt-v"].forEach((id) => blink(id, a, b));
-}
-
-/* S5 on the watchtower: Vanya on his father's shoulders, the toy hare */
-scene(
-  "tower",
-  `${room(F18.towerTop())}
-   ${C("tw-v", V(), 560, 786)}
-   ${C("tw-mx", MX({ prop: "rifle" }), 560, 1070)}
-   ${F9.hare("tw-hare", 618, 728, 0.55)}
-   ${room(F18.towerRail())}`,
-  { bg: "#6aa2d8" },
-);
-{
-  const [a, b] = S.tower;
-  camSet("tower", 560, 720, 1.25, a, 900);
-  shortLegs("tw-v", a, 0.5);
-  pose("tw-v", "armL", 70, a, 0.01);
-  pose("tw-v", "armL-lo", 60, a, 0.01);
-  pose("tw-mx", "armL", -150, a, 0.01);
-  pose("tw-mx", "armL-lo", -40, a, 0.01);
-  expr("tw-v", "happy", a);
-  camTo("tower", 580, 660, 1.9, L.l19.start - 0.3, 0.5, 900, "power2.inOut");
-  pose("tw-v", "head", -8, L.l19.start, 0.3);
-  T(
-    `tl.to("#zm-tower .tw-hare", {y:-30, duration:.3, yoyo:true, repeat:1}, ${r(L.l19.start + 0.2)});`,
-  );
-  talk("tw-v", "l19");
-  expr("tw-mx", "happy", L.l20.start);
-  camTo("tower", 560, 800, 2.0, L.l20.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("tw-mx", "l20");
-  expr("tw-v", "neutral", L.l21.start);
-  camTo("tower", 580, 640, 2.2, L.l21.start - 0.3, 0.4, 900, "power2.inOut");
-  talk("tw-v", "l21");
-  expr("tw-mx", "tired", L.l22.start);
-  camTo("tower", 560, 820, 2.2, L.l22.start - 0.3, 0.4, 900, "power2.inOut");
-  talk("tw-mx", "l22");
-  // a car on the steppe road
-  T(
-    `tl.to("#zm-tower .far-car", {x:1500, duration:${r(b - L.l22.end)}, ease:"none"}, ${r(L.l22.end)});`,
-  );
-  expr("tw-v", "shock", L.l23.start);
-  pose("tw-v", "armR", -100, L.l23.start + 0.1, 0.2);
-  pose("tw-v", "armR-lo", -10, L.l23.start + 0.1, 0.2);
-  camTo("tower", 400, 700, 1.3, L.l23.start - 0.2, 0.6, 900, "power2.inOut");
-  talk("tw-v", "l23");
-  expr("tw-mx", "determined", L.l24.start);
-  camTo("tower", 560, 780, 1.8, L.l24.start - 0.2, 0.5, 900, "power2.inOut");
-  talk("tw-mx", "l24");
-  ["tw-v", "tw-mx"].forEach((id) => blink(id, a, b));
-}
-
-/* S6 the radio room: "This is the Hive" */
-scene(
-  "radio",
-  `${room(F18.radioRoom())}
-   ${C("rd-s", SOL(), 720, 1070)}
-   <g id="rd-mxw">${C("rd-mx", MX({ prop: "rifle" }), 1260, 1070)}</g>`,
-  { bg: "#4a5a52" },
-);
-{
-  const [a, b] = S.radio;
-  camSet("radio", 700, 720, 1.3, a, 900);
-  expr("rd-s", "scared", a);
-  gesture("rd-s", "wave", L.l25.start, 0.3);
-  talk("rd-s", "l25");
-  gesture("rd-s", "rest", L.l25.end, 0.3);
-  walk("rd-mx", L.l25.start + 0.4, L.l25.end, -340, 0, 0.3, 18);
-  expr("rd-mx", "neutral", a);
-  // the broadcast
-  camTo("radio", 290, 640, 2.6, L.l26.start - 0.5, 0.8, 900, "power2.inOut");
-  yoyo("#zm-radio .rwave", 'scaleY:-1, transformOrigin:"50% 50%"', L.l26.start, L.l26.end, 0.09);
-  yoyo("#zm-radio .rlamp", "opacity:.15", a, b, 0.3);
-  camTo(
-    "radio",
-    340,
-    680,
-    2.0,
-    L.l26.start + 3.0,
-    L.l26.end - L.l26.start - 3.0,
-    900,
-    "sine.inOut",
-  );
-  expr("rd-mx", "angry", L.l27.start - 0.2);
-  camTo("radio", 920, 720, 2.2, L.l27.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("rd-mx", "l27");
-  camTo("radio", 720, 720, 2.2, L.l28.start - 0.3, 0.5, 900, "power2.inOut");
-  expr("rd-s", "sad", L.l28.start);
-  talk("rd-s", "l28");
-  expr("rd-mx", "determined", L.l29.start);
-  camTo("radio", 840, 740, 1.6, L.l29.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("rd-mx", "fist", L.l29.start + 0.4, 0.2);
-  talk("rd-mx", "l29");
-  ["rd-s", "rd-mx"].forEach((id) => blink(id, a, b));
-}
-
-/* S7 the beach: skipping stones */
-scene(
-  "beach",
-  `<rect x="-800" y="-800" width="2680" height="1000" fill="#9fb8d8"/>${room(F11.beach())}
-   ${C("bh-mx", MX(), 360, 1070)}
-   ${C("bh-v", V(), 560, 1070)}
-   <g id="bh-mw" opacity="0">${C("bh-m", MN(), 860, 1070)}</g>
-   <circle id="bh-stone" cx="0" cy="0" r="9" fill="#6a6458" stroke="#0b0d14" stroke-width="2" opacity="0"/>
-   ${[0, 1, 2].map((i) => `<g id="bh-sp${i}" opacity="0"><path d="M${700 + i * 120} ${700 - i * 40} l-12 -26 M${708 + i * 120} ${698 - i * 40} l0 -30 M${716 + i * 120} ${700 - i * 40} l12 -26" stroke="#f2f6fa" stroke-width="5" stroke-linecap="round"/></g>`).join("")}`,
-  { bg: "#b9b0a0" },
-);
-{
-  const [a, b] = S.beach;
-  camSet("beach", 520, 640, 1.1, a, 880);
-  yoyo("#zm-beach .wave", "x:-30", a, b, 1.8);
-  expr("bh-v", "happy", a);
-  expr("bh-mx", "happy", a);
-  // the throw
-  const th = L.l29b.start - 0.2;
-  pose("bh-v", "armR", -150, th - 0.4, 0.25);
-  pose("bh-v", "armR", 40, th, 0.15);
-  show("#bh-stone", th);
-  T(
-    `tl.fromTo("#bh-stone", {x:600, y:900}, {keyframes:[{x:700, y:700, duration:.35},{x:780, y:660, duration:.25},{x:820, y:660, duration:.2},{x:880, y:620, duration:.25},{x:940, y:620, duration:.2},{x:1100, y:580, duration:.3}], immediateRender:false}, ${r(th)});`,
-  );
-  [0, 1, 2].forEach((i) =>
-    T(
-      `tl.fromTo("#bh-sp${i}", {opacity:1, scale:.4, svgOrigin:"${708 + i * 120} ${700 - i * 40}"}, {opacity:0, scale:1.2, duration:.5, immediateRender:false}, ${r(th + 0.35 + i * 0.45)});`,
-    ),
-  );
-  T(`tl.set("#bh-stone", {opacity:0}, ${r(th + 1.6)});`);
-  camTo("beach", 560, 720, 1.9, L.l29b.start, 0.5, 880, "power2.inOut");
-  gesture("bh-v", "cheer", L.l29b.start + 0.6, 0.2);
-  T(
-    `tl.to("#bh-v", {keyframes:[{y:-40,duration:.18},{y:0,duration:.18}], repeat:2}, ${r(L.l29b.start + 0.6)});`,
-  );
-  talk("bh-v", "l29b");
-  gesture("bh-v", "rest", L.l29b.end, 0.3);
-  camTo("beach", 400, 720, 2.0, L.l29c.start - 0.3, 0.5, 880, "power2.inOut");
-  gesture("bh-mx", "open", L.l29c.start + 0.3, 0.3);
-  talk("bh-mx", "l29c");
-  show("#bh-mw", L.l29d.start - 0.8);
-  walk("bh-m", L.l29d.start - 0.8, L.l29d.start + 0.2, -120, 0, 0.3, 16);
-  expr("bh-m", "happy", L.l29d.start - 0.8);
-  camTo("beach", 640, 720, 1.4, L.l29d.start - 0.5, 0.6, 880, "power2.inOut");
-  talk("bh-m", "l29d");
-  expr("bh-v", "shock", L.l29e.start);
-  pose("bh-v", "head", 10, L.l29e.start, 0.3);
-  camTo("beach", 620, 760, 2.0, L.l29e.start - 0.3, 0.4, 880, "power2.inOut");
-  talk("bh-v", "l29e");
-  camTo("beach", 800, 720, 2.0, L.l29f.start - 0.3, 0.4, 880, "power2.inOut");
-  talk("bh-m", "l29f");
-  expr("bh-v", "happy", L.l29f.end);
-  expr("bh-mx", "tired", L.l29g.start);
-  camTo("beach", 400, 700, 2.2, L.l29g.start - 0.3, 0.4, 880, "power2.inOut");
-  gesture("bh-mx", "shrug", L.l29g.start + 0.6, 0.3);
-  talk("bh-mx", "l29g");
-  expr("bh-m", "happy", L.l29g.end);
-  camTo("beach", 600, 700, 1.2, L.l29g.end, b - L.l29g.end, 880, "sine.inOut");
-  ["bh-v", "bh-mx", "bh-m"].forEach((id) => blink(id, a, b));
-}
-
-/* S8 the council in the dining hall */
-scene(
-  "hall",
-  `${room(F18.hall())}
-   ${C("hl-m", MN(), 190, 985)}
-   ${C("hl-mx", MX(), 430, 985)}
-   ${C("hl-zn", ZN(), 670, 985)}
-   ${C("hl-s", SOL(), 905, 985)}
-   ${room(F18.crowd())}`,
-  { bg: "#c9a87a" },
-);
-{
-  const [a, b] = S.hall;
-  camSet("hall", 540, 700, 1.0, a, 900);
-  yoyo("#zm-hall .bulb", "opacity:.55", a, b, 0.7);
-  ["hl-m", "hl-mx", "hl-zn", "hl-s"].forEach((id) => expr(id, "neutral", a));
-  camTo("hall", 540, 700, 1.15, a + 0.2, L.l30.end - a, 900, "sine.inOut");
-  expr("hl-m", "sad", L.l31.start);
-  camTo("hall", 230, 700, 2.0, L.l31.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("hl-m", "open", L.l31.start + 0.3, 0.3);
-  talk("hl-m", "l31");
-  gesture("hl-m", "rest", L.l31.end, 0.3);
-  expr("hl-mx", "determined", L.l32.start);
-  camTo("hall", 430, 700, 2.0, L.l32.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("hl-mx", "fist", W("пущу") - 0.2, 0.2);
-  talk("hl-mx", "l32");
-  gesture("hl-mx", "rest", L.l32.end, 0.3);
-  expr("hl-zn", "determined", L.l33.start);
-  camTo("hall", 660, 700, 2.0, L.l33.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("hl-zn", "pointR", W("запишите") - 0.2, 0.2);
-  talk("hl-zn", "l33");
-  expr("hl-mx", "shock", W("первый"));
-  expr("hl-s", "scared", L.l34.start);
-  camTo("hall", 880, 700, 2.0, L.l34.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("hl-s", "l34");
-  camTo("hall", 540, 720, 1.1, L.l35.start, 1.0, 900, "power2.inOut");
-  ["hl-m", "hl-mx", "hl-zn", "hl-s"].forEach((id) => blink(id, a, b));
-}
-
-/* S9 night: Vanya asleep with the wooden hare */
-scene(
-  "kid",
-  `${room(F18.kidRoom())}
-   <g transform="rotate(-90 690 792)">${C("kd-v", V({ outfit: "pajama" }), 690, 792)}</g>
-   ${F9.hare("kd-hare", 590, 770, 0.6)}
-   ${room(F18.cribFront())}
-   ${C("kd-mx", MX(), 940, 1090)}`,
-  { bg: "#2a3050" },
-);
-{
-  const [a, b] = S.kid;
-  camSet("kid", 600, 760, 1.4, a, 900);
-  yoyo("#zm-kid .nlight", "opacity:.7", a, b, 1.2);
-  sleep("kd-v", a);
-  expr("kd-mx", "happy", a);
-  camTo("kid", 560, 780, 2.0, a + 0.3, L.l36.end - a, 900, "sine.inOut");
-  wake("kd-v", L.l37.start - 0.3, "scared");
-  talk("kd-v", "l37");
-  camTo("kid", 860, 740, 1.8, L.l38.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("kd-mx", "fist", W("сильнее") - 0.1, 0.2);
-  talk("kd-mx", "l38");
-  gesture("kd-mx", "rest", L.l38.end, 0.3);
-  expr("kd-v", "happy", L.l39.start);
-  camTo("kid", 520, 790, 2.4, L.l39.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("kd-v", "l39");
-  sleep("kd-v", L.l39.end + 0.2);
-  camTo("kid", 600, 780, 1.6, L.l39.end, b - L.l39.end, 900, "sine.inOut");
-  blink("kd-mx", a, b);
-}
-
-/* S10 the porch under the moon, then the siren */
-scene(
-  "porch",
-  `${room(F9.moonPorch())}
-   ${C("pc-m", MN(), 430, 990)}
-   ${C("pc-mx", MX(), 650, 990)}
-   ${room(F9.porchRail())}
-   ${hearts("pc-h", 540, 540)}
-   ${F18.flood("pc-flood")}`,
-  { bg: "#05081a" },
-);
-{
-  const [a, b] = S.porch;
-  camSet("porch", 600, 500, 1.1, a, 900);
-  expr("pc-m", "happy", a);
-  expr("pc-mx", "happy", a);
-  camTo("porch", 540, 740, 1.7, a + 0.3, L.l40.start - a, 900, "sine.inOut");
-  pose("pc-m", "head", 8, L.l40.start, 0.4);
-  talk("pc-m", "l40");
-  camTo("porch", 600, 740, 2.0, L.l41.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("pc-mx", "l41");
-  camTo("porch", 470, 740, 2.0, L.l42.start - 0.3, 0.5, 900, "power2.inOut");
-  gesture("pc-m", "shrug", L.l42.start + 0.4, 0.3);
-  talk("pc-m", "l42");
-  gesture("pc-m", "rest", L.l42.end, 0.3);
-  expr("pc-mx", "sad", L.l43.start);
-  camTo("porch", 620, 740, 2.2, L.l43.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("pc-mx", "l43");
-  expr("pc-m", "happy", L.l44.start);
-  camTo("porch", 470, 740, 2.2, L.l44.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("pc-m", "l44");
-  camTo("porch", 540, 740, 1.9, L.l44.end, 0.5, 900, "power2.inOut");
-  kiss("pc-m", "pc-mx", L.l44.end + 0.1, 2.0, 45, -45);
-  heartsUp("pc-h", L.l44.end + 0.4, L.l45.end);
-  camTo("porch", 600, 560, 1.1, L.l45.start + 0.4, 2.0, 900, "sine.inOut");
-  const sir = W("сирена") - 0.1;
-  sirenFlash("#pc-flood", sir, b);
-  expr("pc-m", "shock", sir);
-  expr("pc-mx", "shock", sir);
-  shake("#sh-porch", sir, 6, 10);
-  ["pc-m", "pc-mx"].forEach((id) => blink(id, a, b));
-}
-
-/* S11 the gate: a man in black armour, grey, a scar across the face */
-scene(
-  "gate",
-  `${room(F18.gateNight())}
-   <g id="gt-gw" opacity="0"><g transform="translate(540 905) scale(.8) translate(-540 -905)">${C("gt-g", R.gleb({ ghoul: true, aged: true, brow: "sad" }), 540, 905)}</g></g>
-   ${room(F18.gateBars())}
-   ${C("gt-mx", MX({ prop: "rifle" }), 250, 1090)}
-   ${C("gt-m", MN(), 790, 1090)}
-   <g id="gt-vw" opacity="0">${C("gt-v", V({ outfit: "pajama" }), 960, 1090)}</g>
-   ${F18.flood("gt-flood")}`,
-  { bg: "#0a1020" },
-);
-{
-  const [a, b] = S.gate;
-  camSet("gate", 540, 760, 1.0, a, 900);
-  T(`tl.set("#gt-flood", {opacity:.25}, ${r(a)});`);
-  sirenFlash("#gt-flood", a, L.l47.start);
-  T(`tl.to("#gt-flood", {opacity:0, duration:.6}, ${r(L.l47.start)});`);
-  T(
-    `tl.to("#zm-gate .beam", {rotation:-14, svgOrigin:"160 340", duration:1.6, yoyo:true, repeat:3, ease:"sine.inOut"}, ${r(a)});`,
-  );
-  expr("gt-mx", "determined", a);
-  expr("gt-m", "scared", a);
-  T(`tl.to("#gt-gw", {opacity:1, duration:1.2}, ${r(L.l47.start)});`);
-  camTo("gate", 540, 700, 1.8, L.l47.start, 2.5, 900, "sine.inOut");
-  camTo("gate", 540, 650, 3.4, W("шрамом") - 0.4, 0.6, 900, "power2.out");
-  expr("gt-g", "tired", a);
-  // Maxim aims
-  pose("gt-mx", "armR", -90, L.l48.start - 0.2, 0.2);
-  pose("gt-mx", "armR-lo", 0, L.l48.start - 0.2, 0.2);
-  pose("gt-mx", "armL", -70, L.l48.start - 0.2, 0.2);
-  pose("gt-mx", "armL-lo", -30, L.l48.start - 0.2, 0.2);
-  expr("gt-mx", "angry", L.l48.start);
-  camTo("gate", 330, 760, 2.0, L.l48.start - 0.3, 0.4, 900, "power2.inOut");
-  talk("gt-mx", "l48");
-  camTo("gate", 540, 660, 2.8, L.l49.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("gt-g", "l49");
-  expr("gt-m", "shock", L.l50.start - 0.2);
-  camTo("gate", 790, 760, 2.4, L.l50.start - 0.3, 0.4, 900, "power2.inOut");
-  talk("gt-m", "l50");
-  expr("gt-g", "sad", L.l51.start);
-  camTo("gate", 540, 660, 2.6, L.l51.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("gt-g", "l51");
-  expr("gt-mx", "angry", L.l52.start);
-  camTo("gate", 300, 760, 2.2, L.l52.start - 0.3, 0.4, 900, "power2.inOut");
-  talk("gt-mx", "l52");
-  expr("gt-g", "determined", L.l53.start);
-  camTo("gate", 540, 650, 3.2, L.l53.start - 0.3, 0.5, 900, "power2.inOut");
-  talk("gt-g", "l53");
-  show("#gt-vw", L.l54.start - 0.6);
-  T(
-    `tl.fromTo("#gt-vw", {x:120}, {x:0, duration:.5, ease:"power2.out", immediateRender:false}, ${r(L.l54.start - 0.6)});`,
-  );
-  expr("gt-v", "neutral", a);
-  camTo("gate", 900, 900, 2.4, L.l54.start - 0.5, 0.5, 900, "power2.inOut");
-  pose("gt-v", "head", -8, L.l54.start, 0.3);
-  talk("gt-v", "l54");
-  camTo("gate", 540, 700, 1.3, L.l54.end + 0.2, CUT - L.l54.end - 0.2, 900, "sine.inOut");
-  ["gt-mx", "gt-m", "gt-g", "gt-v"].forEach((id) => blink(id, a, b));
+  yoyo("#zm-brief .tgtbox", "opacity:.2", a, b, 0.35);
+  ["bf-gn", "bf-b", "bf-f"].forEach((id) => expr(id, "neutral", a));
+  expr("bf-g", "determined", a);
+  camTo("brief", 900, 680, 1.8, L.l46.start - 0.3, 0.6, 900, "power2.inOut");
+  gesture("bf-gn", "pointR", L.l46.start + 1.0, 0.3);
+  talk("bf-gn", "l46");
+  expr("bf-g", "shock", L.l47.start - 0.2);
+  camTo("brief", 200, 700, 2.3, L.l47.start - 0.3, 0.4, 900, "power2.out");
+  talk("bf-g", "l47");
+  camTo("brief", 900, 680, 1.8, L.l48.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("bf-gn", "l48");
+  gesture("bf-gn", "rest", L.l48.end, 0.3);
+  camTo("brief", 640, 520, 1.4, L.l49.start - 0.2, 0.6, 900, "power2.inOut");
+  talk("bf-gn", "l49");
+  expr("bf-b", "scared", L.l50.start);
+  camTo("brief", 400, 680, 2.0, L.l50.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("bf-b", "l50");
+  expr("bf-g", "sad", L.l51.start);
+  camTo("brief", 180, 680, 2.6, L.l51.start - 0.3, 0.5, 900, "power2.inOut");
+  talk("bf-g", "l51");
+  camTo("brief", 450, 420, 2.4, L.l52.start, 1.6, 900, "power2.inOut");
+  expr("bf-g", "determined", L.l53.start - 0.2);
+  camTo("brief", 220, 680, 2.0, L.l53.start - 0.3, 0.5, 900, "power2.out");
+  gesture("bf-g", "fist", L.l53.start + 0.4, 0.2);
+  talk("bf-g", "l53");
+  camTo("brief", 540, 620, 1.0, L.l53.end + 0.2, CUT - L.l53.end - 0.2, 900, "sine.inOut");
+  ["bf-gn", "bf-b", "bf-f", "bf-g"].forEach((id) => blink(id, a, b));
 }
 
 /* ───────────── overlays: kinetic text ───────────── */
@@ -813,8 +670,12 @@ const ROLE = {
   son_old: ["СТАРШИЙ", "#8be0a4"],
   son_young: ["МЛАДШИЙ", "#ffd25a"],
   maxim: ["ДЕД МАКСИМ", "#ffa86a"],
-  soldier1: ["СЕРЁГА", "#c9d48a"],
-  vanya: ["ВАНЯ", "#8fe0ff"],
+  soldier1: ["СОЛДАТ", "#c9d48a"],
+  general: ["ГЕНЕРАЛ", "#e9c46a"],
+  pilot: ["ПИЛОТ", "#c9d48a"],
+  bear: ["МЕДВЕДЬ", "#ff9a6a"],
+  fox: ["ЛИСА", "#ff7a4a"],
+  quiet: ["ТИХИЙ", "#b9c0cc"],
   soldier2: ["СОЛДАТ", "#c9d48a"],
   soldier3: ["КОМАНДИР (РАЦИЯ)", "#c9d48a"],
   granny: ["БАБУШКА", "#e0b3ff"],
@@ -822,18 +683,18 @@ const ROLE = {
   voice: ["РАДИО", "#9fd2ff"],
   shepherd: ["ПАСТУХ", "#e0c98a"],
   owner: ["ХОЗЯИН КАФЕ", "#ffb38a"],
-  feldsher: ["ФЕЛЬДШЕР", "#9fe0d0"],
+  feldsher: ["ДОК", "#9fe0d0"],
   neighbor: ["БАБА ВАЛЯ", "#e0b3ff"],
   volunteer: ["ВОЛОНТЁР", "#9fe0d0"],
   valkyrie: ["ВАЛЬКИРИЯ", "#9fd8ff"],
   medic: ["ВРАЧ", "#9fe0d0"],
 };
 const HOT = new Set(
-  "четыре маячок собаки чайка ваня зайца улей вакцина валькирия мышеловка танке луну сбежим спасибо любимый глеб".split(
+  "генерал гранит проверку омега командир четвёртый условием командир пятеро гуль родился жива вакцине автобус вертолёт".split(
     " ",
   ),
 );
-const DANGER = new Set("кобель сирена шрамом умрёте курок пал".split(" "));
+const DANGER = new Set("беременную погибли выстрелит оружие".split(" "));
 const hook = `<div id="hook" class="clip toptitle" data-start="0.2" data-duration="${r(L.l01.start - 0.1)}" data-track-index="2" style="z-index:5"><div class="tt-s">${spl("ГЛЕБ", "hs")}</div><div class="tt-a">${spl("ЧАСТЬ 18", "ha")}</div></div>`;
 T(`tl.set("#hook .hs, #hook .ha", {opacity:0}, 0);`);
 T(
@@ -914,19 +775,10 @@ const stamp = (id, t0, t1, text, color) => {
   T(`tl.to("#${id} .clk", {opacity:0, duration:.25}, ${r(t1 - 0.25)});`);
   return `<div id="${id}" class="clip clock" data-start="${r(t0)}" data-duration="${r(t1 - t0)}" data-track-index="2" style="z-index:5"><div class="clk" style="color:${color}">${text}</div></div>`;
 };
-const yrs = `<div id="yrs" class="clip" data-start="${r(L.l01.start - 0.15)}" data-duration="${r(L.l01.end + 0.5 - L.l01.start + 0.15)}" data-track-index="4" style="z-index:7"><div id="yrs-a">${spl("4 ГОДА", "ya")}</div><div id="yrs-b">СПУСТЯ</div></div>`;
-T(
-  `tl.fromTo("#yrs .ya", {opacity:0, scale:2.4}, {opacity:1, scale:1, duration:.3, stagger:.08, ease:"power4.in", immediateRender:false}, ${r(L.l01.start - 0.1)});`,
-);
-T(
-  `tl.fromTo("#yrs-b", {opacity:0, y:40}, {opacity:1, y:0, duration:.4, ease:"power3.out", immediateRender:false}, ${r(L.l01.start + 0.5)});`,
-);
-T(`tl.to("#yrs", {opacity:0, duration:.3}, ${r(L.l01.end + 0.2)});`);
 const stamps = [
-  yrs,
-  stamp("st-hop", L.l05.start, L.l05.start + 1.2, "ХОП-ХОП!", "#ffd25a"),
-  stamp("st-psh", L.l26.start - 0.6, L.l26.start + 0.6, "ПШШ…", "#7aff8a"),
-  stamp("st-siren", W("сирена"), W("сирена") + 1.6, "ВИУ-ВИУ!", "#ff4a3d"),
+  stamp("st-boom", W("полетели") + 0.3, W("полетели") + 1.5, "БУМ!", "#ffb02e"),
+  stamp("st-five", L.l37.start + 4.8, L.l38.start + 0.4, "5 ИЗ 5", "#7aff8a"),
+  stamp("st-tgt", L.l52.start + 0.2, L.l52.end + 0.4, "ЦЕЛЬ НАЙДЕНА", "#ff4a3d"),
 ].join("\n");
 const title = `<div id="tbc" class="clip" data-start="${TITLE[0]}" data-duration="${r(TITLE[1] - TITLE[0])}" data-track-index="4" style="z-index:8"><div id="tbc-a">${spl("ПРОДОЛЖЕНИЕ СЛЕДУЕТ…", "ta")}</div><div id="tbc-b">ЧАСТЬ 19</div></div>`;
 T(`tl.set("#tbc-a .ta", {opacity:0}, 0); tl.set("#tbc-b", {opacity:0}, 0);`);
@@ -952,29 +804,21 @@ T(
 /* ───────────── audio ───────────── */
 const SFX = "assets/sfx";
 const sfx = [
-  ["tank", L.l02.start, S.dog[1] - L.l02.start, 0.45],
-  ["sea", S.chaika[0], S.chaika[1] - S.chaika[0], 0.45],
-  ["room_day", S.chaika[0], S.chaika[1] - S.chaika[0], 0.3],
-  ["room_day", S.bed[0], S.kitchen[1] - S.bed[0], 0.35],
-  ["pop", W("толстые") - 0.35, 0.3, 0.9],
-  ["sea", S.tower[0], S.tower[1] - S.tower[0], 0.3],
-  ["truck", L.l23.start - 0.4, Math.min(6, S.tower[1] - L.l23.start + 0.4), 0.3],
-  ["buzz", L.l25.end, 1.2, 0.5],
-  ["buzz", L.l26.start, 1.2, 0.35],
-  ["buzz", L.l26.start + 3, 1.2, 0.3],
-  ["buzz", L.l26.end - 1, 1.2, 0.35],
-  ["sea", S.beach[0], S.beach[1] - S.beach[0], 0.6],
-  ["pop", L.l29b.start + 0.15, 0.3, 0.8],
-  ["pop", L.l29b.start + 0.6, 0.3, 0.7],
-  ["pop", L.l29b.start + 1.05, 0.3, 0.6],
-  ["room_day", S.hall[0], S.hall[1] - S.hall[0], 0.45],
-  ["room_night", S.kid[0], S.porch[1] - S.kid[0], 0.45],
-  ["siren", W("сирена") - 0.1, 8, 0.7],
-  ["siren", W("сирена") + 7.6, 8, 0.6],
-  ["room_night", S.gate[0], CUT - S.gate[0], 0.5],
+  ["tank", 0, S.base[1], 0.4],
+  ["crank", W("раскрылась") - 0.2, 2.2, 0.8],
+  ["slam", W("раскрылась") + 1.8, 0.5, 0.7],
+  ["room_day", S.corr[0], S.range[0] - S.corr[0], 0.35],
+  ["slam", W("ударил"), 0.4, 0.6],
+  ["slam", W("полетели") + 0.3, 0.6, 1.2],
+  ...[0, 1, 2, 3, 4].map((i) => ["gunfire", L.l37.start + 1.0 + i * 0.9, 0.35, 0.8]),
+  ["room_night", S.quart[0], S.quart[1] - S.quart[0], 0.4],
+  ["fire", W("печь") + 0.1, 2.5, 0.6],
+  ["buzz", S.brief[0] + 0.3, 1.2, 0.5],
+  ["click", L.l52.start + 0.2, 0.06, 1.2],
+  ["room_night", S.brief[0], CUT - S.brief[0], 0.35],
 ].filter(([, , , v]) => v > 0);
 const audio = [
-  `<audio id="vo" class="clip" src="assets/vo.wav" data-start="0" data-duration="${r(L.l54.end + 0.1)}" data-track-index="10" data-volume="1"></audio>`,
+  `<audio id="vo" class="clip" src="assets/vo.wav" data-start="0" data-duration="${r(L.l53.end + 0.1)}" data-track-index="10" data-volume="1"></audio>`,
   ...sfx.map(
     ([f, at, d, v], i) =>
       `<audio id="sfx${i}" class="clip" src="${SFX}/${f}.wav" data-start="${r(at)}" data-duration="${r(Math.min(d, CUT - at))}" data-track-index="${11 + i}" data-volume="${v}"></audio>`,
@@ -1015,10 +859,6 @@ const html = `<!doctype html>
   #tbc { position: absolute; inset: 0; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
   #tbc-a { font-weight: 900; font-size: 70px; color: #fff; text-align: center; white-space: nowrap; }
   #tbc-b { font-weight: 900; font-size: 190px; color: #ff4a3d; line-height: 1; }
-  #yrs { position: absolute; inset: 0; background: #05070c; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
-  #yrs-a { font-weight: 900; font-size: 200px; line-height: 1; color: #ffb02e; -webkit-text-stroke: 14px #05070c; paint-order: stroke fill; }
-  .ya { display: inline-block; }
-  #yrs-b { font-weight: 900; font-size: 110px; letter-spacing: .2em; color: #fff; }
   #card { position: absolute; inset: 0; background: #07090f; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 70px; padding: 0 30px; }
   #card-a { font-weight: 900; font-size: 84px; line-height: 1.12; color: #fff; text-align: center; }
   #card-b { font-weight: 900; font-size: 150px; line-height: 1; color: #ffb02e; letter-spacing: -.02em; white-space: nowrap; }

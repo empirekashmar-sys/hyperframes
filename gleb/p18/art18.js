@@ -1,184 +1,145 @@
-// Part 18 art: four years later. The "Chaika" settlement by the sea (fence, tower, windmill, hens,
-// a cow), the stray dog with the tracker, the watchtower platform, the radio room, the dining hall,
-// a toddler's bed, and the floodlit gate at night.
+// Part 18 art: inside the black helicopter, the "Granit" base hidden in a mountain, its corridor,
+// the general's office, the Omega hangar with training mats, the shooting range, Gleb's quarters
+// with a little stove, and the briefing room with the drone photo on the screen.
 const svg = (vb, body) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${vb}">${body}</svg>`;
 const O = "#0b0d14";
 const ol = (w = 3) =>
   `stroke="${O}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"`;
+const floor = (y, c) => `<rect x="-600" y="${y}" width="2280" height="1400" fill="${c}"/>`;
 
-// Stray dog running right; the tracker on its collar blinks (.tdot).
-export const dog = (cls, x, y, s = 1) =>
-  `<g class="${cls}"><g transform="translate(${x} ${y}) scale(${s})">
-   <g class="dlegs"><path d="M-50 10 l-14 40 M-30 10 l6 42 M40 10 l-10 40 M58 6 l14 40" ${ol(9)}/><path d="M-50 10 l-14 40 M-30 10 l6 42 M40 10 l-10 40 M58 6 l14 40" stroke="#b08a5a" stroke-width="5" stroke-linecap="round"/></g>
-   <path d="M-70 -10 q-30 -20 -40 -50" stroke="#b08a5a" stroke-width="10" fill="none" stroke-linecap="round"/>
-   <ellipse cx="0" cy="0" rx="78" ry="30" fill="#b08a5a" ${ol()}/><ellipse cx="-10" cy="-8" rx="30" ry="14" fill="#8a6a42" opacity=".6"/>
-   <path d="M60 -10 q10 -50 50 -46 q30 4 30 30 q-4 22 -30 22 q-30 0 -50 -6z" fill="#b08a5a" ${ol()}/>
-   <path d="M96 -54 l-6 -26 l20 18z" fill="#8a6a42" ${ol(2)}/><circle cx="126" cy="-30" r="5" fill="${O}"/><circle cx="140" cy="-18" r="6" fill="${O}"/>
-   <path d="M118 -6 q8 18 16 4" fill="#e85a6a" ${ol(1.6)}/>
-   <path d="M66 -24 q14 18 30 26" stroke="#c9302c" stroke-width="8" fill="none"/>
-   <rect x="74" y="-10" width="18" height="14" rx="3" fill="#2a2a2e" ${ol(1.6)}/><circle class="tdot" cx="83" cy="-3" r="4" fill="#ff3a2a"/></g></g>`;
-
-// Windmill blades (.blades spin around the hub).
-const windmill = (x, y, s = 1) =>
-  `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-14 0 L-30 300 H30 L14 0Z" fill="#d9d2c2" ${ol(2.4)}/>
-   <g class="blades">${[0, 90, 180, 270].map((a) => `<path transform="rotate(${a})" d="M-6 0 L-14 -150 H14 L6 0Z" fill="#f2efe6" ${ol(2)}/>`).join("")}</g>
-   <circle r="12" fill="#8a8d96" ${ol(2)}/></g>`;
-const hen = (x, y, s = 1, f = 1) =>
-  `<g class="hen" transform="translate(${x} ${y}) scale(${s * f} ${s})"><ellipse cx="0" cy="0" rx="20" ry="16" fill="#f2efe6" ${ol(2)}/><circle cx="16" cy="-14" r="9" fill="#f2efe6" ${ol(2)}/><path d="M14 -24 l4 -6 l4 6" fill="#d9302c"/><path d="M24 -14 l8 2 l-8 3z" fill="#e9a03a"/><path d="M-4 16 v8 M4 16 v8" stroke="#e9a03a" stroke-width="3"/></g>`;
-const cow = (x, y, s = 1) =>
-  `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-60 10 v40 M-36 14 v38 M40 14 v38 M60 10 v40" ${ol(10)}/><path d="M-60 10 v40 M-36 14 v38 M40 14 v38 M60 10 v40" stroke="#f2efe6" stroke-width="6"/>
-   <rect x="-80" y="-36" width="160" height="66" rx="30" fill="#f2efe6" ${ol()}/><path d="M-50 -30 q20 10 10 30 q-20 4 -30 -10z M20 -20 q24 -4 30 16 q-14 14 -30 4z" fill="#2a2a2e"/>
-   <ellipse cx="96" cy="-30" rx="28" ry="24" fill="#f2efe6" ${ol()}/><ellipse cx="110" cy="-20" rx="16" ry="12" fill="#e9a0a8" ${ol(2)}/><circle cx="92" cy="-38" r="4" fill="${O}"/>
-   <path d="M80 -52 l-12 -12 M108 -52 l10 -14" stroke="#c9b48a" stroke-width="6" stroke-linecap="round"/></g>`;
-const tower = (x, y, s = 1) =>
-  `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-50 0 L-30 -300 M50 0 L30 -300 M-46 -60 L40 -140 M46 -60 L-40 -140 M-40 -160 L34 -240 M40 -160 L-34 -240" ${ol(8)}/>
-   <path d="M-50 0 L-30 -300 M50 0 L30 -300" stroke="#8a6a42" stroke-width="5"/>
-   <rect x="-60" y="-340" width="120" height="50" fill="#8a6a42" ${ol(2.4)}/><path d="M-70 -340 L0 -400 L70 -340Z" fill="#5a3a26" ${ol(2.4)}/></g>`;
-
-// The settlement at morning: sea, sanatorium "ЧАЙКА", fence, tower, windmill, beds, hens, cow.
-export function chaika() {
+// Inside the black helicopter at night: ribbed walls, a red cabin light, two round windows.
+export function heliIn() {
   return svg(
     "0 0 1080 1100",
-    `<defs><linearGradient id="ch-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb2e0"/><stop offset="1" stop-color="#f2dcb8"/></linearGradient></defs>
-     <rect x="-600" width="2280" height="520" fill="url(#ch-sky)"/>
-     <circle cx="860" cy="170" r="70" fill="#fff4c8"/><circle cx="860" cy="170" r="110" fill="#fff4c8" opacity=".25"/>
-     <path d="M200 120 q14 -12 28 0 q14 -12 28 0 M300 180 q10 -8 20 0 q10 -8 20 0" stroke="#3a4a5a" stroke-width="4" fill="none"/>
-     <rect x="-600" y="420" width="2280" height="140" fill="#3a7ab8"/>
-     <g class="waves">${Array.from({ length: 14 }, (_, i) => `<path d="M${-600 + i * 180} ${450 + (i % 3) * 30} q20 -10 40 0 q20 10 40 0" stroke="#bfe0f5" stroke-width="5" fill="none"/>`).join("")}</g>
-     <rect x="-600" y="540" width="2280" height="40" fill="#e9d8a8"/>
-     <rect x="220" y="330" width="520" height="230" fill="#e9e3d6" ${ol()}/><rect x="200" y="310" width="560" height="30" fill="#c95a4a" ${ol(2.4)}/>
-     ${Array.from({ length: 10 }, (_, i) => `<rect x="${250 + (i % 5) * 96}" y="${370 + Math.floor(i / 5) * 90}" width="56" height="60" fill="#3a5a7a" ${ol(2)}/>`).join("")}
-     <rect x="380" y="270" width="200" height="44" fill="#2a5a8a" ${ol(2)}/><text x="480" y="302" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="30" fill="#fff">ЧАЙКА</text>
-     <path d="M440 470 h80 v90 h-80z" fill="#5a3a26" ${ol(2)}/>
-     ${windmill(900, 300, 0.9)}
-     <rect x="-600" y="560" width="2280" height="600" fill="#8ab05a"/>
-     ${Array.from({ length: 5 }, (_, i) => `<rect x="${60 + i * 120}" y="${640 + (i % 2) * 6}" width="96" height="40" rx="8" fill="#6a4a2e"/>${[0, 1, 2].map((k) => `<path d="M${76 + i * 120 + k * 30} ${646 + (i % 2) * 6} q-8 -18 0 -26 q8 8 0 26" fill="#4aa04a"/>`).join("")}`).join("")}
-     ${tower(-60, 760, 1)}
-     ${cow(760, 740, 0.9)}
-     ${hen(380, 760, 1)}${hen(450, 780, 1, -1)}${hen(520, 750, 0.9)}${hen(300, 790, 1.1, -1)}
-     <path d="M-600 860 H1680" stroke="#7a5a3a" stroke-width="10"/>
-     ${Array.from({ length: 30 }, (_, i) => `<path d="M${-600 + i * 80} 820 V920" stroke="#7a5a3a" stroke-width="12" stroke-linecap="round"/><path d="M${-600 + i * 80} 816 l-8 -12 l8 -6 l8 6z" fill="#9aa2ae"/>`).join("")}
-     <path d="M-600 840 H1680 M-600 890 H1680" stroke="#9aa2ae" stroke-width="3" stroke-dasharray="10 8"/>
-     <rect x="-600" y="920" width="2280" height="1200" fill="#7aa04a"/>`,
+    `<rect x="-600" width="2280" height="1100" fill="#22252c"/>
+     ${Array.from({ length: 20 }, (_, i) => `<path d="M${-600 + i * 120} 0 V860" stroke="#1a1c22" stroke-width="10"/>`).join("")}
+     ${[260, 820].map((x) => `<circle cx="${x}" cy="380" r="110" fill="#0a1430" ${ol(8)}/><circle cx="${x}" cy="380" r="110" fill="none" stroke="#4a4f58" stroke-width="4"/>`).join("")}
+     <g class="clouds">${Array.from({ length: 10 }, (_, i) => `<ellipse cx="${-200 + i * 200}" cy="${360 + (i % 3) * 30}" rx="70" ry="20" fill="#3a4a6a" opacity=".7"/>`).join("")}</g>
+     <rect x="440" y="60" width="200" height="30" rx="10" fill="#ff3a2a" opacity=".85"/><path d="M380 90 L200 860 H880 L700 90Z" fill="#ff3a2a" opacity=".07"/>
+     <rect x="-600" y="700" width="2280" height="50" fill="#3a3e46" ${ol(2)}/>
+     ${floor(860, "#1a1c22")}`,
+  );
+}
+// Bench edge in front of the seated pair.
+export function benchFront() {
+  return svg(
+    "0 0 1080 1100",
+    `<rect x="-600" y="840" width="2280" height="70" rx="10" fill="#4a4f58" ${ol(2.4)}/>${Array.from({ length: 12 }, (_, i) => `<path d="M${-500 + i * 200} 910 V1100" ${ol(8)}/>`).join("")}`,
   );
 }
 
-// From the top of the watchtower: plank floor, rail, the sea and the steppe road below.
-export function towerTop() {
+// Mountains at dawn; the rock face with a giant split door (.door-l / .door-r slide apart).
+export function mountain() {
   return svg(
     "0 0 1080 1100",
-    `<defs><linearGradient id="tt-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6aa2d8"/><stop offset="1" stop-color="#e9e0c8"/></linearGradient></defs>
-     <rect x="-600" width="2280" height="640" fill="url(#tt-sky)"/>
-     <rect x="-600" y="520" width="2280" height="120" fill="#3a7ab8"/>
-     <rect x="-600" y="620" width="2280" height="400" fill="#b8b06a"/>
-     <path d="M-600 760 Q300 700 1680 720" stroke="#8a8d96" stroke-width="40" fill="none"/>
-     <g class="far-car"><g transform="translate(-200 715)"><rect x="-30" y="-16" width="60" height="18" rx="6" fill="#3a6a4a" ${ol(1.6)}/><rect x="-16" y="-28" width="30" height="14" rx="4" fill="#3a6a4a" ${ol(1.6)}/><circle cx="-18" cy="4" r="6" fill="${O}"/><circle cx="18" cy="4" r="6" fill="${O}"/><g class="dust">${[0, 1, 2].map((k) => `<circle cx="${-50 - k * 26}" cy="${-4 - k * 4}" r="${12 + k * 6}" fill="#e9dcb0" opacity=".6"/>`).join("")}</g></g></g>
-     <path d="M-600 80 H1680" stroke="#5a3a26" stroke-width="24"/><path d="M-600 80 L-600 -40 H1680 V80" fill="#5a3a26"/>
-     <rect x="-600" y="860" width="2280" height="1300" fill="#8a6a42"/>${Array.from({ length: 30 }, (_, i) => `<path d="M${-600 + i * 80} 860 V1160" stroke="#6a4a2e" stroke-width="3"/>`).join("")}
-     <path d="M-120 100 V860 M1200 100 V860" stroke="#5a3a26" stroke-width="30"/>`,
-  );
-}
-// Tower rail in front (hides legs below the knee).
-export function towerRail() {
-  return svg(
-    "0 0 1080 1100",
-    `<rect x="-600" y="900" width="2280" height="40" fill="#8a6a42" ${ol(2.4)}/>
-     ${Array.from({ length: 24 }, (_, i) => `<rect x="${-560 + i * 100}" y="940" width="20" height="160" fill="#8a6a42" ${ol(2)}/>`).join("")}
-     <rect x="-600" y="1040" width="2280" height="1100" fill="#6a4a2e"/>`,
+    `<defs><linearGradient id="mt-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3a6a"/><stop offset="1" stop-color="#f2a87a"/></linearGradient></defs>
+     <rect x="-600" width="2280" height="900" fill="url(#mt-sky)"/>
+     <path d="M-600 700 L-300 300 L0 620 L300 220 L640 640 L900 260 L1300 700Z" fill="#5a5a7a"/>
+     <path d="M300 220 L360 300 L330 320 L280 290Z M900 260 L960 340 L920 350 L870 320Z" fill="#f2f4f6"/>
+     <path d="M-600 900 L-200 420 L200 560 L540 360 L900 540 L1680 460 V1100 H-600Z" fill="#4a4a5a" ${ol(3)}/>
+     <rect x="340" y="560" width="400" height="340" fill="#0a0a10"/>
+     <g class="door-l"><rect x="340" y="560" width="200" height="340" fill="#6a6a78" ${ol(3)}/><path d="M360 600 H520 M360 680 H520 M360 760 H520 M360 840 H520" stroke="#4a4a58" stroke-width="6"/></g>
+     <g class="door-r"><rect x="540" y="560" width="200" height="340" fill="#6a6a78" ${ol(3)}/><path d="M560 600 H720 M560 680 H720 M560 760 H720 M560 840 H720" stroke="#4a4a58" stroke-width="6"/></g>
+     <rect x="420" y="500" width="240" height="50" fill="#2a2d34" ${ol(2)}/><text x="540" y="535" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="30" fill="#e9c46a">«ГРАНИТ»</text>
+     <circle class="blink" cx="350" cy="550" r="10" fill="#ff3a2a"/><circle class="blink" cx="730" cy="550" r="10" fill="#ff3a2a"/>
+     <path d="M-600 900 H1680" stroke="#3a3a48" stroke-width="10"/>${floor(900, "#3a3a48")}`,
   );
 }
 
-// Radio room: plank walls, a map with pins, a desk with the radio set (.rlamp blinks), a lamp.
-export function radioRoom() {
+// Concrete corridor with ceiling lamps, pipes and a painted stripe.
+export function corridor() {
   return svg(
     "0 0 1080 1100",
-    `<rect x="-600" width="2280" height="1100" fill="#4a5a52"/>${Array.from({ length: 30 }, (_, i) => `<path d="M${-600 + i * 80} 0 V860" stroke="#3e4c45" stroke-width="4"/>`).join("")}
-     <rect x="560" y="200" width="380" height="280" fill="#e9dcb0" ${ol()}/><path d="M580 300 q80 -40 160 0 t180 -20 M600 420 q120 -60 300 -10" stroke="#3a7ab8" stroke-width="6" fill="none"/>
-     <circle cx="660" cy="300" r="9" fill="#d9302c" ${ol(1.6)}/><circle cx="860" cy="260" r="9" fill="#2a2a2e" ${ol(1.6)}/><text x="860" y="244" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="20" fill="#2a2a2e">УЛЕЙ</text><text x="660" y="336" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="20" fill="#d9302c">МЫ</text>
-     <path d="M100 -20 V140" stroke="${O}" stroke-width="4"/><path d="M60 140 h80 l-20 40 h-40z" fill="#3a3a40" ${ol(2)}/><ellipse cx="100" cy="186" rx="26" ry="8" fill="#ffe9a8"/>
-     <path d="M30 186 L-60 860 H260 L170 186Z" fill="#ffe9a8" opacity=".08"/>
-     <rect x="-600" y="860" width="2280" height="400" fill="#3a3028"/>
-     <rect x="80" y="700" width="560" height="30" fill="#8a6a42" ${ol(2.4)}/><path d="M110 730 V860 M610 730 V860" ${ol(10)}/>
-     <rect x="140" y="560" width="300" height="140" rx="10" fill="#5a6a5a" ${ol(2.4)}/><rect x="160" y="580" width="140" height="70" rx="6" fill="#1a2a1e" ${ol(2)}/>
-     <path class="rwave" d="M170 615 l14 -14 l14 24 l14 -30 l14 36 l14 -20 l14 10 l14 -6 l14 4" stroke="#7aff8a" stroke-width="3" fill="none"/>
-     ${[0, 1, 2].map((k) => `<circle cx="${330 + k * 34}" cy="610" r="12" fill="#2a2a2e" ${ol(1.6)}/>`).join("")}<circle class="rlamp" cx="410" cy="666" r="8" fill="#ff3a2a"/>
-     <path d="M420 560 L470 380" stroke="${O}" stroke-width="5"/><circle cx="470" cy="378" r="6" fill="#2a2a2e"/>
-     <rect x="480" y="650" width="90" height="50" rx="8" fill="#2a2a2e" ${ol(2)}/>`,
+    `<rect x="-600" width="2280" height="1100" fill="#7a7e86"/>
+     <rect x="-600" y="0" width="2280" height="120" fill="#5a5e66"/><path d="M-600 150 H1680 M-600 176 H1680" stroke="#4a4e56" stroke-width="14"/>
+     ${Array.from({ length: 12 }, (_, i) => `<rect x="${-560 + i * 220}" y="110" width="120" height="20" rx="6" fill="#fff6d8"/><path d="M${-560 + i * 220} 130 L${-640 + i * 220} 860 H${-320 + i * 220} L${-440 + i * 220} 130Z" fill="#fff6d8" opacity=".06"/>`).join("")}
+     <rect x="-600" y="560" width="2280" height="40" fill="#b3241b" opacity=".7"/>
+     ${Array.from({ length: 6 }, (_, i) => `<rect x="${-400 + i * 420}" y="340" width="150" height="520" fill="#5a5e66" ${ol(2.4)}/><circle cx="${-270 + i * 420}" cy="610" r="8" fill="#c9ccd2"/>`).join("")}
+     ${floor(860, "#4a4e56")}`,
   );
 }
 
-// Dining hall in the old sanatorium: tall windows at dusk, a long table, garlands of bulbs.
-export function hall() {
+// The general's office: dark wood, a wall map with red arrows, a heavy desk with a green lamp.
+export function office() {
   return svg(
     "0 0 1080 1100",
-    `<rect x="-600" width="2280" height="1100" fill="#c9a87a"/>
-     <rect x="-600" y="0" width="2280" height="60" fill="#a8885a"/>
-     ${[-300, 60, 420, 780, 1140].map((x) => `<rect x="${x}" y="140" width="200" height="420" rx="100" fill="#3a3a6a" ${ol(2.4)}/><path d="M${x + 100} 140 V560 M${x} 360 H${x + 200}" stroke="#a8885a" stroke-width="8"/>`).join("")}
-     <path d="M-600 120 Q-300 200 0 120 T600 120 T1200 120 T1800 120" stroke="${O}" stroke-width="3" fill="none"/>
-     ${Array.from({ length: 22 }, (_, i) => `<circle class="bulb" cx="${-560 + i * 110}" cy="${140 + (i % 2) * 22}" r="10" fill="#ffe27a"/>`).join("")}
-     <rect x="-600" y="860" width="2280" height="400" fill="#6a4a2e"/>
-     <path d="M-600 880 H1680" stroke="#5a3a1e" stroke-width="4"/>`,
+    `<rect x="-600" width="2280" height="1100" fill="#4a3a30"/>${Array.from({ length: 30 }, (_, i) => `<path d="M${-600 + i * 80} 0 V860" stroke="#3e3028" stroke-width="5"/>`).join("")}
+     <rect x="200" y="160" width="680" height="380" fill="#e9dcb0" ${ol()}/>
+     <path d="M240 300 q120 -60 240 0 t300 -30 M260 460 q200 -80 560 -10" stroke="#3a7ab8" stroke-width="6" fill="none"/>
+     <path d="M760 220 L560 360 M560 360 l20 -30 M560 360 l34 4" stroke="#c9302c" stroke-width="8" fill="none" stroke-linecap="round"/>
+     <circle cx="760" cy="220" r="14" fill="#2a2a2e" ${ol(2)}/><text x="760" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="22" fill="#2a2a2e">УЛЕЙ</text>
+     <circle cx="330" cy="420" r="12" fill="#c9302c" ${ol(2)}/><text x="330" y="404" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="22" fill="#c9302c">ГРАНИТ</text>
+     <rect x="-200" y="200" width="200" height="300" fill="#6a2a2a" ${ol(2)}/><path d="M-100 260 l12 30 h32 l-26 20 l10 32 l-28 -20 l-28 20 l10 -32 l-26 -20 h32z" fill="#e9c46a"/>
+     ${floor(860, "#3a2a20")}`,
   );
 }
-// A crowd of villagers seen from behind (heads and shoulders), drawn in front of the speakers' feet.
-export function crowd() {
-  const cols = ["#5a6a7a", "#7a5a4a", "#4a6a4a", "#8a6a8a", "#6a6a3a", "#3a4a6a"];
-  const hairs = ["#2a1d16", "#8a8d96", "#5a3522", "#c9a06a", "#17181d", "#e9e3d6"];
+// The desk in front (hides the general below the chest), with a lamp and papers.
+export function desk() {
   return svg(
     "0 0 1080 1100",
-    `${Array.from({ length: 16 }, (_, i) => {
-      const x = -320 + i * 110 + (i % 2) * 30;
-      const y = 1000 + (i % 3) * 24;
-      return `<path d="M${x - 60} ${y + 160} Q${x - 60} ${y + 40} ${x} ${y + 40} Q${x + 60} ${y + 40} ${x + 60} ${y + 160}Z" fill="${cols[i % 6]}" ${ol(2.4)}/><circle cx="${x}" cy="${y}" r="38" fill="${hairs[(i * 5) % 6]}" ${ol(2.4)}/>`;
-    }).join("")}`,
+    `<rect x="160" y="760" width="760" height="40" fill="#6a4630" ${ol(2.4)}/><rect x="180" y="800" width="720" height="320" fill="#5a3a26" ${ol(2.4)}/>
+     <path d="M760 760 v-70 l-40 -40" ${ol(6)}/><path d="M690 640 l60 -20 l20 50 l-60 20z" fill="#3a8a5a" ${ol(2)}/><ellipse cx="740" cy="690" rx="70" ry="20" fill="#ffe9a8" opacity=".25"/>
+     <rect x="300" y="740" width="140" height="20" fill="#f2efe6" ${ol(1.6)} transform="rotate(-4 370 750)"/><rect x="460" y="744" width="120" height="16" fill="#e9c46a" ${ol(1.6)}/>`,
   );
 }
 
-// Toddler bed with a rail, a night light; drawn in front of the sleeping boy (hides his legs).
-export function cribFront() {
+// The Omega hangar: steel arches, a parked helicopter, a blue training mat (.mat), the omega flag.
+export function hangar() {
   return svg(
     "0 0 1080 1100",
-    `<rect x="300" y="820" width="520" height="70" rx="20" fill="#9fc8e0" ${ol(2.4)}/>
-     ${Array.from({ length: 9 }, (_, i) => `<rect x="${310 + i * 60}" y="${720}" width="14" height="110" rx="6" fill="#e9dcc0" ${ol(1.6)}/>`).join("")}
-     <rect x="290" y="706" width="540" height="22" rx="10" fill="#e9dcc0" ${ol(2)}/><rect x="280" y="880" width="560" height="60" fill="#8a6a42" ${ol(2.4)}/>`,
-  );
-}
-// Night kids' room: dark wall with stars painted on it, window with the moon, a night light.
-export function kidRoom() {
-  return svg(
-    "0 0 1080 1100",
-    `<rect x="-600" width="2280" height="1100" fill="#2a3050"/>
-     ${Array.from({ length: 24 }, (_, k) => `<path transform="translate(${((k * 157) % 1600) - 300} ${80 + ((k * 71) % 500)}) scale(${0.6 + (k % 3) * 0.3})" d="M0 -12 L3 -4 L12 -4 L5 2 L8 11 L0 6 L-8 11 L-5 2 L-12 -4 L-3 -4Z" fill="#ffe27a" opacity=".35"/>`).join("")}
-     <rect x="740" y="180" width="220" height="240" fill="#0a1430" ${ol()}/><circle cx="880" cy="250" r="40" fill="#f3ecd2"/><path d="M850 180 V420 M740 300 H960" stroke="#3a2a1e" stroke-width="10"/>
-     <path d="M760 420 L640 860 H1080 L960 420Z" fill="#c9d8ff" opacity=".07"/>
-     <rect x="120" y="700" width="70" height="160" fill="#5a4a3a" ${ol(2)}/><circle class="nlight" cx="155" cy="680" r="26" fill="#ffcf7a"/><circle cx="155" cy="680" r="80" fill="#ffcf7a" opacity=".15"/>
-     <rect x="360" y="736" width="200" height="80" rx="34" fill="#e9eef5" ${ol(2.4)}/>
-     <rect x="-600" y="860" width="2280" height="400" fill="#1e2238"/>`,
+    `<rect x="-600" width="2280" height="1100" fill="#3a3e46"/>
+     ${Array.from({ length: 8 }, (_, i) => `<path d="M${-600 + i * 320} 860 Q${-440 + i * 320} -100 ${-280 + i * 320} 860" stroke="#2a2d34" stroke-width="18" fill="none"/>`).join("")}
+     ${Array.from({ length: 10 }, (_, i) => `<rect x="${-560 + i * 240}" y="60" width="140" height="18" rx="6" fill="#fff6d8"/>`).join("")}
+     <rect x="380" y="120" width="320" height="200" fill="#1a1c22" ${ol(2.4)}/><circle cx="540" cy="220" r="70" fill="#b3241b" ${ol(2.4)}/><text x="540" y="252" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="96" fill="#fff">Ω</text>
+     <g transform="translate(1260 760) scale(.9)"><path d="M-260 0 Q-270 -110 -100 -130 H140 Q260 -124 280 -20 Q260 40 120 50 H-200 Q-260 46 -260 0Z" fill="#4a5636" ${ol()}/><path d="M100 -110 Q220 -104 240 -24 H100Z" fill="#3a4a5a" ${ol(2)}/><path d="M-260 -30 L-560 -60 L-570 -16 L-260 14Z" fill="#4a5636" ${ol(2.4)}/><path d="M-500 160 H500" stroke="#2a2d34" stroke-width="12" stroke-linecap="round"/><path d="M-80 90 H160 M-60 50 V90 M140 50 V90" ${ol(8)}/></g>
+     ${floor(860, "#2a2d34")}<path d="M-600 860 H1680" stroke="#e9c46a" stroke-width="8" stroke-dasharray="60 40"/>
+     <path class="mat" d="M60 900 H1020 L1060 1000 H20Z" fill="#3a6ab8" ${ol(2.4)}/>`,
   );
 }
 
-// The gate at night: fence, a floodlight on the tower (.beam), the gate (.gate), the empty road.
-export function gateNight() {
+// Shooting range: lanes, sandbags, targets (.tgt pop when hit).
+export function range() {
   return svg(
     "0 0 1080 1100",
-    `<rect x="-600" width="2280" height="1100" fill="#0a1020"/>
-     ${Array.from({ length: 36 }, (_, k) => `<circle cx="${((k * 173) % 2000) - 400}" cy="${(k * 89) % 480}" r="${1 + (k % 3)}" fill="#fff" opacity=".6"/>`).join("")}
-     <rect x="-600" y="700" width="2280" height="600" fill="#1e2a22"/>
-     <path d="M340 700 L200 1100 H880 L740 700Z" fill="#2a2a2e"/>
-     ${tower(140, 760, 1.1)}
-     <path class="beam" d="M150 340 L380 1100 H900 L180 330Z" fill="#fff6c8" opacity=".14"/><circle cx="160" cy="340" r="18" fill="#fff6c8"/>
-     ${Array.from({ length: 30 }, (_, i) => (i > 14 && i < 18 ? "" : `<path d="M${-600 + i * 80} 640 V900" stroke="#4a3a2a" stroke-width="14" stroke-linecap="round"/>`)).join("")}
-     <path d="M-600 680 H340 M740 680 H1680 M-600 760 H340 M740 760 H1680" stroke="#7a828e" stroke-width="3" stroke-dasharray="10 8"/>
-     <rect x="-600" y="900" width="2280" height="400" fill="#16201a"/>`,
+    `<rect x="-600" width="2280" height="1100" fill="#5a5e66"/>
+     <rect x="-600" y="0" width="2280" height="100" fill="#3a3e46"/>${Array.from({ length: 10 }, (_, i) => `<rect x="${-560 + i * 240}" y="90" width="140" height="16" rx="6" fill="#fff6d8"/>`).join("")}
+     <rect x="-600" y="480" width="2280" height="380" fill="#7a6a4a"/>
+     ${[100, 330, 560, 790, 1020].map((x, i) => `<g class="tgt tgt${i}"><rect x="${x - 50}" y="300" width="100" height="160" rx="8" fill="#f2efe6" ${ol(2.4)}/><circle cx="${x}" cy="370" r="36" fill="none" stroke="#c9302c" stroke-width="6"/><circle cx="${x}" cy="370" r="14" fill="#c9302c"/><path d="M${x} 460 V500" ${ol(6)}/></g>`).join("")}
+     ${[100, 330, 560, 790, 1020].map((x, i) => `<circle class="hole hole${i}" cx="${x + 2}" cy="368" r="6" fill="${O}" opacity="0"/>`).join("")}
+     ${floor(860, "#4a4e56")}
+     ${Array.from({ length: 14 }, (_, i) => `<ellipse cx="${-560 + i * 180}" cy="840" rx="90" ry="30" fill="#a8946a" ${ol(2)}/>`).join("")}`,
   );
 }
-// The gate bars, drawn over whoever stands behind the gate.
-export function gateBars() {
+
+// Gleb's quarters at night: bunk, a small iron stove (.fire glows), a lamp, a calendar.
+export function quarters() {
   return svg(
     "0 0 1080 1100",
-    `<g class="gate"><rect x="340" y="620" width="400" height="280" fill="none" ${ol(10)}/><rect x="340" y="620" width="400" height="280" fill="none" stroke="#5a6470" stroke-width="5"/><path d="M340 620 L740 900 M740 620 L340 900 M540 620 V900" stroke="#5a6470" stroke-width="5"/>${[390, 440, 490, 590, 640, 690].map((x) => `<path d="M${x} 620 V900" stroke="#5a6470" stroke-width="3"/>`).join("")}</g>`,
+    `<rect x="-600" width="2280" height="1100" fill="#3a4048"/>${Array.from({ length: 20 }, (_, i) => `<path d="M-600 ${i * 60} H1680" stroke="#343a42" stroke-width="3"/>`).join("")}
+     <rect x="620" y="200" width="160" height="200" fill="#e9e3d6" ${ol(2)}/><rect x="620" y="200" width="160" height="40" fill="#c9302c"/>${Array.from({ length: 12 }, (_, i) => `<path d="M${640 + (i % 4) * 36} ${270 + Math.floor(i / 4) * 40} l16 16 M${656 + (i % 4) * 36} ${270 + Math.floor(i / 4) * 40} l-16 16" stroke="#3a3a40" stroke-width="2"/>`).join("")}
+     <path d="M200 0 V200" stroke="${O}" stroke-width="4"/><path d="M160 200 h80 l-20 40 h-40z" fill="#3a3a40" ${ol(2)}/><path d="M150 240 L60 860 H360 L260 240Z" fill="#ffe9a8" opacity=".07"/>
+     <rect x="-300" y="640" width="560" height="140" rx="10" fill="#5a6a5a" ${ol(2.4)}/><rect x="-280" y="610" width="200" height="60" rx="24" fill="#e9eef5" ${ol(2)}/>
+     <g transform="translate(900 860)"><rect x="-70" y="-180" width="140" height="180" rx="10" fill="#2a2a2e" ${ol(2.4)}/><path d="M-20 -180 V-420" stroke="#2a2a2e" stroke-width="30"/><rect x="-46" y="-120" width="92" height="60" rx="6" fill="#140c08" ${ol(2)}/><g class="fire"><path d="M-36 -62 Q-30 -100 -10 -90 Q0 -120 16 -96 Q30 -110 36 -62Z" fill="#ff8a2b"/><path d="M-20 -62 Q-14 -84 0 -78 Q10 -94 20 -62Z" fill="#ffe27a"/></g><ellipse cx="0" cy="-80" rx="120" ry="80" fill="#ff8a2b" opacity=".08"/></g>
+     ${floor(860, "#2a2e34")}`,
   );
 }
-// Red siren flash over the whole frame.
-export const flood = (cls) =>
-  `<rect class="${cls}" x="-800" y="-800" width="2680" height="3520" fill="#ff2a2a" opacity="0"/>`;
+
+// Briefing room: a big screen (.screen) with the drone photo of the yellow bus and two figures.
+export function briefing() {
+  return svg(
+    "0 0 1080 1100",
+    `<rect x="-600" width="2280" height="1100" fill="#24282e"/>
+     <rect x="140" y="140" width="800" height="480" fill="#0a0e14" ${ol(4)}/>
+     <g class="screen"><rect x="160" y="160" width="760" height="440" fill="#a8a86a"/><rect x="160" y="160" width="760" height="120" fill="#8fb4dc"/>
+       <rect x="160" y="380" width="760" height="90" fill="#5a5e66"/><path d="M160 425 H920" stroke="#e9e3c9" stroke-width="5" stroke-dasharray="40 30"/>
+       <g transform="translate(560 452) scale(.55)"><path d="M0 -300 H560 Q640 -300 660 -240 L680 -40 H0Z" fill="#e9b82a" ${ol()}/>${Array.from({ length: 6 }, (_, i) => `<rect x="${30 + i * 90}" y="-270" width="70" height="80" rx="6" fill="#3a4a5a" ${ol(2)}/>`).join("")}<circle cx="130" cy="-20" r="44" fill="#1a1a1e"/><circle cx="540" cy="-20" r="44" fill="#1a1a1e"/></g>
+       <g transform="translate(420 450)"><circle cx="0" cy="-70" r="16" fill="#ebbb98"/><path d="M-16 -74 q16 -24 32 0" fill="#5a3522"/><rect x="-14" y="-54" width="28" height="54" fill="#141418"/></g>
+       <g transform="translate(470 452)"><circle cx="0" cy="-74" r="17" fill="#d9a07c"/><path d="M-12 -62 q12 14 24 0" fill="#d8dbe0"/><rect x="-16" y="-56" width="32" height="56" fill="#56603e"/></g>
+       <rect class="tgtbox" x="390" y="350" width="120" height="120" fill="none" stroke="#ff3a2a" stroke-width="5"/>
+       <text x="180" y="196" font-family="Inter, sans-serif" font-weight="900" font-size="24" fill="#ff3a2a">ДРОН-7 · СТЕПЬ · ЦЕЛЬ</text>
+       <rect x="160" y="160" width="760" height="440" fill="url(#bf-scan)" opacity=".25"/></g>
+     <defs><pattern id="bf-scan" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="3" fill="#000"/></pattern></defs>
+     <path d="M140 620 L-100 1100 H1180 L940 620Z" fill="#9fc2e0" opacity=".05"/>
+     ${floor(860, "#1a1c22")}`,
+  );
+}

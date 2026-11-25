@@ -38,6 +38,11 @@ CAST = {
     "valkyrie": "5b8c14f7e2ac41189576e42ca241b8bb",
     "medic": "da3045a7ab484b7685b8f4a1824f5a27",
     "vanya": "e503facf02cc49cda839f3c226503a70",
+    "general": "b4b3cd5e89cc4fb682301b43e627d5ef",
+    "pilot": "6ada82e315e648b6a30a2e2210844cbf",
+    "bear": "ad345871bcbd4ab0af5f3af9940287d2",
+    "fox": "0786b17418a146dfa037e87e5f112953",
+    "quiet": "868377a7b08f4c0d9acf8c9f059571aa",
     "neighbor": "0f0fac8475934841a58605cc3e95ddc8",
 }
 TAGS = {

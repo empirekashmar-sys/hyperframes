@@ -10,6 +10,8 @@ const ol = (w = 2.6) =>
 
 const RIFLE_SVG = `<g transform="translate(__X__ __Y__)"><rect x="-70" y="-8" width="120" height="14" rx="3" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.8" stroke-linejoin="round"/><rect x="-96" y="-6" width="30" height="20" rx="4" fill="#5a4030" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="-30" y="4" width="12" height="28" rx="3" transform="rotate(10 -24 18)" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="4" y="4" width="10" height="22" rx="3" fill="#3a3a3a"/><rect x="48" y="-4" width="26" height="6" fill="#2a2a2a"/></g>`;
 const ARMOR_SVG = `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#3a4430" stroke="#0b0d14" stroke-width="2" stroke-linejoin="round"/><rect x="72" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="106" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><path d="M64 180 H136" stroke="#2a3022" stroke-width="4"/>`;
+// Omega squad armour: graphite plate carrier, a red omega patch on the chest.
+const OMEGA_SVG = `<path d="M62 148 Q100 134 138 148 L140 264 Q100 278 60 264Z" fill="#3a3e46" stroke="#0b0d14" stroke-width="2" stroke-linejoin="round"/><rect x="70" y="204" width="24" height="28" rx="3" fill="#2a2d34" stroke="#0b0d14" stroke-width="1.6"/><rect x="106" y="204" width="24" height="28" rx="3" fill="#2a2d34" stroke="#0b0d14" stroke-width="1.6"/><circle cx="100" cy="174" r="15" fill="#b3241b" stroke="#0b0d14" stroke-width="1.8"/><text x="100" y="181" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="20" fill="#fff">Ω</text>`;
 const VENIK = `<g transform="translate(__X__ __Y__)"><rect x="-4" y="-60" width="8" height="64" rx="3" fill="#8a5a34" stroke="#0b0d14" stroke-width="1.6"/><path d="M0 -60 q-30 -20 -24 -70 q14 10 24 40 q10 -30 24 -40 q6 50 -24 70z" fill="#5a8a3a" stroke="#0b0d14" stroke-width="1.6"/></g>`;
 function limb(x, y, len, w, color, end, endColor, cls) {
   // Two-segment limb hanging from the joint (x, y). The outer <g class=cls> pivots at the shoulder/hip,
@@ -230,8 +232,34 @@ export function gleb({
   armor = false,
   ghoul = false,
   aged = false,
+  omega = false,
 } = {}) {
   const jacket = outfit === "jacket";
+  if (omega)
+    return build({
+      skin: "#e0ae88",
+      shade: "#c08b66",
+      iris: "#6b3d1c",
+      brow,
+      top: "#2a2d34",
+      topDark: "#1a1c22",
+      sleeve: "#4a4f58",
+      bottom: "#2a2d34",
+      shoes: "#1a1a1e",
+      torsoExtra: OMEGA_SVG,
+      hairFront: HAIR.glebFront(aged ? "#a3a6ae" : "#17181d"),
+      accessory:
+        `<path d="M__CX__ __CY__ m40 0 q8 0 8 10 v14" stroke="#2a2a2e" stroke-width="4" fill="none"/>` +
+        (aged
+          ? `<path d="M__CX__ __CY__ m-26 -30 l40 62" stroke="#9a4a46" stroke-width="5" stroke-linecap="round"/><path d="M__CX__ __CY__ m-24 30 q24 18 48 0 l-2 10 q-22 12 -44 0z" fill="#a3a6ae" opacity=".7"/>`
+          : ""),
+      handProp:
+        prop === "rifle"
+          ? RIFLE_SVG
+          : prop === "photo"
+            ? `<g transform="translate(__X__ __Y__) rotate(-8)"><rect x="-26" y="-40" width="52" height="40" fill="#f2efe6" stroke="#0b0d14" stroke-width="1.6"/><rect x="-22" y="-36" width="44" height="30" fill="#9fc2e0"/><circle cx="-10" cy="-20" r="5" fill="#efc1a0"/><circle cx="6" cy="-18" r="4" fill="#e9c1a0"/></g>`
+            : "",
+    });
   if (ghoul)
     return build({
       skin: "#e0ae88",
@@ -253,7 +281,13 @@ export function gleb({
       handProp:
         prop === "pistol"
           ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-4" width="40" height="12" rx="2" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/><rect x="-4" y="4" width="12" height="22" rx="3" fill="#2a2a2e" stroke="#0b0d14" stroke-width="1.6"/></g>`
-          : "",
+          : prop === "flare"
+            ? `<g transform="translate(__X__ __Y__)"><rect x="-6" y="-8" width="44" height="18" rx="8" fill="#e8641e" stroke="#0b0d14" stroke-width="1.8"/><rect x="-4" y="6" width="12" height="22" rx="3" fill="#e8641e" stroke="#0b0d14" stroke-width="1.6"/><circle cx="38" cy="1" r="6" fill="#2a2a2e"/></g>`
+            : prop === "hare"
+              ? `<g transform="translate(__X__ __Y__) scale(.55)"><ellipse cx="0" cy="0" rx="26" ry="22" fill="#d8d0c6" stroke="#0b0d14" stroke-width="2"/><circle cx="0" cy="-30" r="18" fill="#d8d0c6" stroke="#0b0d14" stroke-width="2"/><path d="M-8 -44 q-6 -34 4 -40 q6 6 4 40 M8 -44 q6 -34 14 -36 q2 8 -6 38" fill="#d8d0c6" stroke="#0b0d14" stroke-width="2"/><circle cx="-6" cy="-32" r="2.6" fill="#0b0d14"/><circle cx="6" cy="-32" r="2.6" fill="#0b0d14"/></g>`
+              : prop === "rifle"
+                ? RIFLE_SVG
+                : "",
     });
   return build({
     skin: "#e0ae88",
@@ -452,6 +486,69 @@ export function vanya({ outfit = "day", brow = "neutral" } = {}) {
   });
 }
 
+// General of the "Granit" base: dress uniform, peaked cap, medals, grey moustache.
+export function general({ brow = "neutral" } = {}) {
+  return build({
+    skin: "#d9a882",
+    shade: "#b8865f",
+    iris: "#4a4a3a",
+    brow,
+    top: "#4a5636",
+    topDark: "#323a24",
+    sleeve: "#4a5636",
+    bottom: "#3a4428",
+    shoes: "#141414",
+    torsoExtra: `<path d="M88 130 L100 152 L112 130" fill="#e9ecf2"/><path d="M98 134 h4 v24 h-4z" fill="#2a3a5a"/>${[0, 1, 2, 3].map((k) => `<rect x="${70 + k * 12}" y="172" width="10" height="6" fill="${["#c9302c", "#e9c46a", "#3a7ab8", "#e9c46a"][k]}"/>`).join("")}<circle cx="78" cy="190" r="6" fill="#e9c46a" stroke="#0b0d14" stroke-width="1.4"/><circle cx="94" cy="190" r="6" fill="#e9c46a" stroke="#0b0d14" stroke-width="1.4"/>${[160, 196, 232].map((y) => `<circle cx="112" cy="${y}" r="3.4" fill="#e9c46a"/>`).join("")}<path d="M64 132 h20 M116 132 h20" stroke="#e9c46a" stroke-width="6"/>`,
+    hairFront: `<path d="M__CX__ __CY__ m-48 -20 q48 -26 96 0 l-6 -12 q-42 -20 -84 0z" fill="#3a4428" ${ol(2)}/><path d="M__CX__ __CY__ m-40 -30 q0 -30 40 -32 q40 2 40 32z" fill="#4a5636" ${ol(2)}/><rect x="__CX__" y="__CY__" width="44" height="10" transform="translate(-22 -32)" fill="#1a1a1e"/><path d="M__CX__ __CY__ m-6 -50 l6 -8 l6 8 l-6 6z" fill="#e9c46a"/>`,
+    accessory: `<path d="M__CX__ __CY__ m-24 12 q12 -8 24 0 q12 -8 24 0 q-6 10 -24 6 q-18 4 -24 -6z" fill="#c9ccd2" ${ol(1.6)}/><path d="M__CX__ __CY__ m-36 -10 q0 -10 4 -14 M__CX__ __CY__ m36 -10 q0 -10 -4 -14" stroke="#c9ccd2" stroke-width="6" fill="none"/>`,
+    faceOpts: { blush: false },
+  });
+}
+
+// The Omega squad. v: 0 Bear (huge, beard, machine gun), 1 Fox (sniper, red hair),
+// 2 Quiet (sapper, balaclava), 3 Doc (medic, grey crop, glasses).
+export function omega({ v = 0, brow = "neutral", prop = "" } = {}) {
+  const skins = [
+    ["#c08a62", "#9a6a46"],
+    ["#f0c8aa", "#d4a688"],
+    ["#d9a882", "#b8865f"],
+    ["#e4b896", "#c49472"],
+  ][v];
+  const hair = [
+    `<path d="M__CX__ __CY__ m-40 -10 q2 -34 40 -34 q38 0 40 34 q-12 -12 -40 -12 q-28 0 -40 12z" fill="#2a1d16" ${ol(2)}/>`,
+    `<path d="M__CX__ __CY__ m-40 -6 q-4 -40 40 -42 q44 2 40 42 q-16 -22 -46 -18 q-18 4 -34 18z" fill="#c9582a" ${ol(2)}/><path d="M__CX__ __CY__ m34 -20 q34 10 26 50 q-4 22 -16 32" stroke="#c9582a" stroke-width="15" fill="none" stroke-linecap="round"/>`,
+    `<path d="M__CX__ __CY__ m-42 -8 q0 -40 42 -42 q42 2 42 42 q-10 -8 -42 -8 q-32 0 -42 8z" fill="#1a1a1e" ${ol(2)}/><path d="M__CX__ __CY__ m-41 12 q20 -6 41 -6 q21 0 41 6 q-2 30 -41 36 q-39 -6 -41 -36z" fill="#1a1a1e" ${ol(2)}/>`,
+    `<path d="M__CX__ __CY__ m-40 -8 q0 -36 40 -36 q40 0 40 36 q-10 -14 -40 -14 q-30 0 -40 14z" fill="#b9b4b0" ${ol(2)}/>`,
+  ][v];
+  return build({
+    skin: skins[0],
+    shade: skins[1],
+    iris: ["#3a2a1a", "#3e7a3a", "#4a5a6a", "#4a5a6a"][v],
+    brow,
+    top: "#2a2d34",
+    topDark: "#1a1c22",
+    sleeve: v === 0 ? skins[0] : "#4a4f58",
+    bottom: "#2a2d34",
+    shoes: "#1a1a1e",
+    torsoExtra:
+      OMEGA_SVG +
+      (v === 3
+        ? `<rect x="112" y="236" width="22" height="22" rx="3" fill="#fff" stroke="#0b0d14" stroke-width="1.6"/><path d="M123 240 v14 M116 247 h14" stroke="#d9302c" stroke-width="4"/>`
+        : ""),
+    hairFront: hair,
+    hairBack:
+      v === 2
+        ? `<path d="M__CX__ __CY__ m-44 0 q-4 -48 44 -50 q48 2 44 50 q2 34 -10 48 h-68 q-12 -14 -10 -48z" fill="#1a1a1e" ${ol(2)}/>`
+        : "",
+    accessory:
+      v === 0
+        ? `<path d="M__CX__ __CY__ m-34 12 q2 40 34 44 q32 -4 34 -44 q-10 16 -34 16 q-24 0 -34 -16z" fill="#2a1d16" ${ol(2)}/>`
+        : "",
+    faceOpts: { lash: v === 1 || v === 3, glasses: v === 3, blush: false, freckles: v === 1 },
+    handProp: prop === "rifle" || v === 0 || v === 1 ? RIFLE_SVG : "",
+  });
+}
+
 // Checkpoint soldier: khaki uniform, helmet, rifle across the body.
 export function soldier({ brow = "angry", mask = false, prop = "" } = {}) {
   // balaclava: dark knit over the whole head with an eye slot (evenodd cut-out)
@@ -519,7 +616,9 @@ export function zina({ brow = "angry", prop = "" } = {}) {
         ? `<g transform="translate(__X__ __Y__)"><rect x="-4" y="-50" width="10" height="46" rx="4" fill="#2a2420" ${ol(1.6)}/><ellipse cx="1" cy="-78" rx="32" ry="30" fill="#2a2a2e" ${ol(2.2)}/><ellipse cx="1" cy="-78" rx="22" ry="20" fill="#3a3a40"/></g>`
         : prop === "box"
           ? `<g transform="translate(__X__ __Y__)"><rect x="-34" y="-10" width="68" height="44" rx="4" fill="#56603e" ${ol(2)}/><text x="0" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="13" fill="#e9e3c9">ПАТРОНЫ</text></g>`
-          : "",
+          : prop === "molotov"
+            ? `<g transform="translate(__X__ __Y__)"><path d="M-8 4 v-26 q0 -8 5 -12 v-12 h6 v12 q5 4 5 12 v26z" fill="#cfe9d4" opacity=".9" ${ol(1.6)}/><path d="M-1 -46 q-10 -8 -2 -20" stroke="#f2efe6" stroke-width="5" fill="none"/><g class="mflame"><path d="M-6 -62 q-6 -18 6 -30 q2 12 8 10 q4 14 -6 22z" fill="#ff8a2b"/><path d="M-2 -64 q-2 -10 4 -16 q2 8 4 8 q0 6 -6 10z" fill="#ffe27a"/></g></g>`
+            : "",
   });
 }
 
@@ -543,7 +642,24 @@ export function feldsher({ brow = "neutral" } = {}) {
 }
 
 // Valkyrie: white hair, ice-blue eyes, black body armour with her callsign.
-export function valkyrie({ brow = "neutral" } = {}) {
+export function valkyrie({ brow = "neutral", queen = false } = {}) {
+  if (queen)
+    return build({
+      skin: "#c9d2d6",
+      shade: "#a8b4ba",
+      iris: "#7af0ff",
+      brow,
+      top: "#141418",
+      topDark: "#0a0a0c",
+      sleeve: "#c9d2d6",
+      bottom: "#141418",
+      shoes: "#2a2a2e",
+      torsoExtra: `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#1d1f24" stroke="#0b0d14" stroke-width="2"/><path d="M70 262 l8 18 l8 -14 l10 20 l8 -18 l10 16 l8 -22" fill="#141418" ${ol(1.6)}/><path d="M76 160 q10 30 -4 60 M126 170 q-12 26 2 56" stroke="#5a7ab8" stroke-width="3" fill="none" opacity=".7"/>`,
+      hairBack: `<path d="M__CX__ __CY__ m-48 -8 q-10 -50 48 -52 q58 2 48 52 q14 50 0 96 l-14 -20 l-10 24 l-12 -22 l-12 24 l-12 -24 l-12 22 l-10 -24 l-14 20 q-14 -46 0 -96z" fill="#f4f6fa" ${ol()}/>`,
+      hairFront: HAIR.mashaFront("#f4f6fa"),
+      accessory: `<path d="M__CX__ __CY__ m-30 -4 l-10 -10 M__CX__ __CY__ m30 -4 l10 -10 M__CX__ __CY__ m-24 12 q-6 10 -2 20 M__CX__ __CY__ m24 12 q6 10 2 20" stroke="#5a7ab8" stroke-width="2.4" fill="none" opacity=".8"/><circle cx="__CX__" cy="__CY__" r="60" fill="#7af0ff" opacity=".08"/>`,
+      faceOpts: { lash: true, blush: false },
+    });
   return build({
     skin: "#f0d0bc",
     shade: "#d4b09a",

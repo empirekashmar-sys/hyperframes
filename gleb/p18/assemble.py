@@ -8,10 +8,9 @@ SRC = HERE / "assets" / "vo"
 NORM = SRC / "norm"; NORM.mkdir(exist_ok=True)
 rows = list(csv.DictReader(open(HERE / "script.tsv", encoding="utf-8"), delimiter="\t"))
 # silence after each line (default 0.35): scene changes and beats get more room
-GAP = {"l01": 0.5, "l02": 0.6, "l03": 0.4, "l04": 1.4, "l08": 0.5, "l09": 0.4, "l10": 1.2, "l16": 0.4, "l17": 1.4,
-       "l22": 0.6, "l24": 1.4, "l25": 0.6, "l26": 0.7, "l29": 1.2, "l29a": 0.5, "l29c": 0.4, "l29g": 1.2, "l35": 1.4, "l39": 1.4, "l44": 0.6, "l45": 0.9,
-       "l46": 0.6, "l47": 0.5, "l49": 0.6, "l50": 0.5, "l53": 0.8, "l54": 0}
-RADIO = {"l26"}
+GAP = {"l01": 0.5, "l04": 0.5, "l06": 1.2, "l07": 0.6, "l10": 1.0, "l13": 0.5, "l14": 0.5, "l18": 0.5, "l19": 0.5, "l21": 1.2,
+       "l22": 0.5, "l28": 0.5, "l30": 0.4, "l31": 0.6, "l36": 1.2, "l37": 0.5, "l40": 1.0, "l41": 1.2, "l42": 0.5,
+       "l44": 0.6, "l45": 1.2, "l47": 0.5, "l51": 0.6, "l52": 0.6, "l53": 0}
 LEAD = 2.2
 VOW = set("аеёиоуыэюяАЕЁИОУЫЭЮЯ")
 
@@ -38,9 +37,8 @@ def segments(path, d):
 t, lines, words, lips, parts = LEAD, [], [], [], []
 for r in rows:
     lid = r["id"]; dst = NORM / f"{lid}.wav"
-    flt = "highpass=f=300,lowpass=f=3200,acrusher=bits=8:mix=0.2,volume=1.3," if lid in RADIO else ""
     run("ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(SRC / f"{lid}.wav"), "-af",
-        flt + "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,loudnorm=I=-18:TP=-2:LRA=9",
+        "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,loudnorm=I=-18:TP=-2:LRA=9",
         "-ar", "48000", "-ac", "1", str(dst))
     d = dur(dst)
     lines.append({"id": lid, "role": r["role"], "start": round(t, 3), "end": round(t + d, 3)})
