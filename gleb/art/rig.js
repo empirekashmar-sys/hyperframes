@@ -10,6 +10,9 @@ const ol = (w = 2.6) =>
 
 const RIFLE_SVG = `<g transform="translate(__X__ __Y__)"><rect x="-70" y="-8" width="120" height="14" rx="3" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.8" stroke-linejoin="round"/><rect x="-96" y="-6" width="30" height="20" rx="4" fill="#5a4030" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="-30" y="4" width="12" height="28" rx="3" transform="rotate(10 -24 18)" fill="#2a2a2a" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="4" y="4" width="10" height="22" rx="3" fill="#3a3a3a"/><rect x="48" y="-4" width="26" height="6" fill="#2a2a2a"/></g>`;
 const ARMOR_SVG = `<path d="M64 150 Q100 136 136 150 L138 262 Q100 276 62 262Z" fill="#3a4430" stroke="#0b0d14" stroke-width="2" stroke-linejoin="round"/><rect x="72" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><rect x="106" y="200" width="22" height="26" rx="3" fill="#2a3022" stroke="#0b0d14" stroke-width="1.6" stroke-linejoin="round"/><path d="M64 180 H136" stroke="#2a3022" stroke-width="4"/>`;
+// Black helmet + balaclava for a full combat kit (face open only around the eyes).
+const KIT_BACK = `<path d="M__CX__ __CY__ m-44 0 q-4 -48 44 -50 q48 2 44 50 q2 34 -10 48 h-68 q-12 -14 -10 -48z" fill="#141418" stroke="#0b0d14" stroke-width="2"/>`;
+const KIT_FRONT = `<path d="M__CX__ __CY__ m-41 12 q20 -6 41 -6 q21 0 41 6 q-2 30 -41 36 q-39 -6 -41 -36z" fill="#141418" stroke="#0b0d14" stroke-width="2"/><path d="M__CX__ __CY__ m-50 -6 q0 -56 50 -58 q50 2 50 58 q-20 -10 -50 -10 q-30 0 -50 10z" fill="#1d1f24" stroke="#0b0d14" stroke-width="2.4"/><path d="M__CX__ __CY__ m-52 -6 h104" stroke="#0b0d14" stroke-width="5"/><rect x="__CX__" y="__CY__" width="20" height="12" rx="3" transform="translate(-10 -60)" fill="#3a3e46"/>`;
 // Omega squad armour: graphite plate carrier, a red omega patch on the chest.
 const OMEGA_SVG = `<path d="M62 148 Q100 134 138 148 L140 264 Q100 278 60 264Z" fill="#3a3e46" stroke="#0b0d14" stroke-width="2" stroke-linejoin="round"/><rect x="70" y="204" width="24" height="28" rx="3" fill="#2a2d34" stroke="#0b0d14" stroke-width="1.6"/><rect x="106" y="204" width="24" height="28" rx="3" fill="#2a2d34" stroke="#0b0d14" stroke-width="1.6"/><circle cx="100" cy="174" r="15" fill="#b3241b" stroke="#0b0d14" stroke-width="1.8"/><text x="100" y="181" text-anchor="middle" font-family="Inter, sans-serif" font-weight="900" font-size="20" fill="#fff">Ω</text>`;
 const VENIK = `<g transform="translate(__X__ __Y__)"><rect x="-4" y="-60" width="8" height="64" rx="3" fill="#8a5a34" stroke="#0b0d14" stroke-width="1.6"/><path d="M0 -60 q-30 -20 -24 -70 q14 10 24 40 q10 -30 24 -40 q6 50 -24 70z" fill="#5a8a3a" stroke="#0b0d14" stroke-width="1.6"/></g>`;
@@ -233,6 +236,7 @@ export function gleb({
   ghoul = false,
   aged = false,
   omega = false,
+  kit = false,
 } = {}) {
   const jacket = outfit === "jacket";
   if (omega)
@@ -247,7 +251,8 @@ export function gleb({
       bottom: "#2a2d34",
       shoes: "#1a1a1e",
       torsoExtra: OMEGA_SVG,
-      hairFront: HAIR.glebFront(aged ? "#a3a6ae" : "#17181d"),
+      hairBack: kit ? KIT_BACK : "",
+      hairFront: kit ? KIT_FRONT : HAIR.glebFront(aged ? "#a3a6ae" : "#17181d"),
       accessory:
         `<path d="M__CX__ __CY__ m40 0 q8 0 8 10 v14" stroke="#2a2a2e" stroke-width="4" fill="none"/>` +
         (aged
@@ -319,7 +324,7 @@ export function gleb({
   });
 }
 
-export function masha({ outfit = "home", brow = "neutral", prop = "" } = {}) {
+export function masha({ outfit = "home", brow = "neutral", prop = "", pregnant = false } = {}) {
   const night = outfit === "night";
   if (outfit === "tee")
     return build({
@@ -364,7 +369,11 @@ export function masha({ outfit = "home", brow = "neutral", prop = "" } = {}) {
       sleeve: "#1d1d22",
       bottom: "#141418",
       shoes: "#2a2a2e",
-      torsoExtra: `<path d="M100 132 V268" stroke="#8a8d96" stroke-width="3"/><path d="M80 128 L100 150 L120 128" fill="none" stroke="#3a3a42" stroke-width="6"/><rect x="70" y="210" width="20" height="4" fill="#3a3a42"/><rect x="110" y="210" width="20" height="4" fill="#3a3a42"/>`,
+      torsoExtra:
+        `<path d="M100 132 V268" stroke="#8a8d96" stroke-width="3"/><path d="M80 128 L100 150 L120 128" fill="none" stroke="#3a3a42" stroke-width="6"/><rect x="70" y="210" width="20" height="4" fill="#3a3a42"/><rect x="110" y="210" width="20" height="4" fill="#3a3a42"/>` +
+        (pregnant
+          ? `<path d="M66 214 Q64 278 100 280 Q136 278 134 214 Q122 200 100 200 Q78 200 66 214Z" fill="#26262c" stroke="#0b0d14" stroke-width="2.4"/><path d="M80 226 Q86 214 98 212" stroke="#4a4a54" stroke-width="5" fill="none" stroke-linecap="round"/>`
+          : ""),
       hairBack: HAIR.mashaBack("#5a3522", true),
       hairFront: HAIR.mashaFront("#5a3522"),
       faceOpts: { lash: true },
@@ -507,7 +516,7 @@ export function general({ brow = "neutral" } = {}) {
 
 // The Omega squad. v: 0 Bear (huge, beard, machine gun), 1 Fox (sniper, red hair),
 // 2 Quiet (sapper, balaclava), 3 Doc (medic, grey crop, glasses).
-export function omega({ v = 0, brow = "neutral", prop = "" } = {}) {
+export function omega({ v = 0, brow = "neutral", prop = "", kit = false } = {}) {
   const skins = [
     ["#c08a62", "#9a6a46"],
     ["#f0c8aa", "#d4a688"],
@@ -535,13 +544,14 @@ export function omega({ v = 0, brow = "neutral", prop = "" } = {}) {
       (v === 3
         ? `<rect x="112" y="236" width="22" height="22" rx="3" fill="#fff" stroke="#0b0d14" stroke-width="1.6"/><path d="M123 240 v14 M116 247 h14" stroke="#d9302c" stroke-width="4"/>`
         : ""),
-    hairFront: hair,
-    hairBack:
-      v === 2
+    hairFront: kit ? KIT_FRONT : hair,
+    hairBack: kit
+      ? KIT_BACK
+      : v === 2
         ? `<path d="M__CX__ __CY__ m-44 0 q-4 -48 44 -50 q48 2 44 50 q2 34 -10 48 h-68 q-12 -14 -10 -48z" fill="#1a1a1e" ${ol(2)}/>`
         : "",
     accessory:
-      v === 0
+      v === 0 && !kit
         ? `<path d="M__CX__ __CY__ m-34 12 q2 40 34 44 q32 -4 34 -44 q-10 16 -34 16 q-24 0 -34 -16z" fill="#2a1d16" ${ol(2)}/>`
         : "",
     faceOpts: { lash: v === 1 || v === 3, glasses: v === 3, blush: false, freckles: v === 1 },
